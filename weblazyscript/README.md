@@ -1,12 +1,16 @@
 ## Web lazy Script
 This scripts is used to spot low hanging fruits in web applications mainly during ctfs<br>
-Used to find flags in  the following
+Used to find flags in  the following :
 ``` 
 	- robots.txt
-	- git folders 
+	- Server name
+	- Sitemap.xml
+	- git files/folders 
 	- uncommon headers
 	- common directories like /admin
-	- And many more
+	- Sensitive developer files like .env
+	- Cookies
+	- And others ...
 ```
 **Usage** :
 ```
