@@ -134,7 +134,7 @@ def checkgit():
 	content,headers,status=getpage(gitfile,'')
 	if str(status) == '404' or str(status) == '406' or 'not found' in content.lower():
 		show(headers,content)
-		printme=(f'{failed} [-] The flag might not be in the gitfile: {gitfile} {white}{failed} ({status}){white}\n')
+		printme=(f'{failed} [-] Git file is not exposed in the root folder : {gitfile} {white}{failed} ({status}){white}\n')
 	elif 'not found' in content.lower():
 		show(headers,content)
 		printme=(f'{failed} [-] The flag might not be in the gitfile: {gitfile} {white}{failed} ({status}){white}\n')
@@ -152,7 +152,7 @@ def checkgitpath():
 	content,headers,status=getpage(gitfile,'')
 	if str(status) == '404' or str(status) == '406' or 'not found' in content.lower():
 		show(headers,content)
-		printme=(f'{failed} [-] The flag might not be in the gitfile: {gitfile} {white}{failed} ({status}){white}\n')
+		printme=(f'{failed} [-] Git file is not exposed in path: {gitfile} {white}{failed} ({status}){white}\n')
 	else:
 		printme=(f'{success} [+] Git files may be exposed at {blue}{gitfile}{success}  ,check for {failed}sensitive info disclosure{success}.You may need to use gittools for this{white}\n')
 	print(printme)
@@ -176,7 +176,7 @@ def checkmaincookie():
 
 
 def checkcommonpages():
-	commonpages=['admin','admin.php','main.py','app.py','login.php','register.php','admin/','includes/','storage/logs/','logs','api','api/','phpmyadmin']
+	commonpages=['admin','admin.php','main.py','app.py','login.php','register.php','admin/','includes/','storage/logs/','logs','api','api/','phpmyadmin','public/']
 	global host
 	for page in commonpages:
 		target=host+f'/{page}'
@@ -187,7 +187,10 @@ def checkcommonpages():
 		elif 'not found' in content.lower():
 			printme=''
 		else:
-			printme=(f'{success} [+] Check the source code of : {blue}{target}{success} for leads ({status}).{white}\n')
+			if 'public' in page.lower():
+				checkdevfilespublic()
+			else:
+				printme=(f'{success} [+] Interesting page found.Check the link at : {blue}{target}{success} for leads ({status}).{white}\n')
 		print(printme)
 		summary.append(printme)
 
@@ -238,7 +241,7 @@ def checkdevfilespublic():
 		summary.append(printme)
 
 
-#Checking files in suspicious folders
+#Checking files in suspicious folders(UNFINISHED)
 folders='inc includes hint secret flag js css app api'.split(' ')
 def checkfolders():
  pass
@@ -266,17 +269,17 @@ def readfile(filename,custom_headers):
 checkserver()
 
 
-#Checking for git files
+#Checking for git files in the root folder
 checkgit()
 
-# #Checking for git path files
-# checkgitpath()
+#Checking for git files in the path
+checkgitpath()
 
-# #Checking robots.txt file
-# checkrobots()
+#Checking robots.txt file
+checkrobots()
 
-# #Checking for a sitemap file
-# checksitemap()
+#Checking for a sitemap file
+checksitemap()
 
 #Checking for famous pages
 checkcommonpages()
@@ -285,12 +288,6 @@ checkcommonpages()
 checkdevfiles()
 
 
-# #Checking for development and configuration files
-# checkdevfilespublic()
-
-
-#Reading a file on the server by filename
-# readfile(f'{host}/login.php','')
 
 #Reading page source of the main file(index files)
 readsource('')
@@ -306,3 +303,14 @@ print(f'\nHOST : {blue}{host}{white}\nPATH : {blue}{path}{white}\nSERVER : {blue
 
 print(f'\n\n{green}SUMMARY{white}\n'+''.join(summary))
 
+
+
+
+
+# NOT NECESSARY FOR NOW
+# #Checking for development and configuration files
+# checkdevfilespublic()
+
+
+#Reading a file on the server by filename
+# readfile(f'{host}/login.php','')
