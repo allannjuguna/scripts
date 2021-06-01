@@ -8,13 +8,13 @@ Used to find flags in  the following
 	- common directories like /admin
 	- And many more
 ```
-Usage :
+**Usage** :
 ```
 	python3 weblazyscript.py http://urlhere /				-> For the root path 
 	python3 weblazyscript.py http://urlhere /somefolder/			> For the custom path 
 ```	
 
-Example Output:
+**Example Output**:
 ```
 HOST : https://subdomain.target.com 
 PATH : /
