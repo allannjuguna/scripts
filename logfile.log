@@ -1,0 +1,162 @@
+[93m __  __                        ___             
+/\ \/\ \                 __  /'___\            
+\ \ \ \ \     __   _ __ /\_\/\ \__/  __  __    
+ \ \ \ \ \  /'__`\/\`'__\/\ \ \ ,__\/\ \/\ \   
+  \ \ \_/ \/\  __/\ \ \/ \ \ \ \ \_/\ \ \_\ \  
+   \ `\___/\ \____\\ \_\  \ \_\ \_\  \/`____ \ 
+    `\/__/  \/____/ \/_/   \/_/\/_/   `/___/> \
+                                         /\___/
+                                         \/__/ 
+
+[93m
+	Usage	:	python3 ./verify.py domainnamehere/ipaddresshere domain/ip
+[93m	     	:	python3 ./verify.py google.com domain
+[93m	     	:	python3 ./verify.py 207.180.237.29 ip
+
+[92m[ OK ] Pinging the host [93m(cyberspace.co.ke)[0m 
+[92m[ OK ] The host (cyberspace.co.ke) is up and running
+[92m[ OK ] Fetching information for the ip [93m(192.185.98.157)[0m
+[92m[ OK ] RESPONSE HEADERS [0m
+	[94mServer :  [93mnginx/1.4.6 (Ubuntu)[0m
+	[94mDate :  [93mSat, 12 Jun 2021 12:15:34 GMT[0m
+	[94mContent-Type :  [93mapplication/json;charset=UTF-8[0m
+	[94mContent-Length :  [93m335[0m
+	[94mConnection :  [93mkeep-alive[0m
+
+
+[92m[ OK ] IP INFORMATION (MACHINE HOSTING THE WEBSITE) [0m
+	[94mcity :  [93mHouston[0m
+	[94mcompany :  [93mUnified Layer[0m
+	[94mcontinent_code :  [93mNA[0m
+	[94mcountry_code :  [93mUS[0m
+	[94mcountry_name :  [93mUnited States[0m
+	[94mfound :  [93m1[0m
+	[94mip :  [93m192.185.98.157[0m
+	[94mip_header :  [93mIP address[0m
+	[94misp :  [93mWebsitewelcome.com[0m
+	[94mlat :  [93m29.8324[0m
+	[94mlng :  [93m-95.472[0m
+	[94mmetro_code :  [93m618[0m
+	[94mpostal_code :  [93m77092[0m
+	[94mregion :  [93mTX[0m
+	[94mregion_name :  [93mTexas[0m
+	[94mtime_zone :  [93mAmerica/Chicago[0m
+[92m[ OK ] Running nslookup on the domain (cyberspace.co.ke)[0m
+[94mServer:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	cyberspace.co.ke
+Address: 192.185.98.157
+
+[0m
+
+
+
+
+[92m[ OK ] Running dig on the domain (cyberspace.co.ke)[0m
+[0m
+; <<>> DiG 9.11.3-1ubuntu1.15-Ubuntu <<>> cyberspace.co.ke
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50433
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;cyberspace.co.ke.		IN	A
+
+;; ANSWER SECTION:
+cyberspace.co.ke.	7177	IN	A	192.185.98.157
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Sat Jun 12 15:15:34 EAT 2021
+;; MSG SIZE  rcvd: 61
+
+[0m
+
+
+
+
+
+
+[92m[ OK ] Running whois on the domain (cyberspace.co.ke)[0m
+[92m[ OK ] Showing whois information [0m
+[0mDomain Name: cyberspace.co.ke
+Registry Domain ID: 836202-KENIC
+Registry WHOIS Server:: whois.kenic.or.ke
+Registrar URL: https://domains.eacdirectory.co.ke
+Updated Date: 2021-05-13T17:30:12.300Z
+Creation Date: 2019-04-12T16:11:00.398Z
+Registry Expiry Date: 2022-04-12T16:11:00.476Z
+Registrar Registration Expiration Date: 2022-04-12T16:11:00.476Z
+Registrar: EAC directory
+Registrar Abuse Contact Email: info.KE@eacdirectory.co.ke
+Registrar Abuse Contact Phone: 0709399000
+Registrar Phone: 0709399000
+Registrar Customer Service Contact: info.KE@eacdirectory.co.ke
+Registrar Customer Service Email: info.KE@eacdirectory.co.ke
+Domain Status: ok https://icann.org/epp#ok
+Registry Registrant ID: LkMo4-zX69L
+Registrant Name: Redacted | Registry Policy
+Registrant Organization: Swift Intellect
+Registrant Street: 35583
+Registrant Street: 00400, Nairobi
+Registrant City: Nairobi
+Registrant State/Province: International
+Registrant Postal Code: 00400
+Registrant Country: KE
+Registrant Phone: Redacted | Registry Policy
+Registrant Email: Redacted | Registry Policy
+Name Server: dns1.swiftintellect.xyz
+Name Server: dns2.swiftintellect.xyz
+DNSSEC: unsigned
+>>> Last update of WHOIS database: 2021-06-12T12:15:03.454Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+
+[0m
+
+
+
+
+[92m[ OK ] Checking for relevant whois information[0m
+[92m[ OK ] Done getting whois information ...[0m
+
+
+[93m __                          __                     ___      
+/\ \__                      /\ \                   /\_ \     
+\ \ ,_\  _ __    __      ___\ \ \/'\   __  __  _ __\//\ \    
+ \ \ \/ /\`'__\/'__`\   /'___\ \ , <  /\ \/\ \/\`'__\\ \ \   
+  \ \ \_\ \ \//\ \L\.\_/\ \__/\ \ \\`\\ \ \_\ \ \ \/  \_\ \_ 
+   \ \__\\ \_\\ \__/.\_\ \____\\ \_\ \_\ \____/\ \_\  /\____\
+    \/__/ \/_/ \/__/\/_/\/____/ \/_/\/_/\/___/  \/_/  \/____/
+                                                             
+                                                             
+
+[92m[ OK ] Checking redirects in (http://cyberspace.co.ke)[0m
+
+
+	[92mRedirections :  [93m0[0m
+	[92mFirst url :  [93mhttp://cyberspace.co.ke[0m
+	[94mLast url :  [93mhttp://cyberspace.co.ke/[0m
+
+
+[92m[ OK ] Generating the final report[0m
+	[94mIp address :  [93m192.185.98.157[0m
+	[94mRegistration Date :  [93m 2019-04-12T16:11:00.398Z[0m
+	[94mOrganization Name :  [93m Swift Intellect[0m
+	[94mAddress :  [93m 00400, Nairobi[0m
+	[94mCity :  [93m Nairobi[0m
+	[94mRegion :  [93m International[0m
+	[94mCountry :  [93m KE[0m
+	[94mFull Link :  [93mhttp://cyberspace.co.ke/[0m
+
+
+	[92mMore  IP info :  [0mhttps://who.is/whois-ip/ip-address/192.185.98.157[0m
+	[92mMore  Domain info :  [0mhttps://who.is/whois/cyberspace.co.ke[0m
+	[92mSafety info :  [0mhttps://www.scamvoid.net/check/cyberspace.co.ke/[0m
+	[92mScam info :  [0mhttps://www.scamadviser.com/check-website/cyberspace.co.ke/[0m

@@ -2,18 +2,28 @@
 import requests
 import sys
 import os
+import pyfiglet as figlet
 session=requests.Session()
+arguments=sys.argv
+scriptname="LAZYSCRIPT" 			#arguments[0].replace("./","")
 
-#Website details that we need
-host=sys.argv[1] #Enter http+ip Dont enter the path
-path=sys.argv[2] #Enter the path ending and starting with a front slash
-challengename='' # For writing the output to a file
-phpsession=''
-# custom_headers={"Cookie":f'PHPSESSID={phpsession}'}
-custom_headers={"Cookie":f'_ga=GA1.3.1698812970.1617878897; ssupp.vid=viIR7-p1HnBex; ssupp.visits=4; XSRF-TOKEN=eyJpdiI6IlZ6M0tlTThJWGNlQk1CVk94cUJDOEE9PSIsInZhbHVlIjoiYWZ1b3JucFVUM3BqcDVNcFBlSHRiNkVCZEJoSVBGVzN0YnE2N1Y0YS90Y01NblcxYXo0NjdCcWZ0Qy9kSWcvZk9FS2t3bDJqZHhjblVHTE5yRnY0S3krd04rblpBYWJzT3N6L0FvUUZ3YWxMU01KUnRoUFY1OGhWbGlOVDV1cm4iLCJtYWMiOiI1NzBlNDFjNmQ2ZjZiMmZkY2ZkMjJjYzU1ZmM0ZGYzY2M0MWI1NDU0YTY0NmVhMGMzMzViNWE1MmRiNDBlMGExIn0%3D; zalego_session=eyJpdiI6InEvRXN2Yk9VeFVYUUErNGZsdWROOVE9PSIsInZhbHVlIjoiZzY0L3paRThuWTZzODA4c0gvWGRrY3NEWlF2T2dESEVzZkVnVzVFdnVVTCs1dm04NkJxZ1czVEpHQ3ZyejVzSWh4clBHamM1SXpkWDBrazNYUDV1dWc4RXNNM2hyR0k1K1p1TGRLTy85SlhVSlFvM1dOYVBteXhmNjJsaW1UQXMiLCJtYWMiOiI4OGNmZjEyMzZhMzI4MjA0MzJiMmYzMTFhMTdiZmI4ODIwMmQ3MjAyMDNjNWIyOTM5MDlmY2MxMmI4OWFmNGE3In0%3D; _gid=GA1.3.994024796.1618173378'}
-server=''
-cookie=''
 
+def banner():
+	yellow='\033[093m'
+	green='\033[091m'
+	print(f"{yellow}{figlet.Figlet(font='shimrod').renderText(f'{scriptname}')}")
+	string=f"{yellow}\n\tUsage\t:\tpython3 {arguments[0]} http://urlhere /    (For the root path)\n{yellow}\t     \t:\tpython3 {arguments[0]} http://urlhere /somefolder/    (For custom folder){white}\n"
+	print(string)
+
+
+
+try:
+	#Website details that we need
+	host=sys.argv[1] #Enter http+ip Dont enter the path
+	path=sys.argv[2] #Enter the path ending and starting with a front slash
+except:
+	banner()
+	exit(-1)
 
 bold='\033[1m'
 white='\033[0m'
@@ -21,8 +31,19 @@ failed=red='\033[91m'
 # green='\033[32m'
 success=yellow=bold+'\033[92m'
 green=blue='\033[093m'
-checking='\033[94m'
+checking=blue='\033[94m'
 summary=[]
+
+commonpages=['admin','index.php','assets','admin.php','main.py','app.py','login.php','register.php','admin/','includes/','storage/logs/','logs','api','api/','phpmyadmin','public/']
+challengename='' # For writing the output to a file
+phpsession=''
+# custom_headers={"Cookie":f'PHPSESSID={phpsession}'}
+custom_headers={"Cookie":f'_ga=GA1.3.1698812970.1617878897; ssupp.vid=viIR7-p1HnBex; ssupp.visits=4; XSRF-TOKEN=eyJpdiI6IlZ6M0tlTThJWGNlQk1CVk94cUJDOEE9PSIsInZhbHVlIjoiYWZ1b3JucFVUM3BqcDVNcFBlSHRiNkVCZEJoSVBGVzN0YnE2N1Y0YS90Y01NblcxYXo0NjdCcWZ0Qy9kSWcvZk9FS2t3bDJqZHhjblVHTE5yRnY0S3krd04rblpBYWJzT3N6L0FvUUZ3YWxMU01KUnRoUFY1OGhWbGlOVDV1cm4iLCJtYWMiOiI1NzBlNDFjNmQ2ZjZiMmZkY2ZkMjJjYzU1ZmM0ZGYzY2M0MWI1NDU0YTY0NmVhMGMzMzViNWE1MmRiNDBlMGExIn0%3D; zalego_session=eyJpdiI6InEvRXN2Yk9VeFVYUUErNGZsdWROOVE9PSIsInZhbHVlIjoiZzY0L3paRThuWTZzODA4c0gvWGRrY3NEWlF2T2dESEVzZkVnVzVFdnVVTCs1dm04NkJxZ1czVEpHQ3ZyejVzSWh4clBHamM1SXpkWDBrazNYUDV1dWc4RXNNM2hyR0k1K1p1TGRLTy85SlhVSlFvM1dOYVBteXhmNjJsaW1UQXMiLCJtYWMiOiI4OGNmZjEyMzZhMzI4MjA0MzJiMmYzMTFhMTdiZmI4ODIwMmQ3MjAyMDNjNWIyOTM5MDlmY2MxMmI4OWFmNGE3In0%3D; _gid=GA1.3.994024796.1618173378'}
+server=''
+cookie=''
+banner()	
+
+
 
 folder=host[8:].split('.')[0]
 print(f'\n\n{green}[*] Creating output file at {folder} {white}... ')
@@ -52,7 +73,7 @@ def cleanheaders(headers):
 				summary.append(printme)
 			else:
 				pass
-		print('\t'+item + ' : '+headers.get(item))
+		print(f'\t{blue}'+item + ' : '+headers.get(item))
 
 
 #For performing get requests
@@ -139,7 +160,7 @@ def checkgit():
 		show(headers,content)
 		printme=(f'{failed} [-] The flag might not be in the gitfile: {gitfile} {white}{failed} ({status}){white}\n')
 	else:
-		printme=(f'{success} [+] Git files may be exposed at {blue}{gitfile}{success}  ,check for {failed}sensitive info disclosure{success}.You may need to use gittools for this{white}\n')
+		printme=(f'{success} [+] Git files may be exposed at {blue}{gitfile}{success} ({status}) ,check for {failed}sensitive info disclosure{success}.You may need to use gittools for this{white}\n')
 	print(printme)
 	summary.append(printme)
 
@@ -154,7 +175,7 @@ def checkgitpath():
 		show(headers,content)
 		printme=(f'{failed} [-] Git file is not exposed in path: {gitfile} {white}{failed} ({status}){white}\n')
 	else:
-		printme=(f'{success} [+] Git files may be exposed at {blue}{gitfile}{success}  ,check for {failed}sensitive info disclosure{success}.You may need to use gittools for this{white}\n')
+		printme=(f'{success} [+] Git files may be exposed at {blue}{gitfile}{success} ({status}) ,check for {failed}sensitive info disclosure{success}.You may need to use gittools for this{white}\n')
 	print(printme)
 	summary.append(printme)
 
@@ -176,10 +197,10 @@ def checkmaincookie():
 
 
 def checkcommonpages():
-	commonpages=['admin','admin.php','main.py','app.py','login.php','register.php','admin/','includes/','storage/logs/','logs','api','api/','phpmyadmin','public/']
+	global commonpages
 	global host
 	for page in commonpages:
-		target=host+f'/{page}'
+		target=host+f'{path}{page}'
 		print(f'{checking}[*] Reading common file {target} file at {target} ...{white}\n') 
 		content,headers,status=getpage(target,'')
 		if str(status) == '404' or str(status) == '406' or 'not found' in content.lower():
@@ -201,7 +222,7 @@ def checkdevfiles():
 	global host
 	commonpages=devfiles
 	for page in commonpages:
-		target=host+f'/{page}'
+		target=host+f'{path}{page}'
 		content,headers,status=getpage(target,'')
 		print(f'\t\t{white}[*] Reading development file {target} file at {target} ({status}) ...{white}\n') 
 		if str(status) == '404' or 'not found' in content.lower():
@@ -216,7 +237,7 @@ def checkdevfiles():
 				print(f'\t\t[+] Written to {filename}')
 			except:
 				pass
-			printme=(f'{success} [+] Developer file found at : {blue}{target}{success},check for {failed}sensitive info disclosure{success} ({status}).{white}\n')
+			printme=(f'{success} [+] Developer file found at : {blue}{target}{success}  ,check for {failed}sensitive info disclosure{success} ({status}).{white}\n')
 		print(printme)
 		summary.append(printme)
 
@@ -236,7 +257,7 @@ def checkdevfilespublic():
 		elif ('not found' in content.lower()):
 			printme=''
 		else:
-			printme=(f'{success} [+] Developer file found at : {blue}{target}{success},check for {failed}sensitive info disclosure{success} ({status}).{white}\n')
+			printme=(f'{success} [+] Developer file found at : {blue}{target}{success}  ,check for {failed}sensitive info disclosure{success} ({status}).{white}\n')
 		print(printme)
 		summary.append(printme)
 
