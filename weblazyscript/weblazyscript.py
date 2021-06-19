@@ -6,6 +6,7 @@ import pyfiglet as figlet
 session=requests.Session()
 arguments=sys.argv
 scriptname="LAZYSCRIPT" 			#arguments[0].replace("./","")
+white='\033[0m'
 
 
 def banner():
@@ -26,7 +27,6 @@ except:
 	exit(-1)
 
 bold='\033[1m'
-white='\033[0m'
 failed=red='\033[91m'
 # green='\033[32m'
 success=yellow=bold+'\033[92m'
