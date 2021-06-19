@@ -31,7 +31,7 @@ failed=red='\033[91m'
 # green='\033[32m'
 success=yellow=bold+'\033[92m'
 green=blue='\033[093m'
-checking=blue='\033[94m'
+checking='\033[94m'
 summary=[]
 
 commonpages=['admin','index.php','assets','admin.php','main.py','app.py','login.php','register.php','admin/','includes/','storage/logs/','logs','api','api/','phpmyadmin','public/']
@@ -73,7 +73,7 @@ def cleanheaders(headers):
 				summary.append(printme)
 			else:
 				pass
-		print(f'\t{blue}'+item + ' : '+headers.get(item))
+		print(f'\t{checking}'+item + ' : '+headers.get(item))
 
 
 #For performing get requests

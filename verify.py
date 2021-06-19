@@ -26,7 +26,7 @@ def ping(domain):
 		print(f'{red}[ FAIL ] Make sure the domain name does not have http(s)://{white}')
 		exit(-1)
 	print(f'{green}[ OK ] Pinging the host {yellow}({domain}){white} ')
-	result=(runcommand(f"ping -c 3 {domain}"))
+	result=(runcommand(f"ping -c 2 {domain}"))
 	if 'time=' in result.lower() and 'ttl=' in result.lower():
 		print(f'{green}[ OK ] The host ({domain}) is up and running')
 		# Getting the ip address
@@ -35,6 +35,10 @@ def ping(domain):
 			return ip
 		except:
 			print(f'{red}[ FAIL ] Failed to fetch the ip address')
+	elif('100% packet loss' in result.lower()):
+		print(f'{red}[ FAIL ] 100 % Packet Loss encountered')
+		ip=((result.split(' ')[2]).replace("("," ")).replace(")","").strip()
+		return ip
 	else:
 		print(f'{red}[ FAIL ] The host ({domain}) is offline')
 	return "null"
@@ -87,14 +91,19 @@ def dig(domain):
 
 def getpage(url):
 	global fulllink
-	response=session.get(url,allow_redirects=True)
-	historylist=response.history
-	for item in historylist:
-		print(f'\t{red}url :  {red}{item}{white}')
-	print(f'\n\n\t{green}Redirections :  {yellow}{len(historylist)}{white}')
-	print(f'\t{green}First url :  {yellow}{url}{white}')
-	print(f'\t{blue}Last url :  {yellow}{response.url}{white}')
-	fulllink=response.url
+	try:
+		response=session.get(url,allow_redirects=True,timeout=14)
+		historylist=response.history
+		for item in historylist:
+			print(f'\t{red}url :  {red}{item}{white}')
+		print(f'\n\n\t{green}Redirections :  {yellow}{len(historylist)}{white}')
+		print(f'\t{green}First url :  {yellow}{url}{white}')
+		print(f'\t{blue}Last url :  {yellow}{response.url}{white}')
+		fulllink=response.url
+	except:
+		print(f'{red}[ FAIL ] Unable to send request to ({url}){white}')
+
+
 
 def trackurl(domain):
 	print(f"\n\n{yellow}{figlet.Figlet(font='larry3d').renderText('trackurl')}")
@@ -147,6 +156,7 @@ def actions(domain,ip):
 
 		print(f'\n\n\t{green}More  IP info :  {white}https://who.is/whois-ip/ip-address/{ipaddress}{white}')
 		print(f'\t{green}More  Domain info :  {white}https://who.is/whois/{fulldomain}{white}')
+		print(f'\t{green}More  Domain info :  {white}https://whois.domaintools.com/{fulldomain}{white}')
 		print(f'\t{green}Safety info :  {white}https://www.scamvoid.net/check/{fulldomain}/{white}')
 		print(f'\t{green}Scam info :  {white}https://www.scamadviser.com/check-website/{fulldomain}/{white}')
 	else:
