@@ -61,19 +61,3 @@ print(f"\n\n\n{success}{final}")
 print(f"{alert}{others}")
 
 
-"""
- [ OK ] ['https://auth.fortmatic.com', 'https://careers.fortmatic.com', 'https://dashboard.fortmatic.com', 'https://docs.fortmatic.com']
- [!] ['https://assets.fortmatic.com', 'https://static.fortmatic.com']
-
-
- [ OK ] ['https://app1.greenhouse.io', 'https://blog.greenhouse.io', 'https://booking.greenhouse.io', 'https://developers.greenhouse.io', 'https://gitlab.greenhouse.io', 'https://learn.greenhouse.io', 'https://relay.greenhouse.io', 'https://resources.greenhouse.io', 'https://staging.greenhouse.io', 'https://status.greenhouse.io', 'https://store.greenhouse.io', 'https://support.greenhouse.io', 'https://test.greenhouse.io']
- [!] []
-
- ZF3R0-FHED2-M80TY-8QYGC-NPKYF 
-
-
-
-
-https://support.greenhouse.io/hc/en-us/search/click?data=BAh7DDoHaWRsKwi2QKvGGgA6D2FjY291bnRfaWRpA3MlBzoJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJKaHR0cHM6Ly9zdXBwb3J0LmdyZWVuaG91c2UuaW8vaGMvZW4tdXMvYXJ0aWNsZXMvMTE1MDAyMjYxNjg2LU15QWxlcnRzBjsIVDoOc2VhcmNoX2lkSSIpYmUzNWQwMGQtODI4My00MWU2LWIwZjktMDNmOWMwNzliYmIwBjsIRjoJcmFua2kGOgtsb2NhbGVJIgplbi11cwY7CFQ%3D--52427bf6bbab8e67b42efe725e6d8d832fa4ce2a
-
-"""
