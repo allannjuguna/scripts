@@ -149,7 +149,7 @@ def checkunvalidated(filename,contents):
 # https://stackoverflow.com/questions/3115559/exploitable-php-functions
 def checkdangerfunctions(filename,contents):
 	global dangerfunctions,important
-	array=['system(','eval(','exec(','passthru(','shell_exec(','popen(','proc_open(','pcntl_exec(','exec(','include($_','assert(','fopen(','file_put_contents(','preg_replace(','create_function(','require($_','require_once($_']
+	array=['private key','system(','eval(','exec(','passthru(','shell_exec(','popen(','proc_open(','pcntl_exec(','exec(','include($_','assert(','fopen(','file_put_contents(','preg_replace(','create_function(','require($_','require_once($_']
 	contents=contents.split('\n')
 	for line in contents:
 		for function in array:
@@ -183,7 +183,7 @@ def main():
 		for dirpath,dirname,files in os.walk(folder):
 			for file in files:
 				filename=(f'{os.path.join(dirpath,file)}')
-				if '.php'.lower() in filename.lower():
+				if '.php'.lower() in filename.lower() or '.json'.lower() in filename.lower() or '.log'.lower() in filename.lower():
 					readfile(filename)
 						# print(f"{fail} Unable to read file {yellow}{filename}{end}")	
 				else:

@@ -48,14 +48,14 @@ banner()
 folder=host[8:].split('.')[0]
 print(f'\n\n{green}[*] Creating output file at {folder} {white}... ')
 try:
-	os.system(f'mkdir {folder}')
+	os.system(f'cd output && mkdir {folder}')
 	print(f'\n\t[+] {success}Created folder {folder.encode()} {white}... ')
 
 except:
 	pass
 
 
-
+folder="output/"+folder
 known_headers=['location','expires','cache-control','pragma','etag','content-encoding','content-type','date', 'server', 'vary', 'accept-ranges', 'connection', 'transfer-encoding', 'content-language','keep-alive','last-modified','content-length','e-tag','accept']
 #Making the headers readable
 def cleanheaders(headers):
