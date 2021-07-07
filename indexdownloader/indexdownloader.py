@@ -12,18 +12,8 @@ green='\033[92m'
 blue='\033[94m'
 yellow='\033[93m'
 white='\033[0m'
-
-
-
 arguments=sys.argv
 scriptname=arguments[0]
-
-
-
-
-
-
-
 
 def getcookie(url):
 	url=(url.split('/'))
