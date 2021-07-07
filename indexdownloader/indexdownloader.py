@@ -20,9 +20,16 @@ blue='\033[94m'
 yellow='\033[93m'
 white='\033[0m'
 
-
+print(f'{green}[*] Starting ...')
 download='true'
-pwd="/tmp/"
+try:
+	pwd="/tmp/results/"
+	os.mkdir(pwd)
+	print(f'{green}[+] Output directory created at {pwd}{white}')
+except:
+	print(f'{red}[-] Failed to create output Directory {pwd}{white}')
+	exit()
+
 def getcookie(url):
 	url=(url.split('/'))
 	rooturl=f'{url[0]}//{url[2]}'
@@ -123,12 +130,9 @@ def iterate(checkurl):
 
 
 if (len(arguments) > 1):
-	print(f'[*] Starting ...')
+	
 	print(f'{green}[*] Using custom_headers \n {blue}{custom_headers} ...')
-	# outfolder=arguments[1].split('/')[-2]
-	# os.system(f'mkdir {outfolder}')
-	# os.system(f'cd {outfolder}')
-	# print(f'{yellow}[*] Results will be stored to {outfolder} {white}...')
+
 
 
 	iterate(main)
