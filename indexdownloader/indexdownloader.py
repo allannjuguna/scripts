@@ -7,28 +7,23 @@ import subprocess
 from urllib.parse import unquote
 
 session=requests.Session()
-
-
-
-arguments=sys.argv
-main=arguments[1]
-scriptname=arguments[0]
-
 red='\033[91m'
 green='\033[92m'
 blue='\033[94m'
 yellow='\033[93m'
 white='\033[0m'
 
-print(f'{green}[*] Starting ...')
-download='true'
-try:
-	pwd="/tmp/results/"
-	os.mkdir(pwd)
-	print(f'{green}[+] Output directory created at {pwd}{white}')
-except:
-	print(f'{red}[-] Failed to create output Directory {pwd}{white}')
-	exit()
+
+
+arguments=sys.argv
+scriptname=arguments[0]
+
+
+
+
+
+
+
 
 def getcookie(url):
 	url=(url.split('/'))
@@ -37,10 +32,6 @@ def getcookie(url):
 	cookie=response.headers.get("Set-Cookie","null")
 	return (cookie)
 
-cookie=(getcookie(main))
-
-headerpath=arguments[1].split('/')[-2]
-custom_headers={"Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8","Connection" : "keep-alive","Host" : f'xxxxxxx.com', "User-Agent" : "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0","Cookie":cookie}
 
 
 def getpage(url,headers):
@@ -125,16 +116,22 @@ def iterate(checkurl):
 
 
 
+if (len(arguments) > 1):	
+	main=arguments[1]
+	print(f'{green}[*] Starting ...')
+	download='true'
+	try:
+		pwd="/tmp/results/"
+		os.mkdir(pwd)
+		print(f'{green}[+] Output directory created at {pwd}{white}')
+	except:
+		print(f'{red}[-] Failed to create output Directory {pwd}.Make sure /tmp/results does not exist and /tmp is writable {white}')
+		exit()
+	cookie=(getcookie(main))
+	headerpath=arguments[1].split('/')[-2]
+	custom_headers={"Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8","Connection" : "keep-alive","Host" : f'xxxxxxx.com', "User-Agent" : "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:87.0) Gecko/20100101 Firefox/87.0","Cookie":cookie}
 
-
-
-
-if (len(arguments) > 1):
-	
 	print(f'{green}[*] Using custom_headers \n {blue}{custom_headers} ...')
-
-
-
 	iterate(main)
 
 
@@ -142,3 +139,7 @@ else:
 	print(f"\n\n\n{blue}Usage{white}\t\t:\tpython3 {scriptname} url/")
 	print(f"     \t\t:\tpython3 {scriptname} http://localhost/folderwithdirlisting/")
 	print(f"     \t\t:\tpython3 {scriptname} http://localhost/tests/")
+	exit()
+
+
+
