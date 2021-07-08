@@ -36,10 +36,10 @@ def banner():
                                                                             
 """
 	print(f"{purple}{string}{end}")
-	print(f"{blue}Usage{white}\t\t:\t{yellow}python3 {scriptname} yourip yourport mode")
-	print(f"     \t\t:\t{yellow}python3 {scriptname} lhost lport mode")
-	print(f"     \t\t:\t{yellow}python3 {scriptname} 127.0.0.1 4444 32{end}\n\n")
+	print(f"{blue}Usage{white}\t\t:\t{yellow}python3 {scriptname} yourip yourport mode (32-bit or 64-bit) ")
+	print(f"     \t\t:\t{yellow}python3 {scriptname} lhost lport mode (mode is either 32/64)")
 	
+	print(f"\n{blue}Example   \t:\t{yellow}python3 {scriptname} 127.0.0.1 4444 32{end}\n\n")
 
 def gentemplate(lhost,lport):
 	print(f"{progress} Generating template{end}")
@@ -94,7 +94,7 @@ def main(lhost,lport,mode):
 	except:
 		print(f"{fail} Failed to write to file '{filename}' {end}")
 		exit()
-	print(f"\n{alert} Compiling executable {mode}{end}")
+	print(f"\n{alert} Compiling executable")
 	print(f"{progress} Compiling the file '{filename}' in {yellow}{mode}-bit-mode{end}")
 	compile(filename,mode)
 	exit()
