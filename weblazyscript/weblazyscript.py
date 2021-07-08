@@ -218,7 +218,7 @@ def checkcommonpages():
 
 def checkdevfiles():
 	print(f'{checking}[*] Checking for exposed development files ...{white}\n') 
-	devfiles=[".gitignore",'.env.swp','env.swp','wp-content','.gitattributes',"artisan","composer.json","composer.lock",".editorconfig",".env",".env.example",".gitattributes",".gitignore","package.json","phpunit.xml","readme.md","server.php",".styleci.yml","webpack.mix.js","node_modules","vendor",".env.backup",".phpunit.result.cache","Homestead.json","Homestead.yaml","npm-debug.log","yarn-error.log","error_log","public/hot","public/storage","storage/key"]
+	devfiles=[".gitignore",'.env','env.swp','wp-content','.gitattributes',"artisan","composer.json","composer.lock",".editorconfig",".env",".env.example",".gitattributes",".gitignore","package.json","phpunit.xml","readme.md","server.php",".styleci.yml","webpack.mix.js","node_modules","vendor",".env.backup",".phpunit.result.cache","Homestead.json","Homestead.yaml","npm-debug.log","yarn-error.log","error_log","public/hot","public/storage","storage/key"]
 	global host
 	commonpages=devfiles
 	for page in commonpages:
