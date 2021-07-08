@@ -9,9 +9,9 @@
                                                                             
                                                                             
 
-Usage		:	python3 make-c-backdoor.py yourip yourport mode
-     		:	python3 make-c-backdoor.py lhost lport mode
-     		:	python3 make-c-backdoor.py 127.0.0.1 4444 32
+Usage		:	python3 make-c-revshell.py yourip yourport mode
+     		:	python3 make-c-revshell.py lhost lport mode
+     		:	python3 make-c-revshell.py 127.0.0.1 4444 32
 
 [+]  Starting 
 [+]  Using LHOST 127.0.0.1
