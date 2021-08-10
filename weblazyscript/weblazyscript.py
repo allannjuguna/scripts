@@ -100,7 +100,13 @@ def checkrobots():
 	robots_file=host+'/robots.txt'
 	print(f'{green}[*] Reading Robots.txt file at {robots_file} ...{white}\n') 
 	content,headers,status=getpage(robots_file,'')
-	if 'not found' in content.lower():
+	if(str(status) == '404'):
+		printme=(f'{failed} [-] The flag might not be in the robots.txt : {robots_file} {white}{failed} ({status}){white}\n')
+		print(printme)
+		summary.append(printme)
+		return "nothing"
+
+	elif 'not found' in content.lower():
 		printme=(f'{failed} [-] The flag might not be in the robots.txt : {robots_file} {white}{failed} ({status}){white}\n')
 		show(headers,content)
 	else:
@@ -133,7 +139,14 @@ def checksitemap():
 	sitemap_file=host+'/sitemap.xml'
 	print(f'{green}[*] Reading Sitemap.xml file at {sitemap_file} ...{white}\n') 
 	content,headers,status=getpage(sitemap_file,'')
-	if 'not found' in content.lower():
+
+	if(str(status) == '404'):
+		printme=(f'{failed} [-] The flag might not be in the sitemap.xml : {sitemap_file} {white}{failed} ({status}){white}\n')
+		print(printme)
+		summary.append(printme)
+		return "something"
+
+	elif 'not found' in content.lower():
 		show(headers,content)
 		printme=(f'{failed} [-] The flag might not be in the sitemap.xml : {sitemap_file} {white}{failed} ({status}){white}\n')
 	else:
