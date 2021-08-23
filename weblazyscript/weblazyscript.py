@@ -33,7 +33,7 @@ success=yellow=bold+'\033[92m'
 green=blue='\033[093m'
 checking='\033[94m'
 summary=[]
-
+devfiles=['.gitignore', '.gitattributes', 'artisan', 'composer.json', 'composer.lock', '.editorconfig', '.env', '.env.example', 'package.json', 'phpunit.xml', 'readme.md', 'server.php', '.styleci.yml', 'webpack.mix.js', 'node_modules', 'vendor', '.env.backup', '.phpunit.result.cache', 'Homestead.json', 'Homestead.yaml', 'npm-debug.log', 'yarn-error.log', 'error_log', 'hot', 'storage', 'key', 'env.swp', 'wp-content', 'public/hot', 'public/storage', 'storage/key','.env.swp','env.save','.env.save']
 commonpages=['admin','index.php','assets','admin.php','main.py','app.py','login.php','register.php','admin/','includes/','storage/logs/','logs','api','api/','phpmyadmin','public/']
 challengename='' # For writing the output to a file
 phpsession=''
@@ -79,12 +79,12 @@ def cleanheaders(headers):
 #For performing get requests
 def getpage(url,headers):
 	global custom_headers
-	print(f'\t{green}[+] Getting : {url}{white}\n')
 	if (len(custom_headers) == 0):
 		response=session.get(url)
 	else:
 		response=session.get(url,headers=custom_headers,allow_redirects=False)
 	
+	print(f'\t{green}[+] Getting : {url} - {response.status_code}{white}\n')
 	return response.text,response.headers,response.status_code
 
 #Printing the headers and the page content in an organised manner
@@ -231,14 +231,14 @@ def checkcommonpages():
 
 def checkdevfiles():
 	print(f'{checking}[*] Checking for exposed development files ...{white}\n') 
-	devfiles=[".gitignore",'.env','env.swp','wp-content','.gitattributes',"artisan","composer.json","composer.lock",".editorconfig",".env",".env.example",".gitattributes",".gitignore","package.json","phpunit.xml","readme.md","server.php",".styleci.yml","webpack.mix.js","node_modules","vendor",".env.backup",".phpunit.result.cache","Homestead.json","Homestead.yaml","npm-debug.log","yarn-error.log","error_log","public/hot","public/storage","storage/key"]
+	global devfiles
 	global host
 	commonpages=devfiles
 	for page in commonpages:
 		target=host+f'{path}{page}'
 		content,headers,status=getpage(target,'')
 		print(f'\t\t{white}[*] Reading development file {target} file at {target} ({status}) ...{white}\n') 
-		if str(status) == '404' or 'not found' in content.lower():
+		if str(status) == '404' or 'not found' in content.lower() or str(status) == '406':
 			printme=''
 		elif ('not found' in content.lower()):
 			printme=''
@@ -258,7 +258,7 @@ def checkdevfiles():
 
 def checkdevfilespublic():
 	print(f'{checking}[*] Checking for exposed development files in public ...{white}\n') 
-	devfiles=[".gitignore",'.gitattributes',"artisan","composer.json","composer.lock",".editorconfig",".env",".env.example",".gitattributes",".gitignore","package.json","phpunit.xml","readme.md","server.php",".styleci.yml","webpack.mix.js","node_modules","vendor",".env.backup",".phpunit.result.cache","Homestead.json","Homestead.yaml","npm-debug.log","yarn-error.log","error_log","hot","storage","key"]
+	global devfiles
 	global host
 	commonpages=devfiles
 	for page in commonpages:
