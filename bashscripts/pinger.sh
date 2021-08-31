@@ -18,6 +18,7 @@ then
 	for IP in $NUMS;do
 		ping -c $TIMEOUT $1.$IP | tail -5 |grep -i "64 bytes" | cut -d " " -f4 | tr -d ":" | tee -a "$OUTFILE" &
 	done
+	echo "Finished scan"
 else
 	echo "Usage : ${0} x.x.x"
 	echo "Example : ${0} 192.168.8"
