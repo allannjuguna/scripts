@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 import os
 import sys
-import pyfiglet as figlet
+
 # Filenames and current working folder
 currentfolder=(os.getcwd())
 tmp="/tmp/"
