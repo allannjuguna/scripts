@@ -1,5 +1,7 @@
 # How to Run the code Online
 
+[Source Code](fibonacci.asm)
+
 There are two methods of running the code online
 
 - https://onecompiler.com/assembly (Fastest Way)
