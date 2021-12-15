@@ -2,7 +2,7 @@
 
 ## Target Details
 ```
-
+http://192.168.119.76/
 ```
 
 ## Nmap Scanning 
@@ -15,4 +15,10 @@ PORT     STATE SERVICE
 139/tcp  open  netbios-ssn
 445/tcp  open  microsoft-ds
 8000/tcp open  http-alt
+```
+
+## Attacking smb client
+```
+
+
 ```
