@@ -55,10 +55,18 @@ Reconnecting with SMB1 for workgroup listing.
 Accessing a particular samba share
 ```
 smbclient -N //ip/sharename
+smbclient -N //192.168.119.76/sambashare
+```
+
+Files found
+```
+  mailsent.txt                    
+  wordpress.bkp.zip       
 ```
 
 Downloading files from smb
 ```
+
 get filename.txt
 ```
 
