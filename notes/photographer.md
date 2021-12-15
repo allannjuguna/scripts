@@ -56,3 +56,8 @@ Accessing a particular samba share
 ```
 smbclient -N //ip/sharename
 ```
+
+Downloading files from smb
+```
+get filename.txt
+```
