@@ -66,8 +66,8 @@ Files found
 
 Downloading files from smb
 ```
-
 get filename.txt
+get mailsent.txt
 ```
 
 
