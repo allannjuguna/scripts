@@ -51,3 +51,8 @@ Reconnecting with SMB1 for workgroup listing.
 	WORKGROUP            PHOTOGRAPHER
 
 ```
+
+Accessing a particular samba share
+```
+smbclient -N //ip/sharename
+```
