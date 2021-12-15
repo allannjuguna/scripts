@@ -19,6 +19,8 @@ PORT     STATE SERVICE
 
 ## Attacking smb client
 ```
+https://docs.centrify.com/Content/zint-samba/ConfigurationUNIXAccess.htm
+
 
 
 ```
