@@ -28,4 +28,7 @@ smbclient -N -L //192.168.119.76
 -L  specifies the ip address
 -N  accessing without password
 
+
+Using smb map
+smbmap -H "ipaddrr"
 ```
