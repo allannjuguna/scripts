@@ -25,7 +25,7 @@ https://docs.centrify.com/Content/zint-samba/ConfigurationUNIXAccess.htm
 Connecting to the SMB ip address
 
 smbclient -N -L //192.168.119.76
--L  specifies the ip address
+-L  listing the shares present
 -N  accessing without password
 
 
