@@ -22,5 +22,8 @@ PORT     STATE SERVICE
 https://docs.centrify.com/Content/zint-samba/ConfigurationUNIXAccess.htm
 
 
+Connecting to the SMB ip address
+
+smbclient -L //192.168.119.76
 
 ```
