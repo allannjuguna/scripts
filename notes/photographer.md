@@ -32,3 +32,22 @@ smbclient -N -L //192.168.119.76
 Using smb map
 smbmap -H "ipaddrr"
 ```
+
+Samba shares present
+```
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	print$          Disk      Printer Drivers
+	sambashare      Disk      Samba on Ubuntu
+	IPC$            IPC       IPC Service (photographer server (Samba, Ubuntu))
+Reconnecting with SMB1 for workgroup listing.
+
+	Server               Comment
+	---------            -------
+
+	Workgroup            Master
+	---------            -------
+	WORKGROUP            PHOTOGRAPHER
+
+```
