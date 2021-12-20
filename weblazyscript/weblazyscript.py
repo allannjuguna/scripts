@@ -34,7 +34,7 @@ green=blue='\033[093m'
 checking='\033[94m'
 summary=[]
 devfiles=['.gitignore', '.gitattributes', 'artisan', 'composer.json', 'composer.lock', '.editorconfig', '.env', '.env.example', 'package.json', 'phpunit.xml', 'readme.md', 'server.php', '.styleci.yml', 'webpack.mix.js', 'node_modules', 'vendor', '.env.backup', '.phpunit.result.cache', 'Homestead.json', 'Homestead.yaml', 'npm-debug.log', 'yarn-error.log', 'error_log', 'hot', 'storage', 'key', 'env.swp', 'wp-content', 'public/hot', 'public/storage', 'storage/key','.env.swp','env.save','.env.save']
-commonpages=['wp-json/wp/v2/users/','wp-admin/install.php','wp-login.php','admin','index.php','assets','admin.php','main.py','app.py','login.php','register.php','admin/','includes/','storage/logs/','logs','api','api/','phpmyadmin','public/']
+commonpages=['wp-json/wp/v2/users/','wp-admin/install.php','wordpress','wp-login.php','admin','index.php','assets','admin.php','main.py','app.py','login.php','register.php','admin/','includes/','storage/logs/','logs','api','api/','phpmyadmin','public/']
 challengename='' # For writing the output to a file
 phpsession=''
 # custom_headers={"Cookie":f'PHPSESSID={phpsession}'}
