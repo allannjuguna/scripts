@@ -163,3 +163,33 @@ www-data@192.168.50.52 >
 ```
 d41d8cd98f00b204e9800998ecf8427e
 ```
+
+### Finding suid binaries
+find / -perm -u=s -type f 2>/dev/null
+```
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/x86_64-linux-gnu/lxc/lxc-user-nic
+/usr/lib/openssh/ssh-keysign
+/usr/lib/policykit-1/polkit-agent-helper-1
+/usr/bin/pkexec
+/usr/bin/newgrp
+/usr/bin/chfn
+/usr/bin/at
+/usr/bin/passwd
+/usr/bin/newuidmap
+/usr/bin/newgidmap
+/usr/bin/chsh
+/usr/bin/ubuntu-core-launcher
+/usr/bin/sudo
+/usr/bin/gpasswd
+/bin/fusermount
+/bin/ping
+/bin/su
+/bin/ntfs-3g
+/bin/umount
+/bin/ping6
+/bin/mount
+
+```
+
