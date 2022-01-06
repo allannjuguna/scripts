@@ -6,7 +6,6 @@ function absolute(){
 	num=$1
 	if [[ num -lt 0 ]]
 	then
-
 		num=$(($num*-1))
 	else
 		num=$num
