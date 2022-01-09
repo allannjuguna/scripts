@@ -4,6 +4,14 @@
 
 ## Ports open
 ```
+Starting Nmap 7.60 ( https://nmap.org ) at 2022-01-09 17:44 EAT
+Nmap scan report for 192.168.232.23
+Host is up (0.29s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 40.94 seconds
 
 ```
 
