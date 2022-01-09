@@ -1,0 +1,761 @@
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.20
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[32m[+][0m URL: http://192.168.201.23/wordpress/ [192.168.201.23]
+[32m[+][0m Started: Sun Jan  9 16:00:21 2022
+
+Interesting Finding(s):
+
+[32m[+][0m Headers
+ | Interesting Entry: Server: Apache/2.4.29 (Ubuntu)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[32m[+][0m XML-RPC seems to be enabled: http://192.168.201.23/wordpress/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[32m[+][0m WordPress readme found: http://192.168.201.23/wordpress/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m Upload directory has listing enabled: http://192.168.201.23/wordpress/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m The external WP-Cron seems to be enabled: http://192.168.201.23/wordpress/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[32m[+][0m WordPress version 5.2.3 identified (Insecure, released on 2019-09-05).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://192.168.201.23/wordpress/index.php/feed/, <generator>https://wordpress.org/?v=5.2.3</generator>
+ |  - http://192.168.201.23/wordpress/index.php/comments/feed/, <generator>https://wordpress.org/?v=5.2.3</generator>
+ |
+ | [31m[!][0m 31 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: WordPress <= 5.2.3 - Stored XSS in Customizer
+ |     Fixed in: 5.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/d39a7b84-28b9-4916-a2fc-6192ceb6fa56
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17674
+ |      - https://wordpress.org/news/2019/10/wordpress-5-2-4-security-release/
+ |      - https://blog.wpscan.com/wordpress/security/release/2019/10/15/wordpress-524-security-release-breakdown.html
+ |
+ | [31m[!][0m Title: WordPress <= 5.2.3 - Unauthenticated View Private/Draft Posts
+ |     Fixed in: 5.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/3413b879-785f-4c9f-aa8a-5a4a1d5e0ba2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17671
+ |      - https://wordpress.org/news/2019/10/wordpress-5-2-4-security-release/
+ |      - https://blog.wpscan.com/wordpress/security/release/2019/10/15/wordpress-524-security-release-breakdown.html
+ |      - https://github.com/WordPress/WordPress/commit/f82ed753cf00329a5e41f2cb6dc521085136f308
+ |      - https://0day.work/proof-of-concept-for-wordpress-5-2-3-viewing-unauthenticated-posts/
+ |
+ | [31m[!][0m Title: WordPress <= 5.2.3 - Stored XSS in Style Tags
+ |     Fixed in: 5.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/d005b1f8-749d-438a-8818-21fba45c6465
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17672
+ |      - https://wordpress.org/news/2019/10/wordpress-5-2-4-security-release/
+ |      - https://blog.wpscan.com/wordpress/security/release/2019/10/15/wordpress-524-security-release-breakdown.html
+ |
+ | [31m[!][0m Title: WordPress <= 5.2.3 - JSON Request Cache Poisoning
+ |     Fixed in: 5.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/7804d8ed-457a-407e-83a7-345d3bbe07b2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17673
+ |      - https://wordpress.org/news/2019/10/wordpress-5-2-4-security-release/
+ |      - https://github.com/WordPress/WordPress/commit/b224c251adfa16a5f84074a3c0886270c9df38de
+ |      - https://blog.wpscan.com/wordpress/security/release/2019/10/15/wordpress-524-security-release-breakdown.html
+ |
+ | [31m[!][0m Title: WordPress <= 5.2.3 - Server-Side Request Forgery (SSRF) in URL Validation 
+ |     Fixed in: 5.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/26a26de2-d598-405d-b00c-61f71cfacff6
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17669
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17670
+ |      - https://wordpress.org/news/2019/10/wordpress-5-2-4-security-release/
+ |      - https://github.com/WordPress/WordPress/commit/9db44754b9e4044690a6c32fd74b9d5fe26b07b2
+ |      - https://blog.wpscan.com/wordpress/security/release/2019/10/15/wordpress-524-security-release-breakdown.html
+ |
+ | [31m[!][0m Title: WordPress <= 5.2.3 - Admin Referrer Validation
+ |     Fixed in: 5.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/715c00e3-5302-44ad-b914-131c162c3f71
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-17675
+ |      - https://wordpress.org/news/2019/10/wordpress-5-2-4-security-release/
+ |      - https://github.com/WordPress/WordPress/commit/b183fd1cca0b44a92f0264823dd9f22d2fd8b8d0
+ |      - https://blog.wpscan.com/wordpress/security/release/2019/10/15/wordpress-524-security-release-breakdown.html
+ |
+ | [31m[!][0m Title: WordPress <= 5.3 - Authenticated Improper Access Controls in REST API
+ |     Fixed in: 5.2.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/4a6de154-5fbd-4c80-acd3-8902ee431bd8
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-20043
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16788
+ |      - https://wordpress.org/news/2019/12/wordpress-5-3-1-security-and-maintenance-release/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-g7rg-hchx-c2gw
+ |
+ | [31m[!][0m Title: WordPress <= 5.3 - Authenticated Stored XSS via Crafted Links
+ |     Fixed in: 5.2.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/23553517-34e3-40a9-a406-f3ffbe9dd265
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-20042
+ |      - https://wordpress.org/news/2019/12/wordpress-5-3-1-security-and-maintenance-release/
+ |      - https://hackerone.com/reports/509930
+ |      - https://github.com/WordPress/wordpress-develop/commit/1f7f3f1f59567e2504f0fbebd51ccf004b3ccb1d
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-xvg2-m2f4-83m7
+ |
+ | [31m[!][0m Title: WordPress <= 5.3 - Authenticated Stored XSS via Block Editor Content
+ |     Fixed in: 5.2.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/be794159-4486-4ae1-a5cc-5c190e5ddf5f
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16781
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16780
+ |      - https://wordpress.org/news/2019/12/wordpress-5-3-1-security-and-maintenance-release/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-pg4x-64rh-3c9v
+ |
+ | [31m[!][0m Title: WordPress <= 5.3 - wp_kses_bad_protocol() Colon Bypass
+ |     Fixed in: 5.2.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/8fac612b-95d2-477a-a7d6-e5ec0bb9ca52
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-20041
+ |      - https://wordpress.org/news/2019/12/wordpress-5-3-1-security-and-maintenance-release/
+ |      - https://github.com/WordPress/wordpress-develop/commit/b1975463dd995da19bb40d3fa0786498717e3c53
+ |
+ | [31m[!][0m Title: WordPress < 5.4.1 - Password Reset Tokens Failed to Be Properly Invalidated
+ |     Fixed in: 5.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/7db191c0-d112-4f08-a419-a1cd81928c4e
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11027
+ |      - https://wordpress.org/news/2020/04/wordpress-5-4-1/
+ |      - https://core.trac.wordpress.org/changeset/47634/
+ |      - https://www.wordfence.com/blog/2020/04/unpacking-the-7-vulnerabilities-fixed-in-todays-wordpress-5-4-1-security-update/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-ww7v-jg8c-q6jw
+ |
+ | [31m[!][0m Title: WordPress < 5.4.1 - Unauthenticated Users View Private Posts
+ |     Fixed in: 5.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/d1e1ba25-98c9-4ae7-8027-9632fb825a56
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11028
+ |      - https://wordpress.org/news/2020/04/wordpress-5-4-1/
+ |      - https://core.trac.wordpress.org/changeset/47635/
+ |      - https://www.wordfence.com/blog/2020/04/unpacking-the-7-vulnerabilities-fixed-in-todays-wordpress-5-4-1-security-update/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-xhx9-759f-6p2w
+ |
+ | [31m[!][0m Title: WordPress < 5.4.1 - Authenticated Cross-Site Scripting (XSS) in Customizer
+ |     Fixed in: 5.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/4eee26bd-a27e-4509-a3a5-8019dd48e429
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11025
+ |      - https://wordpress.org/news/2020/04/wordpress-5-4-1/
+ |      - https://core.trac.wordpress.org/changeset/47633/
+ |      - https://www.wordfence.com/blog/2020/04/unpacking-the-7-vulnerabilities-fixed-in-todays-wordpress-5-4-1-security-update/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-4mhg-j6fx-5g3c
+ |
+ | [31m[!][0m Title: WordPress < 5.4.1 - Authenticated Cross-Site Scripting (XSS) in Search Block
+ |     Fixed in: 5.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/e4bda91b-067d-45e4-a8be-672ccf8b1a06
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11030
+ |      - https://wordpress.org/news/2020/04/wordpress-5-4-1/
+ |      - https://core.trac.wordpress.org/changeset/47636/
+ |      - https://www.wordfence.com/blog/2020/04/unpacking-the-7-vulnerabilities-fixed-in-todays-wordpress-5-4-1-security-update/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-vccm-6gmc-qhjh
+ |
+ | [31m[!][0m Title: WordPress < 5.4.1 - Cross-Site Scripting (XSS) in wp-object-cache
+ |     Fixed in: 5.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/e721d8b9-a38f-44ac-8520-b4a9ed6a5157
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11029
+ |      - https://wordpress.org/news/2020/04/wordpress-5-4-1/
+ |      - https://core.trac.wordpress.org/changeset/47637/
+ |      - https://www.wordfence.com/blog/2020/04/unpacking-the-7-vulnerabilities-fixed-in-todays-wordpress-5-4-1-security-update/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-568w-8m88-8g2c
+ |
+ | [31m[!][0m Title: WordPress < 5.4.1 - Authenticated Cross-Site Scripting (XSS) in File Uploads
+ |     Fixed in: 5.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/55438b63-5fc9-4812-afc4-2f1eff800d5f
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-11026
+ |      - https://wordpress.org/news/2020/04/wordpress-5-4-1/
+ |      - https://core.trac.wordpress.org/changeset/47638/
+ |      - https://www.wordfence.com/blog/2020/04/unpacking-the-7-vulnerabilities-fixed-in-todays-wordpress-5-4-1-security-update/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-3gw2-4656-pfr2
+ |      - https://hackerone.com/reports/179695
+ |
+ | [31m[!][0m Title: WordPress <= 5.2.3 - Hardening Bypass
+ |     Fixed in: 5.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/378d7df5-bce2-406a-86b2-ff79cd699920
+ |      - https://blog.ripstech.com/2020/wordpress-hardening-bypass/
+ |      - https://hackerone.com/reports/436928
+ |      - https://wordpress.org/news/2019/11/wordpress-5-2-4-update/
+ |
+ | [31m[!][0m Title: WordPress < 5.4.2 - Authenticated XSS in Block Editor
+ |     Fixed in: 5.2.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/831e4a94-239c-4061-b66e-f5ca0dbb84fa
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4046
+ |      - https://wordpress.org/news/2020/06/wordpress-5-4-2-security-and-maintenance-release/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-rpwf-hrh2-39jf
+ |      - https://pentest.co.uk/labs/research/subtle-stored-xss-wordpress-core/
+ |      - https://www.youtube.com/watch?v=tCh7Y8z8fb4
+ |
+ | [31m[!][0m Title: WordPress < 5.4.2 - Authenticated XSS via Media Files
+ |     Fixed in: 5.2.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/741d07d1-2476-430a-b82f-e1228a9343a4
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4047
+ |      - https://wordpress.org/news/2020/06/wordpress-5-4-2-security-and-maintenance-release/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-8q2w-5m27-wm27
+ |
+ | [31m[!][0m Title: WordPress < 5.4.2 - Open Redirection
+ |     Fixed in: 5.2.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/12855f02-432e-4484-af09-7d0fbf596909
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4048
+ |      - https://wordpress.org/news/2020/06/wordpress-5-4-2-security-and-maintenance-release/
+ |      - https://github.com/WordPress/WordPress/commit/10e2a50c523cf0b9785555a688d7d36a40fbeccf
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-q6pw-gvf4-5fj5
+ |
+ | [31m[!][0m Title: WordPress < 5.4.2 - Authenticated Stored XSS via Theme Upload
+ |     Fixed in: 5.2.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/d8addb42-e70b-4439-b828-fd0697e5d9d4
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4049
+ |      - https://www.exploit-db.com/exploits/48770/
+ |      - https://wordpress.org/news/2020/06/wordpress-5-4-2-security-and-maintenance-release/
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-87h4-phjv-rm6p
+ |      - https://hackerone.com/reports/406289
+ |
+ | [31m[!][0m Title: WordPress < 5.4.2 - Misuse of set-screen-option Leading to Privilege Escalation
+ |     Fixed in: 5.2.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/b6f69ff1-4c11-48d2-b512-c65168988c45
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-4050
+ |      - https://wordpress.org/news/2020/06/wordpress-5-4-2-security-and-maintenance-release/
+ |      - https://github.com/WordPress/WordPress/commit/dda0ccdd18f6532481406cabede19ae2ed1f575d
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-4vpv-fgg2-gcqc
+ |
+ | [31m[!][0m Title: WordPress < 5.4.2 - Disclosure of Password-Protected Page/Post Comments
+ |     Fixed in: 5.2.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/eea6dbf5-e298-44a7-9b0d-f078ad4741f9
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-25286
+ |      - https://wordpress.org/news/2020/06/wordpress-5-4-2-security-and-maintenance-release/
+ |      - https://github.com/WordPress/WordPress/commit/c075eec24f2f3214ab0d0fb0120a23082e6b1122
+ |
+ | [31m[!][0m Title: WordPress 4.7-5.7 - Authenticated Password Protected Pages Exposure
+ |     Fixed in: 5.2.10
+ |     References:
+ |      - https://wpscan.com/vulnerability/6a3ec618-c79e-4b9c-9020-86b157458ac5
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29450
+ |      - https://wordpress.org/news/2021/04/wordpress-5-7-1-security-and-maintenance-release/
+ |      - https://blog.wpscan.com/2021/04/15/wordpress-571-security-vulnerability-release.html
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-pmmh-2f36-wvhq
+ |      - https://core.trac.wordpress.org/changeset/50717/
+ |      - https://www.youtube.com/watch?v=J2GXmxAdNWs
+ |
+ | [31m[!][0m Title: WordPress 3.7 to 5.7.1 - Object Injection in PHPMailer
+ |     Fixed in: 5.2.11
+ |     References:
+ |      - https://wpscan.com/vulnerability/4cd46653-4470-40ff-8aac-318bee2f998d
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-36326
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-19296
+ |      - https://github.com/WordPress/WordPress/commit/267061c9595fedd321582d14c21ec9e7da2dcf62
+ |      - https://wordpress.org/news/2021/05/wordpress-5-7-2-security-release/
+ |      - https://github.com/PHPMailer/PHPMailer/commit/e2e07a355ee8ff36aba21d0242c5950c56e4c6f9
+ |      - https://www.wordfence.com/blog/2021/05/wordpress-5-7-2-security-release-what-you-need-to-know/
+ |      - https://www.youtube.com/watch?v=HaW15aMzBUM
+ |
+ | [31m[!][0m Title: WordPress < 5.8.2 - Expired DST Root CA X3 Certificate
+ |     Fixed in: 5.2.13
+ |     References:
+ |      - https://wpscan.com/vulnerability/cc23344a-5c91-414a-91e3-c46db614da8d
+ |      - https://wordpress.org/news/2021/11/wordpress-5-8-2-security-and-maintenance-release/
+ |      - https://core.trac.wordpress.org/ticket/54207
+ |
+ | [31m[!][0m Title: WordPress < 5.8 - Plugin Confusion
+ |     Fixed in: 5.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/95e01006-84e4-4e95-b5d7-68ea7b5aa1a8
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44223
+ |      - https://vavkamil.cz/2021/11/25/wordpress-plugin-confusion-update-can-get-you-pwned/
+ |
+ | [31m[!][0m Title: WordPress < 5.8.3 - SQL Injection via WP_Query
+ |     Fixed in: 5.2.14
+ |     References:
+ |      - https://wpscan.com/vulnerability/7f768bcf-ed33-4b22-b432-d1e7f95c1317
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21661
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-6676-cqfm-gw84
+ |      - https://hackerone.com/reports/1378209
+ |
+ | [31m[!][0m Title: WordPress < 5.8.3 - Author+ Stored XSS via Post Slugs
+ |     Fixed in: 5.2.14
+ |     References:
+ |      - https://wpscan.com/vulnerability/dc6f04c2-7bf2-4a07-92b5-dd197e4d94c8
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21662
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-699q-3hj9-889w
+ |      - https://hackerone.com/reports/425342
+ |
+ | [31m[!][0m Title: WordPress 4.1-5.8.2 - SQL Injection via WP_Meta_Query
+ |     Fixed in: 5.2.14
+ |     References:
+ |      - https://wpscan.com/vulnerability/24462ac4-7959-4575-97aa-a6dcceeae722
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21664
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-jp3p-gw8h-6x86
+ |
+ | [31m[!][0m Title: WordPress < 5.8.3 - Super Admin Object Injection in Multisites
+ |     Fixed in: 5.2.14
+ |     References:
+ |      - https://wpscan.com/vulnerability/008c21ab-3d7e-4d97-b6c3-db9d83f390a7
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-21663
+ |      - https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-jmmq-m8p8-332h
+ |      - https://hackerone.com/reports/541469
+
+[32m[+][0m WordPress theme in use: twentysixteen
+ | Location: http://192.168.201.23/wordpress/wp-content/themes/twentysixteen/
+ | Last Updated: 2021-07-22T00:00:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/themes/twentysixteen/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 2.5
+ | Style URL: http://192.168.201.23/wordpress/wp-content/themes/twentysixteen/style.css?ver=5.2.3
+ | Style Name: Twenty Sixteen
+ | Style URI: https://wordpress.org/themes/twentysixteen/
+ | Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout — the horizontal masthead ...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Css Style In Homepage (Passive Detection)
+ |
+ | Version: 2.0 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/themes/twentysixteen/style.css?ver=5.2.3, Match: 'Version: 2.0'
+
+
+[34m[i][0m Plugin(s) Identified:
+
+[32m[+][0m gwolle-gb
+ | Location: http://192.168.201.23/wordpress/wp-content/plugins/gwolle-gb/
+ | Last Updated: 2021-12-09T08:36:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/plugins/gwolle-gb/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 4.2.1
+ |
+ | Found By: Known Locations (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/gwolle-gb/, status: 200
+ |
+ | [31m[!][0m 5 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: Gwolle Guestbook <= 1.5.3 - Remote File Inclusion (RFI)
+ |     Fixed in: 1.5.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/65d869e8-5c50-4c82-9101-6b533da0c207
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8351
+ |      - https://www.immuniweb.com/advisory/HTB23275
+ |      - https://seclists.org/bugtraq/2015/Dec/8
+ |
+ | [31m[!][0m Title: Gwolle Guestbook <= 2.1.0 - Cross-Site Request Forgery (CSRF)
+ |     Fixed in: 2.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/ee803a4d-d52b-42c2-9a59-29e4f1aee828
+ |      - https://sumofpwn.nl/advisory/2016/gwolle_guestbook_mass_action_vulnerable_for_cross_site_request_forgery.html
+ |      - https://seclists.org/bugtraq/2017/Mar/4
+ |
+ | [31m[!][0m Title: Gwolle Guestbook <= 2.1.0 - Unauthenticated Stored Cross-Site Scripting (XSS) 
+ |     Fixed in: 2.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/08529114-6fee-4bf9-949e-fa31ea3ed39e
+ |      - https://sumofpwn.nl/advisory/2016/cross_site_scripting_vulnerability_in_gwolle_guestbook_wordpress_plugin.html
+ |      - https://seclists.org/fulldisclosure/2017/Feb/87
+ |
+ | [31m[!][0m Title: Gwolle Guestbook <= 2.5.3 - Cross-Site Scripting (XSS)
+ |     Fixed in: 2.5.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/00c33bf2-1527-4276-a470-a21da5929566
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17884
+ |      - https://seclists.org/fulldisclosure/2018/Jul/89
+ |      - https://www.defensecode.com/advisories/DC-2018-05-008_WordPress_Gwolle_Guestbook_Plugin_Advisory.pdf
+ |      - https://plugins.trac.wordpress.org/changeset/1888023/gwolle-gb
+ |
+ | [31m[!][0m Title: Gwolle Guestbook < 4.2.0 - Reflected Cross-Site Scripting
+ |     Fixed in: 4.2.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/e50bcb39-9a01-433f-81b3-fd4018672b85
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24980
+ |
+ | Version: 1.5.3 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/gwolle-gb/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/gwolle-gb/readme.txt
+
+[32m[+][0m mail-masta
+ | Location: http://192.168.201.23/wordpress/wp-content/plugins/mail-masta/
+ | Latest Version: 1.0 (up to date)
+ | Last Updated: 2014-09-19T07:52:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/plugins/mail-masta/readme.txt
+ | [31m[!][0m Directory listing is enabled
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Known Locations (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/mail-masta/, status: 200
+ |
+ | [31m[!][0m 2 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: Mail Masta <= 1.0 - Unauthenticated Local File Inclusion (LFI)
+ |     References:
+ |      - https://wpscan.com/vulnerability/5136d5cf-43c7-4d09-bf14-75ff8b77bb44
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-10956
+ |      - https://www.exploit-db.com/exploits/40290/
+ |      - https://www.exploit-db.com/exploits/50226/
+ |      - https://cxsecurity.com/issue/WLB-2016080220
+ |
+ | [31m[!][0m Title: Mail Masta 1.0 - Multiple SQL Injection
+ |     References:
+ |      - https://wpscan.com/vulnerability/c992d921-4f5a-403a-9482-3131c69e383a
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6095
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6096
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6097
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6098
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6570
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6571
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6572
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6573
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6574
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6575
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6576
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6577
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-6578
+ |      - https://www.exploit-db.com/exploits/41438/
+ |      - https://github.com/hamkovic/Mail-Masta-Wordpress-Plugin
+ |
+ | Version: 1.0 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/mail-masta/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/mail-masta/readme.txt
+
+[32m[+][0m reflex-gallery
+ | Location: http://192.168.201.23/wordpress/wp-content/plugins/reflex-gallery/
+ | Last Updated: 2021-03-10T02:38:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/plugins/reflex-gallery/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 3.1.7
+ | [31m[!][0m Directory listing is enabled
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Known Locations (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/reflex-gallery/, status: 200
+ |
+ | [31m[!][0m 2 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: Reflex Gallery <= 3.1.3 - Arbitrary File Upload
+ |     Fixed in: 3.1.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/c2496b8b-72e4-4e63-9d78-33ada3f1c674
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-4133
+ |      - https://www.exploit-db.com/exploits/36374/
+ |      - https://packetstormsecurity.com/files/130845/
+ |      - https://packetstormsecurity.com/files/131515/
+ |      - https://www.rapid7.com/db/modules/exploit/unix/webapp/wp_reflexgallery_file_upload/
+ |
+ | [31m[!][0m Title: Multiple Plugins - jQuery prettyPhoto DOM Cross-Site Scripting (XSS)
+ |     Fixed in: 3.1.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/ad9df355-9928-411c-8b09-f9969d7cf449
+ |      - https://blog.anantshri.info/forgotten_disclosure_dom_xss_prettyphoto
+ |      - https://github.com/scaron/prettyphoto/issues/149
+ |      - https://github.com/wpscanteam/wpscan/issues/818
+ |
+ | Version: 3.1.3 (80% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/reflex-gallery/readme.txt
+
+[32m[+][0m site-editor
+ | Location: http://192.168.201.23/wordpress/wp-content/plugins/site-editor/
+ | Latest Version: 1.1.1 (up to date)
+ | Last Updated: 2017-05-02T23:34:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/plugins/site-editor/readme.txt
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Known Locations (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/site-editor/, status: 200
+ |
+ | [31m[!][0m 1 vulnerability identified:
+ |
+ | [31m[!][0m Title: Site Editor <= 1.1.1 - Local File Inclusion (LFI)
+ |     References:
+ |      - https://wpscan.com/vulnerability/4432ecea-2b01-4d5c-9557-352042a57e44
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-7422
+ |      - https://seclists.org/fulldisclosure/2018/Mar/40
+ |      - https://github.com/SiteEditor/editor/issues/2
+ |
+ | Version: 1.1.1 (80% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/site-editor/readme.txt
+
+[32m[+][0m slideshow-gallery
+ | Location: http://192.168.201.23/wordpress/wp-content/plugins/slideshow-gallery/
+ | Last Updated: 2021-12-21T06:31:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/plugins/slideshow-gallery/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 1.7.4.4
+ | [31m[!][0m Directory listing is enabled
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Known Locations (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/slideshow-gallery/, status: 200
+ |
+ | [31m[!][0m 6 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: Slideshow Gallery < 1.4.7 - Arbitrary File Upload
+ |     Fixed in: 1.4.7
+ |     References:
+ |      - https://wpscan.com/vulnerability/b1b5f1ba-267d-4b34-b012-7a047b1d77b2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-5460
+ |      - https://www.exploit-db.com/exploits/34681/
+ |      - https://www.exploit-db.com/exploits/34514/
+ |      - https://seclists.org/bugtraq/2014/Sep/1
+ |      - https://packetstormsecurity.com/files/131526/
+ |      - https://www.rapid7.com/db/modules/exploit/unix/webapp/wp_slideshowgallery_upload/
+ |
+ | [31m[!][0m Title: Tribulant Slideshow Gallery <= 1.5.3 - Arbitrary file upload & Cross-Site Scripting (XSS) 
+ |     Fixed in: 1.5.3.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/f161974c-36bb-4fe7-bbf8-283cfe9d66ca
+ |      - http://cinu.pl/research/wp-plugins/mail_5954cbf04cd033877e5415a0c6fba532.html
+ |      - http://blog.cinu.pl/2015/11/php-static-code-analysis-vs-top-1000-wordpress-plugins.html
+ |
+ | [31m[!][0m Title: Tribulant Slideshow Gallery <= 1.6.4 - Authenticated Cross-Site Scripting (XSS)
+ |     Fixed in: 1.6.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/bdf963a1-c0f9-4af7-a67c-0c6d9d0b4ab1
+ |      - https://sumofpwn.nl/advisory/2016/cross_site_scripting_vulnerability_in_tribulant_slideshow_galleries_wordpress_plugin.html
+ |      - https://plugins.trac.wordpress.org/changeset/1609730/slideshow-gallery
+ |
+ | [31m[!][0m Title: Slideshow Gallery <= 1.6.5 - Multiple Authenticated Cross-Site Scripting (XSS)
+ |     Fixed in: 1.6.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/a9056033-97c7-4753-822f-faf99f4081e2
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-17946
+ |      - https://www.defensecode.com/advisories/DC-2017-01-014_WordPress_Tribulant_Slideshow_Gallery_Plugin_Advisory.pdf
+ |      - https://packetstormsecurity.com/files/142079/
+ |
+ | [31m[!][0m Title: Slideshow Gallery <= 1.6.8 - XSS and SQLi
+ |     Fixed in: 1.6.9
+ |     References:
+ |      - https://wpscan.com/vulnerability/57216d76-7cba-477e-a6b5-1e409913a0fc
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18017
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18018
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-18019
+ |      - https://plugins.trac.wordpress.org/changeset?reponame=&new=1974812%40slideshow-gallery&old=1907382%40slideshow-gallery
+ |      - https://ansawaf.blogspot.com/2019/04/xss-and-sqli-in-slideshow-gallery.html
+ |
+ | [31m[!][0m Title: Slideshow Gallery < 1.7.4 - Admin+ Stored Cross-Site Scripting
+ |     Fixed in: 1.7.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/6d71816c-8267-4b84-9087-191fbb976e72
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-24882
+ |
+ | Version: 1.4.6 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/slideshow-gallery/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/slideshow-gallery/readme.txt
+
+[32m[+][0m wp-easycart
+ | Location: http://192.168.201.23/wordpress/wp-content/plugins/wp-easycart/
+ | Last Updated: 2021-12-03T22:47:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/plugins/wp-easycart/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 5.1.15
+ | [31m[!][0m Directory listing is enabled
+ |
+ | Found By: Known Locations (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/wp-easycart/, status: 200
+ |
+ | [31m[!][0m 3 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: EasyCart <= 3.0.15 - Unrestricted File Upload
+ |     Fixed in: 3.0.16
+ |     References:
+ |      - https://wpscan.com/vulnerability/6c1c4f2f-61a9-4a18-b008-9a94048ec2a8
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-9308
+ |      - https://www.exploit-db.com/exploits/35730/
+ |      - https://www.exploit-db.com/exploits/36043/
+ |      - https://packetstormsecurity.com/files/129875/
+ |      - https://packetstormsecurity.com/files/130328/
+ |      - https://www.rapid7.com/db/modules/exploit/unix/webapp/wp_easycart_unrestricted_file_upload/
+ |
+ | [31m[!][0m Title: EasyCart 1.1.30 - 3.0.20 - Privilege Escalation
+ |     Fixed in: 3.0.21
+ |     References:
+ |      - https://wpscan.com/vulnerability/5f951b86-bf79-4992-890f-119345ec906f
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-2673
+ |      - https://rastating.github.io/wp-easycart-privilege-escalation-information-disclosure
+ |
+ | [31m[!][0m Title: Shopping Cart & eCommerce Store < 5.1.1 - CSRF to Stored Cross-Site Scripting
+ |     Fixed in: 5.1.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/2025a4e1-62b7-4236-9143-c45d99b38b1f
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34645
+ |      - https://www.wordfence.com/vulnerability-advisories/#CVE-2021-34645
+ |
+ | Version: 3.0.4 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/wp-easycart/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/wp-easycart/readme.txt
+
+[32m[+][0m wp-support-plus-responsive-ticket-system
+ | Location: http://192.168.201.23/wordpress/wp-content/plugins/wp-support-plus-responsive-ticket-system/
+ | Last Updated: 2019-09-03T07:57:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/plugins/wp-support-plus-responsive-ticket-system/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 9.1.2
+ | [31m[!][0m Directory listing is enabled
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Known Locations (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/wp-support-plus-responsive-ticket-system/, status: 200
+ |
+ | [31m[!][0m 6 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: WP Support Plus Responsive Ticket System < 8.0.0 – Authenticated SQL Injection
+ |     Fixed in: 8.0.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/f267d78f-f1e1-4210-92e4-39cce2872757
+ |      - https://www.exploit-db.com/exploits/40939/
+ |      - https://lenonleite.com.br/en/2016/12/13/wp-support-plus-responsive-ticket-system-wordpress-plugin-sql-injection/
+ |      - https://plugins.trac.wordpress.org/changeset/1556644/wp-support-plus-responsive-ticket-system
+ |
+ | [31m[!][0m Title: WP Support Plus Responsive Ticket System < 8.0.8 - Remote Code Execution (RCE)
+ |     Fixed in: 8.0.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/1527b75a-362d-47eb-85f5-47763c75b0d1
+ |      - https://plugins.trac.wordpress.org/changeset/1763596/wp-support-plus-responsive-ticket-system
+ |
+ | [31m[!][0m Title: WP Support Plus Responsive Ticket System < 9.0.3 - Multiple Authenticated SQL Injection
+ |     Fixed in: 9.0.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/cbbdb469-7321-44e4-a83b-cac82b116f20
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000131
+ |      - https://github.com/00theway/exp/blob/master/wordpress/wpsupportplus.md
+ |      - https://plugins.trac.wordpress.org/changeset/1814103/wp-support-plus-responsive-ticket-system
+ |
+ | [31m[!][0m Title: WP Support Plus Responsive Ticket System < 9.1.2 - Stored XSS
+ |     Fixed in: 9.1.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/e406c3e8-1fab-41fd-845a-104467b0ded4
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-7299
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15331
+ |      - https://cert.kalasag.com.ph/news/research/cve-2019-7299-stored-xss-in-wp-support-plus-responsive-ticket-system/
+ |      - https://plugins.trac.wordpress.org/changeset/2024484/wp-support-plus-responsive-ticket-system
+ |
+ | [31m[!][0m Title: WP Support Plus Responsive Ticket System < 8.0.0 - Privilege Escalation
+ |     Fixed in: 8.0.0
+ |     References:
+ |      - https://wpscan.com/vulnerability/b1808005-0809-4ac7-92c7-1f65e410ac4f
+ |      - https://security.szurek.pl/wp-support-plus-responsive-ticket-system-713-privilege-escalation.html
+ |      - https://packetstormsecurity.com/files/140413/
+ |
+ | [31m[!][0m Title: WP Support Plus Responsive Ticket System < 8.0.8 - Remote Code Execution
+ |     Fixed in: 8.0.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/85d3126a-34a3-4799-a94b-76d7b835db5f
+ |      - https://plugins.trac.wordpress.org/changeset/1763596
+ |
+ | Version: 7.1.3 (100% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/wp-support-plus-responsive-ticket-system/readme.txt
+ | Confirmed By: Readme - ChangeLog Section (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/wp-support-plus-responsive-ticket-system/readme.txt
+
+[32m[+][0m wp-symposium
+ | Location: http://192.168.201.23/wordpress/wp-content/plugins/wp-symposium/
+ | Last Updated: 2015-08-21T12:36:00.000Z
+ | Readme: http://192.168.201.23/wordpress/wp-content/plugins/wp-symposium/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 15.8.1
+ | [31m[!][0m Directory listing is enabled
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Known Locations (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/wp-symposium/, status: 200
+ |
+ | [31m[!][0m 7 vulnerabilities identified:
+ |
+ | [31m[!][0m Title: WP Symposium 13.04 - Unvalidated Redirect
+ |     References:
+ |      - https://wpscan.com/vulnerability/34c4aeb1-3dc4-44b8-90b8-a94b9c11b594
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2694
+ |
+ | [31m[!][0m Title: WP Symposium <= 12.07.07 - Authentication Bypass
+ |     Reference: https://wpscan.com/vulnerability/cbacde86-17a4-4103-94f5-09dae96bd935
+ |
+ | [31m[!][0m Title: WP Symposium <= 14.11 - Unauthenticated Shell Upload
+ |     References:
+ |      - https://wpscan.com/vulnerability/2e454393-a36d-4b24-9b9e-603f5efddfb0
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-10021
+ |      - https://www.exploit-db.com/exploits/35543/
+ |      - https://www.exploit-db.com/exploits/35778/
+ |      - https://www.homelab.it/index.php/2014/12/11/wordpress-wp-symposium-shell-upload/
+ |      - https://blog.sucuri.net/2014/12/wp-symposium-zero-day-vulnerability-dangers.html
+ |      - https://packetstormsecurity.com/files/129884/
+ |      - https://www.rapid7.com/db/modules/exploit/unix/webapp/wp_symposium_shell_upload/
+ |      - https://www.youtube.com/watch?v=pF8lIuLT6Vs
+ |
+ | [31m[!][0m Title: WP Symposium <= 15.1 - SQL Injection
+ |     Fixed in: 15.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/cb30bfcd-58ae-4210-bc6c-6d898c9e446c
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3325
+ |      - https://www.exploit-db.com/exploits/37080/
+ |      - https://web.archive.org/web/20150718010246/https://permalink.gmane.org/gmane.comp.security.oss.general/16479
+ |      - https://packetstormsecurity.com/files/131801/
+ |
+ | [31m[!][0m Title: WP Symposium <=  15.5.1 - Unauthenticated SQL Injection
+ |     Fixed in: 15.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/f9f78241-8911-485e-9e18-a3da1096220c
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-6522
+ |      - https://www.exploit-db.com/exploits/37824/
+ |      - https://plugins.trac.wordpress.org/changeset/1214872/wp-symposium
+ |
+ | [31m[!][0m Title: WP Symposium <= 15.1 - Blind SQL Injection
+ |     Fixed in: 15.8
+ |     References:
+ |      - https://wpscan.com/vulnerability/a4b7d222-2d1d-44c0-be07-b328c1a2a0d7
+ |      - https://advisories.dxw.com/advisories/blind-sql-injection-in-wp-symposium-allows-unauthenticated-attackers-to-access-sensitive-data/
+ |
+ | [31m[!][0m Title: WP Symposium <= 15.8.1 - Unauthenticated Reflected Cross-Site Scripting (XSS)
+ |     References:
+ |      - https://wpscan.com/vulnerability/2ac2d43f-bf3f-4831-9585-5c5484051095
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9414
+ |      - https://cxsecurity.com/issue/WLB-2015090024
+ |
+ | Version: 15.1 (80% confidence)
+ | Found By: Readme - Stable Tag (Aggressive Detection)
+ |  - http://192.168.201.23/wordpress/wp-content/plugins/wp-symposium/readme.txt
+
+
+[34m[i][0m No themes Found.
+
+
+http://192.168.177.23/wordpress/wp-content/plugins/gwolle-gb/frontend/captcha/ajaxresponse.php?abspath=http://192.168.49.177
