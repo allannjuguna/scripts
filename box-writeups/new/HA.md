@@ -252,7 +252,37 @@ Exploit target:
 
 ### Searching for files in the /var/www/html/ directory
 ```
+/var/www/html/
+/var/www/html/wordpress
+/var/www/html/wordpress/license.txt
+/var/www/html/wordpress/readme.html
+/var/www/html/wordpress/wp-signup.php
+/var/www/html/wordpress/wp-includes
+/var/www/html/wordpress/wp-includes/class-wp-query.php
+/var/www/html/wordpress/wp-includes/functions.php
+/var/www/html/wordpress/wp-includes/class-wp-customize-control.php
+/var/www/html/wordpress/wp-includes/class-snoopy.php
+/var/www/html/wordpress/wp-includes/theme.php
+/var/www/html/wordpress/wp-includes/class-wp-widget-factory.php
+/var/www/html/wordpress/wp-includes/class-wp-session-tokens.php
+/var/www/html/wordpress/wp-includes/formatting.php
+/var/www/html/wordpress/wp-includes/class-wp-customize-widgets.php
+/var/www/html/wordpress/wp-includes/nav-menu.php
+/var/www/html/wordpress/wp-includes/class-wp-user-query.php
+/var/www/html/wordpress/wp-includes/post.php
 
+		-------More FIles --- 
+
+/var/www/html/wordpress/wp-blog-header.php
+/var/www/html/wordpress/wp-cron.php
+/var/www/html/wordpress/wp-config-sample.php
+/var/www/html/wordpress/wp-trackback.php
+/var/www/html/wordpress/wp-comments-post.php
+/var/www/html/wordpress/wp-login.php
+/var/www/html/index.html
+/var/www/html/info.php
+/var/www/html/notes.txt
+/var/www/html/secret.zip
 ```
 
 ### Searching for files in the home folder
