@@ -1,5 +1,7 @@
 # Photographer lab - Notes
 
+
+
 ## Target Details
 ```
 http://192.168.119.76/
