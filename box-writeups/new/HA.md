@@ -373,7 +373,12 @@ Method 1
 ```
 hacker belongs to root group
 
-su hacker 
+su hacker  // password is pass123
 
 cat /root/proof.txt
+```
+
+Method 2
+```
+
 ```
