@@ -10,6 +10,63 @@
 ## Bruteforcing directories
 ```
 
+  _|. _ _  _  _  _ _|_    v0.4.2
+ (_||| _) (/_(_|| (_| )
+
+Extensions: php, html, txt, zip | HTTP method: GET | Threads: 30 | Wordlist size: 27311
+
+Output File: /media/xubzero/STUFF/mytools/dirsearch/reports/192.168.232.23/-_22-01-09_17-45-01.txt
+
+Error Log: /media/xubzero/STUFF/mytools/dirsearch/logs/errors-22-01-09_17-45-01.log
+
+Target: http://192.168.232.23/
+
+[17:45:02] Starting: 
+[17:47:47] 403 -  279B  - /icons/     (Added to queue)
+[17:47:52] 200 -   11KB - /index.html
+[17:47:53] 200 -   14B  - /info.php
+[17:48:02] 403 -  279B  - /javascript/     (Added to queue)
+[17:48:02] 301 -  321B  - /javascript  ->  http://192.168.232.23/javascript/
+[17:48:43] 200 -   28B  - /notes.txt
+[17:50:07] 200 -  261B  - /secret.zip
+[17:50:14] 403 -  279B  - /server-status
+[17:50:15] 403 -  279B  - /server-status/     (Added to queue)
+[17:51:37] 301 -  320B  - /wordpress  ->  http://192.168.232.23/wordpress/     (Added to queue)
+[17:51:40] 200 -   48KB - /wordpress/
+[17:51:55] Starting: icons/
+[17:52:18] 200 -    5KB - /icons/README
+[17:52:19] 200 -   35KB - /icons/README.html
+[17:57:15] 403 -  279B  - /icons/small/     (Added to queue)
+[17:57:15] 301 -  322B  - /icons/small  ->  http://192.168.232.23/icons/small/
+[17:58:24] Starting: javascript/
+[18:01:40] 403 -  279B  - /javascript/jquery/     (Added to queue)
+[18:01:40] 301 -  328B  - /javascript/jquery  ->  http://192.168.232.23/javascript/jquery/
+[18:06:03] Starting: server-status/
+[18:13:20] Starting: wordpress/
+[18:16:14] 301 -    0B  - /wordpress/index.php  ->  http://192.168.232.23/wordpress/
+[18:16:52] 200 -   19KB - /wordpress/license.txt
+[18:18:13] 200 -    7KB - /wordpress/readme.html
+[18:20:05] 301 -  329B  - /wordpress/wp-admin  ->  http://192.168.232.23/wordpress/wp-admin/     (Added to queue)
+[18:20:05] 302 -    0B  - /wordpress/wp-admin/  ->  http://192.168.232.23/wordpress/wp-login.php?redirect_to=http%3A%2F%2F192.168.232.23%2Fwordpress%2Fwp-admin%2F&reauth=1
+[18:20:06] 200 -    0B  - /wordpress/wp-blog-header.php
+[18:20:06] 200 -    0B  - /wordpress/wp-content/     (Added to queue)
+[18:20:06] 200 -    0B  - /wordpress/wp-config.php
+[18:20:06] 301 -  331B  - /wordpress/wp-content  ->  http://192.168.232.23/wordpress/wp-content/
+[18:20:06] 200 -    0B  - /wordpress/wp-cron.php
+[18:20:06] 301 -  332B  - /wordpress/wp-includes  ->  http://192.168.232.23/wordpress/wp-includes/     (Added to queue)
+[18:20:06] 200 -  234B  - /wordpress/wp-links-opml.php
+[18:20:07] 200 -    0B  - /wordpress/wp-load.php
+[18:20:07] 403 -    3KB - /wordpress/wp-mail.php
+[18:20:07] 200 -   10KB - /wordpress/wp-login.php
+[18:20:07] 500 -    0B  - /wordpress/wp-settings.php
+[18:20:07] 302 -    0B  - /wordpress/wp-signup.php  ->  http://192.168.232.23/wordpress/wp-login.php?action=register
+[18:20:07] 200 -   44KB - /wordpress/wp-includes/
+[18:20:07] 200 -  135B  - /wordpress/wp-trackback.php
+[18:20:11] 405 -   42B  - /wordpress/xmlrpc.php
+[18:20:17] Starting: icons/small/
+CTRL+C detected: Pausing threads, please wait...
+[q]uit / [c]ontinue / [n]ext: n
+[18:20:29] Starting: javascript/jquery/
 
 ```
 
