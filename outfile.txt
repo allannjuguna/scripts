@@ -14,7 +14,7 @@ FILENAME : serv_acc_log_21032020.csv
 [*]  Please enter a filename to save the results (eg myfile.csv):  
 FILENAME : myfile.csv
 
-[+]  Results will be saved to :  output/example.csv  
+[+]  Results will be saved to :  output/myfile.csv  
 [*]  Please choose one or more field criteria (e.g PROTOCOL=`TCP`) :  
       EXAMPLE : PROTOCOL=`TCP` and SRC IP=`ext` and DEST IP=`10127` and PACKETS > `10` )
 Search: PROTOCOL=`TCP` and SRC IP=`ext`
@@ -36,188 +36,188 @@ Search: PROTOCOL=`TCP` and SRC IP=`ext`
 
 DATE      DURATION PROTOCOL SRC_IP      SRC_PORT    DEST_IP     DEST_PORT PACKETS     BYTES       CLASS       
 
-05:56.3   0        TCP      EXT_SERVER  23          10093_191   37891     1           40          suspicious
-05:57.0   0        TCP      EXT_SERVER  3306        10094_164   35264     1           40          suspicious
-06:12.6   12.747   TCP      EXT_SERVER  22          10001_123   4877      18          2985        suspicious
-06:29.3   11.946   TCP      EXT_SERVER  22          10004_35    14238     4           281         suspicious
-06:44.5   0        TCP      EXT_SERVER  5358        10096_213   50447     1           40          suspicious
-03:37.9   9.426    TCP      EXT_SERVER  22          10006_27    54348     19          3185        suspicious
-07:03.4   13.99    TCP      EXT_SERVER  22          10001_123   3549      19          3093        suspicious
-07:09.0   10.602   TCP      EXT_SERVER  22          10008_114   53476     20          3249        suspicious
-07:23.8   10.064   TCP      EXT_SERVER  22          10006_27    50171     20          3249        suspicious
-04:32.7   9.311    TCP      EXT_SERVER  22          10006_27    47044     19          3185        suspicious
-07:32.2   17.928   TCP      EXT_SERVER  22          10001_123   3278      20          3065        suspicious
-04:56.5   9.948    TCP      EXT_SERVER  22          10008_104   41009     19          3185        suspicious
-05:06.0   10.711   TCP      EXT_SERVER  22          10008_104   57713     20          4213        suspicious
-05:16.4   10.213   TCP      EXT_SERVER  22          10008_104   47514     19          3185        suspicious
-08:21.6   9.423    TCP      EXT_SERVER  22          10054_224   56766     20          3249        suspicious
-05:27.2   9.251    TCP      EXT_SERVER  22          10006_27    48162     19          3197        suspicious
-05:35.9   8.997    TCP      EXT_SERVER  22          10008_104   46244     19          3185        suspicious
-05:44.5   10.264   TCP      EXT_SERVER  22          10008_104   54373     19          3185        suspicious
-05:54.4   9.343    TCP      EXT_SERVER  22          10008_104   37258     19          3185        suspicious
-08:51.9   15.067   TCP      EXT_SERVER  22          10001_123   4966      20          3065        suspicious
-06:03.4   9.745    TCP      EXT_SERVER  22          10008_104   42799     19          3185        suspicious
-06:12.8   10.112   TCP      EXT_SERVER  22          10008_104   50874     19          3185        suspicious
-06:22.6   10.144   TCP      EXT_SERVER  22          10008_104   32814     19          3185        suspicious
-09:17.1   15.903   TCP      EXT_SERVER  22          10001_123   1940      19          3037        suspicious
-06:25.1   9.686    TCP      EXT_SERVER  22          10006_27    17891     19          3185        suspicious
-06:27.1   9.834    TCP      EXT_SERVER  22          10054_224   36776     19          3185        suspicious
-09:36.0   0        TCP      EXT_SERVER  23          10098_166   9270      1           40          suspicious
-06:32.4   9.88     TCP      EXT_SERVER  22          10008_104   40169     19          3185        suspicious
-06:36.6   9.683    TCP      EXT_SERVER  22          10054_224   50597     19          3185        suspicious
-09:38.7   10.467   TCP      EXT_SERVER  22          10054_224   48212     20          3249        suspicious
-06:41.9   9.182    TCP      EXT_SERVER  22          10008_104   47358     19          3185        suspicious
-09:42.2   9.963    TCP      EXT_SERVER  22          10008_114   47184     20          3249        suspicious
-06:46.0   9.669    TCP      EXT_SERVER  22          10054_224   60544     19          3185        suspicious
-06:50.8   9.865    TCP      EXT_SERVER  22          10008_104   52894     19          3185        suspicious
-09:46.0   14.513   TCP      EXT_SERVER  22          10001_123   2237      19          3077        suspicious
-06:55.3   9.553    TCP      EXT_SERVER  22          10054_224   45608     19          3185        suspicious
-07:00.3   10.395   TCP      EXT_SERVER  22          10008_104   58473     19          3185        suspicious
-07:04.5   10.048   TCP      EXT_SERVER  22          10054_224   56887     19          3185        suspicious
-10:04.5   14.628   TCP      EXT_SERVER  22          10001_123   4913      19          3093        suspicious
-07:10.3   9.8      TCP      EXT_SERVER  22          10008_104   38580     19          3185        suspicious
-10:11.1   9.453    TCP      EXT_SERVER  22          10006_27    26774     20          3249        suspicious
-10:12.4   9.839    TCP      EXT_SERVER  22          10004_35    34592     9           3378        suspicious
-10:23.6   120.485  TCP      EXT_SERVER  22          10004_35    33905     12          8481        suspicious
-07:14.2   9.816    TCP      EXT_SERVER  22          10054_224   40646     19          3185        suspicious
-08:01.9   145.723  TCP      EXT_SERVER  22          10004_35    33239     8           563         suspicious
-07:19.3   9.652    TCP      EXT_SERVER  22          10008_114   37452     19          3185        suspicious
-07:19.8   9.272    TCP      EXT_SERVER  22          10008_104   47394     19          3185        suspicious
-07:23.7   9.323    TCP      EXT_SERVER  22          10054_224   55085     19          3185        suspicious
-10:36.5   0        TCP      EXT_SERVER  23          10100_221   47211     1           40          suspicious
-07:28.6   9.057    TCP      EXT_SERVER  22          10008_114   46426     19          3185        suspicious
-07:28.7   9.891    TCP      EXT_SERVER  22          10008_104   53444     19          3185        suspicious
-07:32.7   9.896    TCP      EXT_SERVER  22          10054_224   35267     19          3185        suspicious
-10:43.6   1.015    TCP      EXT_SERVER  445         10101_33    3737      3           120         suspicious
-07:37.4   10.516   TCP      EXT_SERVER  22          10008_114   53374     20          4085        suspicious
-07:38.3   9.827    TCP      EXT_SERVER  22          10008_104   34715     19          3185        suspicious
-07:42.3   9.936    TCP      EXT_SERVER  22          10054_224   45088     19          3185        suspicious
-07:47.6   10.096   TCP      EXT_SERVER  22          10008_114   34769     19          3185        suspicious
-07:47.8   9.787    TCP      EXT_SERVER  22          10008_104   42874     19          3185        suspicious
-09:28.2   89.394   TCP      EXT_SERVER  22          10004_35    29141     14          8597        suspicious
-07:51.9   10.479   TCP      EXT_SERVER  22          10054_224   55126     19          3185        suspicious
-10:51.0   14.244   TCP      EXT_SERVER  22          10001_123   4936      19          3093        suspicious
-07:57.3   9.56     TCP      EXT_SERVER  22          10008_114   44139     19          3185        suspicious
-07:57.2   9.79     TCP      EXT_SERVER  22          10008_104   51519     19          3185        suspicious
-08:02.1   9.775    TCP      EXT_SERVER  22          10054_224   37450     19          3185        suspicious
-08:06.6   9.709    TCP      EXT_SERVER  22          10008_114   51413     19          3185        suspicious
-08:06.7   10.076   TCP      EXT_SERVER  22          10008_104   59550     19          3185        suspicious
-08:11.5   10.47    TCP      EXT_SERVER  22          10054_224   46460     18          3201        suspicious
-11:10.9   13.595   TCP      EXT_SERVER  22          10001_123   4365      18          2985        suspicious
-08:16.0   9.975    TCP      EXT_SERVER  22          10008_114   59145     19          3185        suspicious
-08:16.4   11.008   TCP      EXT_SERVER  22          10008_104   41153     19          3185        suspicious
-08:25.6   9.203    TCP      EXT_SERVER  22          10008_114   37731     19          3185        suspicious
-08:20.3   16.544   TCP      EXT_SERVER  22          10006_27    25646     30          6665        suspicious
-08:30.7   9.902    TCP      EXT_SERVER  22          10054_224   35466     19          3185        suspicious
-11:26.5   14.31    TCP      EXT_SERVER  22          10001_123   4116      18          2985        suspicious
-08:34.5   10.44    TCP      EXT_SERVER  22          10008_114   41598     19          3185        suspicious
-08:40.3   10.305   TCP      EXT_SERVER  22          10054_224   43742     19          3185        suspicious
-11:39.4   11.504   TCP      EXT_SERVER  22          10004_35    37796     9           4462        suspicious
-08:44.6   9.417    TCP      EXT_SERVER  22          10008_114   49564     19          3185        suspicious
-08:50.3   10.882   TCP      EXT_SERVER  22          10054_224   55612     19          3185        suspicious
-08:53.7   9.673    TCP      EXT_SERVER  22          10008_114   56437     19          3185        suspicious
-09:00.8   10.219   TCP      EXT_SERVER  22          10054_224   39914     19          3185        suspicious
-09:03.1   11.033   TCP      EXT_SERVER  22          10008_114   34757     19          3185        suspicious
-07:17.3   121.852  TCP      EXT_SERVER  22          10004_35    22116     10          1675        suspicious
-09:10.7   10.099   TCP      EXT_SERVER  22          10054_224   50239     19          3185        suspicious
-09:13.8   10.42    TCP      EXT_SERVER  22          10008_114   47225     19          3185        suspicious
-09:18.1   10.071   TCP      EXT_SERVER  22          10006_27    44062     19          3185        suspicious
-09:20.5   9.754    TCP      EXT_SERVER  22          10054_224   58757     19          3185        suspicious
-12:24.3   5.888    TCP      EXT_SERVER  22          10004_35    43123     8           2437        suspicious
-09:23.9   9.621    TCP      EXT_SERVER  22          10008_114   58211     19          3185        suspicious
-09:29.9   9.131    TCP      EXT_SERVER  22          10054_224   39348     19          3185        suspicious
-09:33.2   9.889    TCP      EXT_SERVER  22          10008_114   38760     20          3237        suspicious
-12:28.9   14.784   TCP      EXT_SERVER  22          10001_123   1822      21          4081        suspicious
-09:48.9   9.452    TCP      EXT_SERVER  22          10054_224   59237     19          3185        suspicious
-09:51.8   9.752    TCP      EXT_SERVER  22          10008_114   60045     19          3185        suspicious
-10:56.2   125.755  TCP      EXT_SERVER  22          10004_35    30333     8           537         suspicious
-10:01.2   10.609   TCP      EXT_SERVER  22          10008_114   45959     19          3185        suspicious
-10:11.5   10.061   TCP      EXT_SERVER  22          10008_114   33597     19          3185        suspicious
-13:08.5   13.088   TCP      EXT_SERVER  22          10001_123   4628      18          2985        suspicious
-13:24.1   0.021    TCP      EXT_SERVER  3390        10081_11    59432     1           40          suspicious
-10:21.3   9.902    TCP      EXT_SERVER  22          10008_114   44348     19          3185        suspicious
-13:32.0   0        TCP      EXT_SERVER  23          10103_238   30631     1           40          suspicious
-10:30.8   9.945    TCP      EXT_SERVER  22          10008_114   53833     19          3185        suspicious
-13:51.7   14.756   TCP      EXT_SERVER  22          10001_123   3354      19          3037        suspicious
-11:10.6   8.691    TCP      EXT_SERVER  22          10006_27    16539     19          3185        suspicious
-14:41.9   0        TCP      EXT_SERVER  5358        10104_1     38841     1           40          suspicious
-14:56.8   0        TCP      EXT_SERVER  23          10105_52    4063      1           40          suspicious
-14:57.3   0.011    TCP      EXT_SERVER  23          10106_26    52401     1           40          suspicious
-14:55.8   123.911  TCP      EXT_SERVER  22          10004_35    13129     6           385         suspicious
-12:05.2   8.241    TCP      EXT_SERVER  22          10006_27    24315     19          3185        suspicious
-13:08.8   126.16   TCP      EXT_SERVER  22          10004_35    53718     11          779         suspicious
-15:05.3   14.245   TCP      EXT_SERVER  22          10001_123   4789      18          2985        suspicious
-17:12.1   30.997   TCP      EXT_SERVER  22          10032_241   34528     6           264         suspicious
-15:32.2   15.199   TCP      EXT_SERVER  22          10001_123   1979      19          3093        suspicious
-13:51.6   123.152  TCP      EXT_SERVER  22          10004_35    60335     6           361         suspicious
-17:28.4   30.998   TCP      EXT_SERVER  22          10028_233   7839      6           264         suspicious
-16:03.3   0        TCP      EXT_SERVER  23          10107_191   40406     1           40          suspicious
-15:50.0   14.127   TCP      EXT_SERVER  22          10001_123   3025      18          2985        suspicious
-16:03.0   7.554    TCP      EXT_SERVER  22          10004_35    61440     7           3423        suspicious
-13:04.1   9.038    TCP      EXT_SERVER  22          10006_27    62741     19          3185        suspicious
-14:35.9   121.9    TCP      EXT_SERVER  22          10004_35    64110     6           401         suspicious
-16:54.9   0        TCP      EXT_SERVER  5358        10109_224   45229     1           40          suspicious
-16:44.9   13.028   TCP      EXT_SERVER  22          10001_123   4989      18          2985        suspicious
-13:59.3   9.606    TCP      EXT_SERVER  22          10006_27    14974     19          3185        suspicious
-18:45.9   30.999   TCP      EXT_SERVER  22          10004_35    11697     6           360         suspicious
-15:19.6   120.472  TCP      EXT_SERVER  22          10004_35    63685     14          8681        suspicious
-17:26.7   14.726   TCP      EXT_SERVER  22          10001_123   2973      21          3117        suspicious
-18:01.6   0        TCP      EXT_SERVER  23          10110_122   13014     1           40          suspicious
-14:57.0   9.082    TCP      EXT_SERVER  22          10006_27    53892     19          3185        suspicious
-18:19.2   12.286   TCP      EXT_SERVER  22          10001_123   3405      18          2985        suspicious
-18:33.8   13.85    TCP      EXT_SERVER  22          10001_123   3365      19          3033        suspicious
-18:20.7   32.147   TCP      EXT_SERVER  22          10004_35    41226     7           1421        suspicious
-15:55.5   9.461    TCP      EXT_SERVER  22          10006_27    34039     20          3249        suspicious
-18:53.5   14.756   TCP      EXT_SERVER  22          10001_123   2680      20          3145        suspicious
-19:10.7   13.287   TCP      EXT_SERVER  22          10001_123   3966      20          3065        suspicious
-17:30.2   121.801  TCP      EXT_SERVER  22          10004_35    62904     6           1337        suspicious
-16:58.1   9.412    TCP      EXT_SERVER  22          10006_27    38834     20          3249        suspicious
-20:10.7   13.521   TCP      EXT_SERVER  22          10001_123   3204      18          2985        suspicious
-20:22.2   5.916    TCP      EXT_SERVER  22          10004_35    37648     6           2354        suspicious
-18:57.0   120.456  TCP      EXT_SERVER  22          10004_35    55506     13          7899        suspicious
-17:49.1   9.32     TCP      EXT_SERVER  22          10006_27    55919     20          3305        suspicious
-21:06.2   14.087   TCP      EXT_SERVER  22          10001_123   2116      18          2985        suspicious
-21:23.6   0.301    TCP      EXT_SERVER  22          10001_123   4964      1           48          suspicious
-21:31.2   0        TCP      EXT_SERVER  23          10111_226   3666      1           40          suspicious
-16:47.0   123.097  TCP      EXT_SERVER  22          10004_35    10434     8           1489        suspicious
-18:45.2   9.122    TCP      EXT_SERVER  22          10006_27    33396     20          3305        suspicious
-21:49.7   9.36     TCP      EXT_SERVER  22          10004_35    35966     12          5234        suspicious
-22:02.2   0        TCP      EXT_SERVER  7547        10112_232   22755     1           40          suspicious
-21:52.2   15.454   TCP      EXT_SERVER  22          10001_123   1079      18          2985        suspicious
-22:11.2   0        TCP      EXT_SERVER  5358        10113_226   7645      1           40          suspicious
-22:25.9   0        TCP      EXT_SERVER  5358        10114_203   38661     1           40          suspicious
-22:18.5   15.683   TCP      EXT_SERVER  22          10001_123   1439      19          3077        suspicious
-22:36.0   2.935    TCP      EXT_SERVER  22          10001_123   1560      8           2245        suspicious
-22:33.1   6.379    TCP      EXT_SERVER  22          10004_35    31093     9           4457        suspicious
-22:30.0   11.413   TCP      EXT_SERVER  22          10006_27    58640     22          3489        suspicious
-19:44.8   9.062    TCP      EXT_SERVER  22          10006_27    26051     19          3185        suspicious
-21:06.5   120.882  TCP      EXT_SERVER  22          10004_35    42403     15          8762        suspicious
-23:25.1   10.469   TCP      EXT_SERVER  22          10006_27    42818     21          3357        suspicious
-19:39.6   67.047   TCP      EXT_SERVER  22          10004_35    47285     11          5656        suspicious
-20:42.7   9.82     TCP      EXT_SERVER  22          10006_27    50947     20          3249        suspicious
-23:59.6   9.12     TCP      EXT_SERVER  22          10004_35    24503     7           2430        suspicious
-24:23.4   0        TCP      EXT_SERVER  23          10115_147   9925      1           40          suspicious
-21:40.2   5.11     TCP      EXT_SERVER  53610       10117_200   443       12          1710        suspicious
-21:36.5   11.631   TCP      EXT_SERVER  22          10006_27    25987     23          3526        suspicious
-23:16.6   120.922  TCP      EXT_SERVER  22          10004_35    31174     11          6723        suspicious
-25:52.0   0        TCP      EXT_SERVER  23          10119_237   18313     1           40          suspicious
-25:58.3   0        TCP      EXT_SERVER  3306        10120_156   58130     1           40          suspicious
-26:42.1   0        TCP      EXT_SERVER  5351        10122_113   42138     1           40          suspicious
-24:43.6   120.901  TCP      EXT_SERVER  22          10004_35    25906     5           374         suspicious
-26:59.4   0        TCP      EXT_SERVER  7547        10123_83    48981     1           40          suspicious
-26:53.4   16.939   TCP      EXT_SERVER  22          10004_35    11191     11          4598        suspicious
-24:19.7   8.15     TCP      EXT_SERVER  22          10006_27    29826     20          3249        suspicious
-25:26.3   120.882  TCP      EXT_SERVER  22          10004_35    17427     13          8533        suspicious
-27:49.0   0.026    TCP      EXT_SERVER  3397        10081_11    59432     1           40          suspicious
-25:13.5   8.823    TCP      EXT_SERVER  22          10006_27    10590     19          3185        suspicious
-28:55.5   0        TCP      EXT_SERVER  5358        10124_232   37541     1           40          suspicious
-28:50.1   10.696   TCP      EXT_SERVER  22          10006_27    43582     21          3357        suspicious
-26:06.4   9.972    TCP      EXT_SERVER  22          10006_27    34939     20          3289        suspicious
-30:49.7   30.998   TCP      EXT_SERVER  22          10125_244   32205     6           264         suspicious
-29:32.2   0        TCP      EXT_SERVER  8080        10126_144   50012     1           40          suspicious
-27:39.2   120.865  TCP      EXT_SERVER  22          10004_35    14358     9           2517        suspicious
+ 5:56.3   0        TCP      EXT_SERVER  23          10093_191   37891     1           40          suspicious
+ 5:57.0   0        TCP      EXT_SERVER  3306        10094_164   35264     1           40          suspicious
+ 6:12.6   12.747   TCP      EXT_SERVER  22          10001_123   4877      18          2985        suspicious
+ 6:29.3   11.946   TCP      EXT_SERVER  22          10004_35    14238     4           281         suspicious
+ 6:44.5   0        TCP      EXT_SERVER  5358        10096_213   50447     1           40          suspicious
+ 3:37.9   9.426    TCP      EXT_SERVER  22          10006_27    54348     19          3185        suspicious
+ 7:03.4   13.99    TCP      EXT_SERVER  22          10001_123   3549      19          3093        suspicious
+ 7:09.0   10.602   TCP      EXT_SERVER  22          10008_114   53476     20          3249        suspicious
+ 7:23.8   10.064   TCP      EXT_SERVER  22          10006_27    50171     20          3249        suspicious
+ 4:32.7   9.311    TCP      EXT_SERVER  22          10006_27    47044     19          3185        suspicious
+ 7:32.2   17.928   TCP      EXT_SERVER  22          10001_123   3278      20          3065        suspicious
+ 4:56.5   9.948    TCP      EXT_SERVER  22          10008_104   41009     19          3185        suspicious
+ 5:06.0   10.711   TCP      EXT_SERVER  22          10008_104   57713     20          4213        suspicious
+ 5:16.4   10.213   TCP      EXT_SERVER  22          10008_104   47514     19          3185        suspicious
+ 8:21.6   9.423    TCP      EXT_SERVER  22          10054_224   56766     20          3249        suspicious
+ 5:27.2   9.251    TCP      EXT_SERVER  22          10006_27    48162     19          3197        suspicious
+ 5:35.9   8.997    TCP      EXT_SERVER  22          10008_104   46244     19          3185        suspicious
+ 5:44.5   10.264   TCP      EXT_SERVER  22          10008_104   54373     19          3185        suspicious
+ 5:54.4   9.343    TCP      EXT_SERVER  22          10008_104   37258     19          3185        suspicious
+ 8:51.9   15.067   TCP      EXT_SERVER  22          10001_123   4966      20          3065        suspicious
+ 6:03.4   9.745    TCP      EXT_SERVER  22          10008_104   42799     19          3185        suspicious
+ 6:12.8   10.112   TCP      EXT_SERVER  22          10008_104   50874     19          3185        suspicious
+ 6:22.6   10.144   TCP      EXT_SERVER  22          10008_104   32814     19          3185        suspicious
+ 9:17.1   15.903   TCP      EXT_SERVER  22          10001_123   1940      19          3037        suspicious
+ 6:25.1   9.686    TCP      EXT_SERVER  22          10006_27    17891     19          3185        suspicious
+ 6:27.1   9.834    TCP      EXT_SERVER  22          10054_224   36776     19          3185        suspicious
+ 9:36.0   0        TCP      EXT_SERVER  23          10098_166   9270      1           40          suspicious
+ 6:32.4   9.88     TCP      EXT_SERVER  22          10008_104   40169     19          3185        suspicious
+ 6:36.6   9.683    TCP      EXT_SERVER  22          10054_224   50597     19          3185        suspicious
+ 9:38.7   10.467   TCP      EXT_SERVER  22          10054_224   48212     20          3249        suspicious
+ 6:41.9   9.182    TCP      EXT_SERVER  22          10008_104   47358     19          3185        suspicious
+ 9:42.2   9.963    TCP      EXT_SERVER  22          10008_114   47184     20          3249        suspicious
+ 6:46.0   9.669    TCP      EXT_SERVER  22          10054_224   60544     19          3185        suspicious
+ 6:50.8   9.865    TCP      EXT_SERVER  22          10008_104   52894     19          3185        suspicious
+ 9:46.0   14.513   TCP      EXT_SERVER  22          10001_123   2237      19          3077        suspicious
+ 6:55.3   9.553    TCP      EXT_SERVER  22          10054_224   45608     19          3185        suspicious
+ 7:00.3   10.395   TCP      EXT_SERVER  22          10008_104   58473     19          3185        suspicious
+ 7:04.5   10.048   TCP      EXT_SERVER  22          10054_224   56887     19          3185        suspicious
+ 0:04.5   14.628   TCP      EXT_SERVER  22          10001_123   4913      19          3093        suspicious
+ 7:10.3   9.8      TCP      EXT_SERVER  22          10008_104   38580     19          3185        suspicious
+ 0:11.1   9.453    TCP      EXT_SERVER  22          10006_27    26774     20          3249        suspicious
+ 0:12.4   9.839    TCP      EXT_SERVER  22          10004_35    34592     9           3378        suspicious
+ 0:23.6   120.485  TCP      EXT_SERVER  22          10004_35    33905     12          8481        suspicious
+ 7:14.2   9.816    TCP      EXT_SERVER  22          10054_224   40646     19          3185        suspicious
+ 8:01.9   145.723  TCP      EXT_SERVER  22          10004_35    33239     8           563         suspicious
+ 7:19.3   9.652    TCP      EXT_SERVER  22          10008_114   37452     19          3185        suspicious
+ 7:19.8   9.272    TCP      EXT_SERVER  22          10008_104   47394     19          3185        suspicious
+ 7:23.7   9.323    TCP      EXT_SERVER  22          10054_224   55085     19          3185        suspicious
+ 0:36.5   0        TCP      EXT_SERVER  23          10100_221   47211     1           40          suspicious
+ 7:28.6   9.057    TCP      EXT_SERVER  22          10008_114   46426     19          3185        suspicious
+ 7:28.7   9.891    TCP      EXT_SERVER  22          10008_104   53444     19          3185        suspicious
+ 7:32.7   9.896    TCP      EXT_SERVER  22          10054_224   35267     19          3185        suspicious
+ 0:43.6   1.015    TCP      EXT_SERVER  445         10101_33    3737      3           120         suspicious
+ 7:37.4   10.516   TCP      EXT_SERVER  22          10008_114   53374     20          4085        suspicious
+ 7:38.3   9.827    TCP      EXT_SERVER  22          10008_104   34715     19          3185        suspicious
+ 7:42.3   9.936    TCP      EXT_SERVER  22          10054_224   45088     19          3185        suspicious
+ 7:47.6   10.096   TCP      EXT_SERVER  22          10008_114   34769     19          3185        suspicious
+ 7:47.8   9.787    TCP      EXT_SERVER  22          10008_104   42874     19          3185        suspicious
+ 9:28.2   89.394   TCP      EXT_SERVER  22          10004_35    29141     14          8597        suspicious
+ 7:51.9   10.479   TCP      EXT_SERVER  22          10054_224   55126     19          3185        suspicious
+ 0:51.0   14.244   TCP      EXT_SERVER  22          10001_123   4936      19          3093        suspicious
+ 7:57.3   9.56     TCP      EXT_SERVER  22          10008_114   44139     19          3185        suspicious
+ 7:57.2   9.79     TCP      EXT_SERVER  22          10008_104   51519     19          3185        suspicious
+ 8:02.1   9.775    TCP      EXT_SERVER  22          10054_224   37450     19          3185        suspicious
+ 8:06.6   9.709    TCP      EXT_SERVER  22          10008_114   51413     19          3185        suspicious
+ 8:06.7   10.076   TCP      EXT_SERVER  22          10008_104   59550     19          3185        suspicious
+ 8:11.5   10.47    TCP      EXT_SERVER  22          10054_224   46460     18          3201        suspicious
+ 1:10.9   13.595   TCP      EXT_SERVER  22          10001_123   4365      18          2985        suspicious
+ 8:16.0   9.975    TCP      EXT_SERVER  22          10008_114   59145     19          3185        suspicious
+ 8:16.4   11.008   TCP      EXT_SERVER  22          10008_104   41153     19          3185        suspicious
+ 8:25.6   9.203    TCP      EXT_SERVER  22          10008_114   37731     19          3185        suspicious
+ 8:20.3   16.544   TCP      EXT_SERVER  22          10006_27    25646     30          6665        suspicious
+ 8:30.7   9.902    TCP      EXT_SERVER  22          10054_224   35466     19          3185        suspicious
+ 1:26.5   14.31    TCP      EXT_SERVER  22          10001_123   4116      18          2985        suspicious
+ 8:34.5   10.44    TCP      EXT_SERVER  22          10008_114   41598     19          3185        suspicious
+ 8:40.3   10.305   TCP      EXT_SERVER  22          10054_224   43742     19          3185        suspicious
+ 1:39.4   11.504   TCP      EXT_SERVER  22          10004_35    37796     9           4462        suspicious
+ 8:44.6   9.417    TCP      EXT_SERVER  22          10008_114   49564     19          3185        suspicious
+ 8:50.3   10.882   TCP      EXT_SERVER  22          10054_224   55612     19          3185        suspicious
+ 8:53.7   9.673    TCP      EXT_SERVER  22          10008_114   56437     19          3185        suspicious
+ 9:00.8   10.219   TCP      EXT_SERVER  22          10054_224   39914     19          3185        suspicious
+ 9:03.1   11.033   TCP      EXT_SERVER  22          10008_114   34757     19          3185        suspicious
+ 7:17.3   121.852  TCP      EXT_SERVER  22          10004_35    22116     10          1675        suspicious
+ 9:10.7   10.099   TCP      EXT_SERVER  22          10054_224   50239     19          3185        suspicious
+ 9:13.8   10.42    TCP      EXT_SERVER  22          10008_114   47225     19          3185        suspicious
+ 9:18.1   10.071   TCP      EXT_SERVER  22          10006_27    44062     19          3185        suspicious
+ 9:20.5   9.754    TCP      EXT_SERVER  22          10054_224   58757     19          3185        suspicious
+ 2:24.3   5.888    TCP      EXT_SERVER  22          10004_35    43123     8           2437        suspicious
+ 9:23.9   9.621    TCP      EXT_SERVER  22          10008_114   58211     19          3185        suspicious
+ 9:29.9   9.131    TCP      EXT_SERVER  22          10054_224   39348     19          3185        suspicious
+ 9:33.2   9.889    TCP      EXT_SERVER  22          10008_114   38760     20          3237        suspicious
+ 2:28.9   14.784   TCP      EXT_SERVER  22          10001_123   1822      21          4081        suspicious
+ 9:48.9   9.452    TCP      EXT_SERVER  22          10054_224   59237     19          3185        suspicious
+ 9:51.8   9.752    TCP      EXT_SERVER  22          10008_114   60045     19          3185        suspicious
+ 0:56.2   125.755  TCP      EXT_SERVER  22          10004_35    30333     8           537         suspicious
+ 0:01.2   10.609   TCP      EXT_SERVER  22          10008_114   45959     19          3185        suspicious
+ 0:11.5   10.061   TCP      EXT_SERVER  22          10008_114   33597     19          3185        suspicious
+ 3:08.5   13.088   TCP      EXT_SERVER  22          10001_123   4628      18          2985        suspicious
+ 3:24.1   0.021    TCP      EXT_SERVER  3390        10081_11    59432     1           40          suspicious
+ 0:21.3   9.902    TCP      EXT_SERVER  22          10008_114   44348     19          3185        suspicious
+ 3:32.0   0        TCP      EXT_SERVER  23          10103_238   30631     1           40          suspicious
+ 0:30.8   9.945    TCP      EXT_SERVER  22          10008_114   53833     19          3185        suspicious
+ 3:51.7   14.756   TCP      EXT_SERVER  22          10001_123   3354      19          3037        suspicious
+ 1:10.6   8.691    TCP      EXT_SERVER  22          10006_27    16539     19          3185        suspicious
+ 4:41.9   0        TCP      EXT_SERVER  5358        10104_1     38841     1           40          suspicious
+ 4:56.8   0        TCP      EXT_SERVER  23          10105_52    4063      1           40          suspicious
+ 4:57.3   0.011    TCP      EXT_SERVER  23          10106_26    52401     1           40          suspicious
+ 4:55.8   123.911  TCP      EXT_SERVER  22          10004_35    13129     6           385         suspicious
+ 2:05.2   8.241    TCP      EXT_SERVER  22          10006_27    24315     19          3185        suspicious
+ 3:08.8   126.16   TCP      EXT_SERVER  22          10004_35    53718     11          779         suspicious
+ 5:05.3   14.245   TCP      EXT_SERVER  22          10001_123   4789      18          2985        suspicious
+ 7:12.1   30.997   TCP      EXT_SERVER  22          10032_241   34528     6           264         suspicious
+ 5:32.2   15.199   TCP      EXT_SERVER  22          10001_123   1979      19          3093        suspicious
+ 3:51.6   123.152  TCP      EXT_SERVER  22          10004_35    60335     6           361         suspicious
+ 7:28.4   30.998   TCP      EXT_SERVER  22          10028_233   7839      6           264         suspicious
+ 6:03.3   0        TCP      EXT_SERVER  23          10107_191   40406     1           40          suspicious
+ 5:50.0   14.127   TCP      EXT_SERVER  22          10001_123   3025      18          2985        suspicious
+ 6:03.0   7.554    TCP      EXT_SERVER  22          10004_35    61440     7           3423        suspicious
+ 3:04.1   9.038    TCP      EXT_SERVER  22          10006_27    62741     19          3185        suspicious
+ 4:35.9   121.9    TCP      EXT_SERVER  22          10004_35    64110     6           401         suspicious
+ 6:54.9   0        TCP      EXT_SERVER  5358        10109_224   45229     1           40          suspicious
+ 6:44.9   13.028   TCP      EXT_SERVER  22          10001_123   4989      18          2985        suspicious
+ 3:59.3   9.606    TCP      EXT_SERVER  22          10006_27    14974     19          3185        suspicious
+ 8:45.9   30.999   TCP      EXT_SERVER  22          10004_35    11697     6           360         suspicious
+ 5:19.6   120.472  TCP      EXT_SERVER  22          10004_35    63685     14          8681        suspicious
+ 7:26.7   14.726   TCP      EXT_SERVER  22          10001_123   2973      21          3117        suspicious
+ 8:01.6   0        TCP      EXT_SERVER  23          10110_122   13014     1           40          suspicious
+ 4:57.0   9.082    TCP      EXT_SERVER  22          10006_27    53892     19          3185        suspicious
+ 8:19.2   12.286   TCP      EXT_SERVER  22          10001_123   3405      18          2985        suspicious
+ 8:33.8   13.85    TCP      EXT_SERVER  22          10001_123   3365      19          3033        suspicious
+ 8:20.7   32.147   TCP      EXT_SERVER  22          10004_35    41226     7           1421        suspicious
+ 5:55.5   9.461    TCP      EXT_SERVER  22          10006_27    34039     20          3249        suspicious
+ 8:53.5   14.756   TCP      EXT_SERVER  22          10001_123   2680      20          3145        suspicious
+ 9:10.7   13.287   TCP      EXT_SERVER  22          10001_123   3966      20          3065        suspicious
+ 7:30.2   121.801  TCP      EXT_SERVER  22          10004_35    62904     6           1337        suspicious
+ 6:58.1   9.412    TCP      EXT_SERVER  22          10006_27    38834     20          3249        suspicious
+ 0:10.7   13.521   TCP      EXT_SERVER  22          10001_123   3204      18          2985        suspicious
+ 0:22.2   5.916    TCP      EXT_SERVER  22          10004_35    37648     6           2354        suspicious
+ 8:57.0   120.456  TCP      EXT_SERVER  22          10004_35    55506     13          7899        suspicious
+ 7:49.1   9.32     TCP      EXT_SERVER  22          10006_27    55919     20          3305        suspicious
+ 1:06.2   14.087   TCP      EXT_SERVER  22          10001_123   2116      18          2985        suspicious
+ 1:23.6   0.301    TCP      EXT_SERVER  22          10001_123   4964      1           48          suspicious
+ 1:31.2   0        TCP      EXT_SERVER  23          10111_226   3666      1           40          suspicious
+ 6:47.0   123.097  TCP      EXT_SERVER  22          10004_35    10434     8           1489        suspicious
+ 8:45.2   9.122    TCP      EXT_SERVER  22          10006_27    33396     20          3305        suspicious
+ 1:49.7   9.36     TCP      EXT_SERVER  22          10004_35    35966     12          5234        suspicious
+ 2:02.2   0        TCP      EXT_SERVER  7547        10112_232   22755     1           40          suspicious
+ 1:52.2   15.454   TCP      EXT_SERVER  22          10001_123   1079      18          2985        suspicious
+ 2:11.2   0        TCP      EXT_SERVER  5358        10113_226   7645      1           40          suspicious
+ 2:25.9   0        TCP      EXT_SERVER  5358        10114_203   38661     1           40          suspicious
+ 2:18.5   15.683   TCP      EXT_SERVER  22          10001_123   1439      19          3077        suspicious
+ 2:36.0   2.935    TCP      EXT_SERVER  22          10001_123   1560      8           2245        suspicious
+ 2:33.1   6.379    TCP      EXT_SERVER  22          10004_35    31093     9           4457        suspicious
+ 2:30.0   11.413   TCP      EXT_SERVER  22          10006_27    58640     22          3489        suspicious
+ 9:44.8   9.062    TCP      EXT_SERVER  22          10006_27    26051     19          3185        suspicious
+ 1:06.5   120.882  TCP      EXT_SERVER  22          10004_35    42403     15          8762        suspicious
+ 3:25.1   10.469   TCP      EXT_SERVER  22          10006_27    42818     21          3357        suspicious
+ 9:39.6   67.047   TCP      EXT_SERVER  22          10004_35    47285     11          5656        suspicious
+ 0:42.7   9.82     TCP      EXT_SERVER  22          10006_27    50947     20          3249        suspicious
+ 3:59.6   9.12     TCP      EXT_SERVER  22          10004_35    24503     7           2430        suspicious
+ 4:23.4   0        TCP      EXT_SERVER  23          10115_147   9925      1           40          suspicious
+ 1:40.2   5.11     TCP      EXT_SERVER  53610       10117_200   443       12          1710        suspicious
+ 1:36.5   11.631   TCP      EXT_SERVER  22          10006_27    25987     23          3526        suspicious
+ 3:16.6   120.922  TCP      EXT_SERVER  22          10004_35    31174     11          6723        suspicious
+ 5:52.0   0        TCP      EXT_SERVER  23          10119_237   18313     1           40          suspicious
+ 5:58.3   0        TCP      EXT_SERVER  3306        10120_156   58130     1           40          suspicious
+ 6:42.1   0        TCP      EXT_SERVER  5351        10122_113   42138     1           40          suspicious
+ 4:43.6   120.901  TCP      EXT_SERVER  22          10004_35    25906     5           374         suspicious
+ 6:59.4   0        TCP      EXT_SERVER  7547        10123_83    48981     1           40          suspicious
+ 6:53.4   16.939   TCP      EXT_SERVER  22          10004_35    11191     11          4598        suspicious
+ 4:19.7   8.15     TCP      EXT_SERVER  22          10006_27    29826     20          3249        suspicious
+ 5:26.3   120.882  TCP      EXT_SERVER  22          10004_35    17427     13          8533        suspicious
+ 7:49.0   0.026    TCP      EXT_SERVER  3397        10081_11    59432     1           40          suspicious
+ 5:13.5   8.823    TCP      EXT_SERVER  22          10006_27    10590     19          3185        suspicious
+ 8:55.5   0        TCP      EXT_SERVER  5358        10124_232   37541     1           40          suspicious
+ 8:50.1   10.696   TCP      EXT_SERVER  22          10006_27    43582     21          3357        suspicious
+ 6:06.4   9.972    TCP      EXT_SERVER  22          10006_27    34939     20          3289        suspicious
+ 0:49.7   30.998   TCP      EXT_SERVER  22          10125_244   32205     6           264         suspicious
+ 9:32.2   0        TCP      EXT_SERVER  8080        10126_144   50012     1           40          suspicious
+ 7:39.2   120.865  TCP      EXT_SERVER  22          10004_35    14358     9           2517        suspicious
  
 180 results  
  
  
-[+]  Results written to  output/example.csv 
+[+]  Results written to  output/myfile.csv  
