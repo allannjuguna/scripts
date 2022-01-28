@@ -417,3 +417,5 @@ echo -e "$yellow$counter results $end"
 echo " " 
 echo " " 
 echo -e "$success Results written to $yellow $OUTFILE $end"
+
+# done
