@@ -82,7 +82,7 @@ getvalue(){
 
 # STEP : Prompting the user to choose a log file to analyse e.g serv_acc_log_03042020.csv
 echo ""
-echo -e "$input Please enter logfile name to analyse or All to analyse all files : $end" 
+echo -e "$input Please enter logfile name to analyse or ALL to analyse all files : $end" 
 read -p "FILENAME : " FILENAME
 echo ""
 
