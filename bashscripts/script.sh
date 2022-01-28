@@ -113,6 +113,7 @@ echo ""
 
 
 OUTFILE="$OUTFOLDER/$RESFILE"
+touch $OUTFILE 2>/dev/null
 TEMPFILE="$OUTFOLDER/tempfile.txt"
 
 # Making sure the TEMPFILE  and $OUTFILE do not exist (if they exist ,they may interfere with the results)
