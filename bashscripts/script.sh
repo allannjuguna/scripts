@@ -86,7 +86,8 @@ echo -e "$input Please enter logfile name to analyse or All to analyse all files
 read -p "FILENAME : " FILENAME
 echo ""
 
-if [[ $FILENAME == "All" ]]
+
+if [[ `echo $FILENAME | awk '{print toupper($0)}'` == "ALL" ]]
 then
 	echo -e "$success Analysing $yellow $FILENAME log files $end"
 	FILENAME="*.csv"
