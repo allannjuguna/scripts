@@ -96,9 +96,7 @@ else
 	echo -e "$success Analysing file $yellow $FILENAME $end"
 fi
 
-
 # STEP : Prompting the user to enter the outfile
-
 # Folder to store the outfiles
 OUTFOLDER="output"
 
@@ -111,7 +109,6 @@ echo -e "$input Please enter a filename to save the results (eg myfile.csv): $en
 RESFILE="example.csv"
 read -p "FILENAME : " RESFILE
 echo ""
-
 
 OUTFILE="$OUTFOLDER/$RESFILE"
 touch $OUTFILE 2>/dev/null
@@ -134,19 +131,15 @@ echo -e "      EXAMPLE : $EXAMPLE )"
 # Fetching the search criteria
 read -p "Search: " SEARCH
 
-
 # Displays Raw input - before input sanitization
 debug " $item First : $SEARCH $end"
-
 
 # Sanitizing the input
 # Replacing " and " with "," - Helps in determining criteria eg protocol,bytes,packets e.t.c
 SEARCH=`echo $SEARCH | awk '{print toupper($0)}' | sed s/" AND "/","/g `
 
-
 # Displays input after input sanitization and minor fixes - like making it case insensitive
 debug " $item Second : $SEARCH $end"
-
 
 # First splitting into an array
 IFS=',' read -r -a array <<< "$SEARCH"
@@ -154,10 +147,8 @@ IFS=',' read -r -a array <<< "$SEARCH"
 # Counting the number of field criterias/parameters
 criteria_count="${#array[@]}"
 
-
 echo ""
 echo -e "$success $criteria_count criterias present $end"
-
 
 # SImple function to add one to a counter variable - helps in counting records
 addone() {
