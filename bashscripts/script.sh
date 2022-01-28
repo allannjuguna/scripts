@@ -1,8 +1,11 @@
 #! /bin/bash
 
-# NAME : 
-# STUDENT NUMBER :
-# 
+
+#######################################################################
+# NAME :                                                              #
+# STUDENT NUMBER                                                      #
+#                                                                     #
+#######################################################################
 
 # Color Declarations
 white="\033[0m"
@@ -24,23 +27,16 @@ debug(){
 	true
 	# echo -e "${1}"
 }
-# 
 
 
 # Deletes a file or it's contents
 clearfile(){
-
 	rm "${1}" 2>/dev/null
 }
 
 
 debug "$success Starting the program $end"]
 echo ""
-
-
-
-
-
 
 
 # Shows the available log files
@@ -50,8 +46,6 @@ echo "--------------------"
 for logfile in $AVAILABLE_LOGFILES;do
 	echo -e "$item$logfile $end" 
 done
-
-
 
 # Function to check whether a file exists - If a file does not exist,the program while exit
 ret=0
@@ -92,9 +86,6 @@ echo -e "$input Please enter logfile name to analyse or All to analyse all files
 read -p "FILENAME : " FILENAME
 echo ""
 
-
-# FILENAME="serv_acc_log_03042020.csv"
-
 if [[ $FILENAME == "All" ]]
 then
 	echo -e "$success Analysing $yellow $FILENAME log files $end"
@@ -124,16 +115,13 @@ echo ""
 OUTFILE="$OUTFOLDER/$RESFILE"
 TEMPFILE="$OUTFOLDER/tempfile.txt"
 
-# Making sure the TEMPFILE  and $OUTFILE do not exists (if they exist ,they may interfere with the results)
+# Making sure the TEMPFILE  and $OUTFILE do not exist (if they exist ,they may interfere with the results)
 clearfile $TEMPFILE 
 clearfile $OUTFILE
 
 # This header format will be used to create the results file
 HEADER="DATE,DURATION,PROTOCOL,SRC IP,SRC PORT,DEST IP,DEST PORT,PACKETS,BYTES,FLOWS,FLAGS,TOS,CLASS"
 echo -e "$success Results will be saved to : $yellow $OUTFILE $end"
-
-
-
 
 
 # ENTERING THE SEARCH CRITERIA (SEARCH STRING)
@@ -145,43 +133,40 @@ echo -e "      EXAMPLE : $EXAMPLE )"
 read -p "Search: " SEARCH
 
 
-# Displays Raw input
+# Displays Raw input - before input sanitization
 debug " $item First : $SEARCH $end"
 
 
-
+# Sanitizing the input
 # Replacing " and " with "," - Helps in determining criteria eg protocol,bytes,packets e.t.c
 SEARCH=`echo $SEARCH | awk '{print toupper($0)}' | sed s/" AND "/","/g `
 
 
-# Displays input after minor fixes - like making it case insensitive
+# Displays input after input sanitization and minor fixes - like making it case insensitive
 debug " $item Second : $SEARCH $end"
 
 
 # First splitting into an array
 IFS=',' read -r -a array <<< "$SEARCH"
 
-
 # Counting the number of field criterias/parameters
 criteria_count="${#array[@]}"
-
 
 
 echo ""
 echo -e "$success $criteria_count criterias present $end"
 
 
-
-# SImple function to add one to a counter variable
+# SImple function to add one to a counter variable - helps in counting records
 addone() {
 	counter=$1
 	counter=$(($counter + 1));
-
 }
 
 # The search criteria applies for protocal,src ip ,dest ip etc
 searchcriteria (){
 	counter=0
+	# Reading the input file(s)
 	CONTENTS=`cat $FILENAME | grep -iv "DATE,DURATION,PROTOCOL," | grep -i "suspicious"`
 	criteria1=$1
 	fieldnum=$2
@@ -195,6 +180,7 @@ searchcriteria (){
 
 	# Searching for the params in the file
 	# echo ""
+	# Reading the file
 	while read -r line;
 	do  
 		awk="awk -F \",\" '{print \$$fieldnum}'"
@@ -347,36 +333,25 @@ for index in ${!array[@]};do
 	then
 		searchcriteria $criteria1 3 no
 
-
-
 	# Dealing with srcip
 	elif [[ $criteria1 == *"SRCIP"* ]]
 	then
-
 		searchcriteria $criteria1 4 no
-
-		
 
 	# Dealing with DEST IP
 	elif [[ $criteria1 == *"DESTIP"* ]]
 	then
 		searchcriteria $criteria1 6 no
 
-
 	# Dealing with PACKETS
 	elif [[ $criteria1 == *"PACKETS"* ]]
 	then
-		# searchpacketscriteria "${original}" 8 yes
-		# sleep 20
 		searchpacketscriteria "${criteria}" 8 match
-
-
 
 	# Dealing with BYTES
 	elif [[ $criteria1 == *"BYTES"* ]]
 	then
 		searchpacketscriteria "${criteria}" 9 match
-
 
 	else
 		echo -e "$fail Invalid Search string $end"
@@ -385,34 +360,14 @@ for index in ${!array[@]};do
 done
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 echo ""
 
 
-
-
-
-
-
+# Writing the results to a file
 echo ""
 echo $HEADER > $OUTFILE
 cat $TEMPFILE >> $OUTFILE
 clearfile $TEMPFILE
-
 
 
 # FUNCTION TO CREATE COLUMNS
@@ -441,6 +396,7 @@ formatline(){
 }
 
 
+# Reading the results from the output file
 
 echo -e "$success Showing Results"
 echo ""
