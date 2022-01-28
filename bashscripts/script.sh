@@ -413,4 +413,4 @@ echo " "
 echo " " 
 echo -e "$success Results written to $yellow $OUTFILE $end"
 
-# done
+# End of script
