@@ -256,6 +256,7 @@ searchpacketscriteria(){
 
 	else
 		echo -e "$fail Invalid sign: Make sure the value is in the format \`VALUE_HERE\` $end"
+		echo -e "$fail Invalid sign: For bytes and packets : write in the format PACKETS > \`10\` or  $end"
 		exit
 	fi
 
