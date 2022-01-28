@@ -264,7 +264,7 @@ searchpacketscriteria(){
 		# "Greater sign detected"
 
 	else
-		echo -e "$fail Invalid sign $end"
+		echo -e "$fail Invalid sign: Make sure the value is in the format \`VALUE_HERE\` $end"
 		exit
 	fi
 
