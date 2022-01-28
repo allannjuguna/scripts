@@ -232,6 +232,10 @@ searchpacketscriteria(){
 	operator=`echo "${params[1]}"| sed s/" "/""/g | awk '{ print tolower($0) }' ` 
 	value=`echo "${params[2]}" | sed s/'\`'/''/g | sed s/" "/""/g `
 
+	debug ""
+	echo " $criteria ($white FIELD=$field,VALUE=$value,OPERATOR=$operator,SIGN=$sign,Mustmatch=$mustmatch)"
+	echo "==============================================================================================="
+	echo ""
 
 	# Finding the operator to use for comparison based on user input
 	if [[ $operator == "<" || $operator == *"-lt"* ]]
@@ -259,10 +263,6 @@ searchpacketscriteria(){
 		exit
 	fi
 
-	debug ""
-	debug " $criteria ($white FIELD=$field,VALUE=$value,OPERATOR=$operator,SIGN=$sign,Mustmatch=$mustmatch)"
-	debug "==============================================================================================="
-	debug ""
 
 
 	while read -r line;
