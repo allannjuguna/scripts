@@ -219,7 +219,6 @@ searchcriteria (){
 	debug""
 	counter=0
 
-	# sleep 30
 }
 
 
@@ -315,7 +314,6 @@ searchpacketscriteria(){
 	debug ""
 	counter=0
 }
-
 # End of function
 
 
@@ -359,9 +357,7 @@ for index in ${!array[@]};do
 	fi
 done
 
-
 echo ""
-
 
 # Writing the results to a file
 echo ""
@@ -397,7 +393,6 @@ formatline(){
 
 
 # Reading the results from the output file
-
 echo -e "$success Showing Results"
 echo ""
 # SHOWING THE COLUMNS FIRST
