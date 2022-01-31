@@ -294,10 +294,6 @@ QueryStandardPackets(){
 		exit 
 	fi
 
-	checkErr ""
-	checkErr " $criteria ($WHITE column=$column,VALUE=$value,OPERATOR=$operator,SIGN=$sign,Mustmatch=$caseSensitive)"
-	checkErr "==============================================================================================="
-	checkErr ""
 	packetRecords=0
 # Reading the results in the file
 	while read -r string;
