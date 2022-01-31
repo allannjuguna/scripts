@@ -24,18 +24,6 @@ COLUMNS="${YELLOW}"
 Mode="off"
 
 # ::FUNCTIONS
-# Checking whether the program is being run in debug mode
-checkErr() {
-	string="${1}"
-	if [[ $Mode == "debug" ]]
-	then
-		echo -e -n "[DEBUG] "
-		echo -e $string
-	else
-		pass # this will do nothing
-	fi
-}
-
 # Increments the tally variable for summing up totals
 increment() {
 	tally=$1
