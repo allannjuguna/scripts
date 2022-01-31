@@ -216,7 +216,7 @@ searchcriteria (){
 }
 
 
-
+breakpoint
 # This search applies for packets and bytes
 searchpacketscriteria(){
 	counter=0
