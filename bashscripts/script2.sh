@@ -364,7 +364,7 @@ while true;do
 	done <<< `cat $outFile | grep -iv "DURATION" || newline `
 	newline 
 	tally=$(($tally - 1));
-	echo -e "$YELLOW $tally results.  $WHITE"
+	# echo -e "$YELLOW $tally results.  $WHITE"
 	newline 
 	newline 
 	echo -e "$PASS Results written to $YELLOW $outFile  $WHITE"
