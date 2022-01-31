@@ -114,6 +114,8 @@ while true;do
 		echo -e "$index $LIST ${logfile_array[index]}  $WHITE" 
 	done
 	newline
+	echo -e "Press CTRL + C to quit"
+	newline
 
 	# Accepting input from the user 
 	echo -e "$READLINE Enter the number of the logfile to analyse :  $WHITE" 
