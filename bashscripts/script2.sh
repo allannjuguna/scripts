@@ -373,9 +373,7 @@ do
 done <<< `cat $outFile | grep -iv "DURATION" || newline `
 newline 
 tally=$(($tally - 1));
-echo -e "$YELLOW $tally results. $packetRecords Packet Records  $WHITE"
+echo -e "$YELLOW $tally results.  $WHITE"
 newline 
 newline 
 echo -e "$PASS Results written to $YELLOW $outFile  $WHITE"
-
-# End of script
