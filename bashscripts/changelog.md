@@ -12,7 +12,7 @@ Solution > Unnecessary fields have now been removed
 
 ## 3. How to run all search on all log files based on one field criteria
 ```
-Solution >
+Solution > Just set the filename to all
 
 Example : 
 
