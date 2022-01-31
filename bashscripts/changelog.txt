@@ -1,0 +1,62 @@
+ISSUES TO FIX
+
+1. Header should not show in output
+	Solution > Header has now been removed
+
+2. Output should only show PROTOCOL SRC_IP DEST_IP PACKETS BYTES
+	Solution > Unnecessary fields have now been removed
+	
+3. How to run all search on all log files based on one field criteria
+	Solution >
+
+	Example : 
+
+	[*]  Please enter logfile name to analyse or ALL to analyse all files :  
+	FILENAME : all
+
+	[+]  Analysing all log files  
+	[*]  Please enter a filename to save the results (eg myfile.csv):  
+	FILENAME : outfile.csv
+
+	[+]  Results will be saved to :  output/outfile.csv  
+	[*]  Please choose one or more field criteria (e.g PROTOCOL=`TCP`) :  
+	      EXAMPLE : PROTOCOL=`TCP` and SRC IP=`ext` and DEST IP=`10127` and PACKETS > `10` )
+	
+	Search: PROTOCOL=`TCP` 
+
+
+4. How to use -lt,!(-eq),(-eq) comparison operators
+Solution > 
+
+Example
+	Using one field criteria only
+		[*]  Please enter logfile name to analyse or ALL to analyse all files :  
+		FILENAME : serv_acc_log_21032020.csv
+
+		[+]  Analysing file  serv_acc_log_21032020.csv  
+		[*]  Please enter a filename to save the results (eg myfile.csv):  
+		FILENAME : something.csv
+
+		[+]  Results will be saved to :  output/something.csv  
+		[*]  Please choose one or more field criteria (e.g PROTOCOL=`TCP`) :  
+		      EXAMPLE : PROTOCOL=`TCP` and SRC IP=`ext` and DEST IP=`10127` and PACKETS > `10` )
+
+		Search: PACKETS -lt `10` 
+
+		or 
+
+		Search: PACKETS > `10` 
+
+		or
+
+		Search: PACKETS !(-eq) `10` 
+
+		or
+
+		Search: PACKETS (-eq) `10` 
+
+
+
+	Using more than one field criteria
+
+		Search : PROTOCOL=`TCP` and DEST IP=`10127` and PACKETS (-eq) `10` 

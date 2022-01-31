@@ -1,11 +1,13 @@
 #! /bin/bash
 
+# COPY ONE
 
 #######################################################################
 # NAME :                                                              #
 # STUDENT NUMBER                                                      #
 #                                                                     #
 #######################################################################
+
 
 # Color Declarations
 white="\033[0m"
@@ -106,7 +108,6 @@ mkdir -p $OUTFOLDER 2>/dev/null
 # Writing the results to a file
 echo -e "$input Please enter a filename to save the results (eg myfile.csv): $end"
 # Example resfile
-RESFILE="example.csv"
 read -p "FILENAME : " RESFILE
 echo ""
 
@@ -127,7 +128,7 @@ echo -e "$success Results will be saved to : $yellow $OUTFILE $end"
 EXAMPLE="PROTOCOL=\`TCP\` and SRC IP=\`ext\` and DEST IP=\`10127\` and PACKETS > \`10\`"
 echo -e "$input Please choose one or more field criteria (e.g PROTOCOL=\`TCP\`) : $end"
 echo -e "      EXAMPLE : $EXAMPLE )"
-
+echo -e ""
 # Fetching the search criteria
 read -p "Search: " SEARCH
 
@@ -362,9 +363,8 @@ clearfile $TEMPFILE
 
 # FUNCTION TO CREATE COLUMNS
 showcolumns(){
-	fmt="%-10s%-9s%-9s%-12s%-12s%-12s%-10s%-12s%-12s%-12s\n"
-	# DATE DURATION PROTOCOL SRC_IP SRC_PORT DEST_IP DEST_PORT PACKETS BYTES FLOWS FLAGS TOS CLASS
-	printf "$fmt" DATE DURATION PROTOCOL SRC_IP SRC_PORT DEST_IP DEST_PORT PACKETS BYTES CLASS
+	fmt="%-12s%-12s%-12s%-12s%-12s\n"
+	# printf "$fmt" PROTOCOL SRC_IP DEST_IP PACKETS BYTES
 	echo ""
 }
 
@@ -382,7 +382,7 @@ formatline(){
 	packets=`echo $line | awk -F "," '{print $8}'`
 	bytes=`echo $line | awk -F "," '{print $9}'`
 	class=`echo $line | awk -F "," '{print $13}'`
-	printf "$fmt" "$date" "$duration" "$protocol" "$src_ip" "$src_port" "$dest_ip" "$dest_port" "$packets" "$bytes" "$class"
+	printf "$fmt" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
 }
 
 
@@ -407,4 +407,5 @@ echo " "
 echo " " 
 echo -e "$success Results written to $yellow $OUTFILE $end"
 
-# End of script
+
+
