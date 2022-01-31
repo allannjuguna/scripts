@@ -5,10 +5,6 @@
 # Student Number: 
 # Date: 20/01/2022
 
-
-echo -e "This is the second script"
-
-
 # ::COLORS
 
 # Setting the colors
@@ -25,10 +21,7 @@ checkErr="${WHITE}[${BLUE}!${WHITE}] "
 COLUMNS="${YELLOW}"
 
 # ::CONSTANTS
-
-# Defining constants
 Mode="off"
-packetRecords=0
 
 # ::FUNCTIONS
 
