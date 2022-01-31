@@ -346,9 +346,6 @@ QueryStandardPackets(){
 	checkErr ""
 	tally=0
 }
-# End of function
-
-
 
 # Parameters can be SRC IP=`EXT_SERVER` or PROTOCOL=`ICMP` or BYTES > `10`
 # Splitting the query into individual parameters
@@ -356,10 +353,8 @@ IFS=',' read -r -a array <<< "$Query"
 
 # Counting the parameters ()
 params="${#array[@]}"
-
 newline
 echo -e "$PASS Parameter count : $params  $WHITE"
-
 
 # Iterating through the array of criterias
 for index in ${!array[@]};do
