@@ -298,7 +298,7 @@ while true;do
 		mv $outFile $tempFile 2>/dev/null
 		delete $outFile
 		FILE=$tempFile
-		echo -e "$BLUE         $column => $tally records found   $WHITE"
+		# echo -e "$BLUE         $column => $tally records found   $WHITE"
 		tally=0
 	}
 
