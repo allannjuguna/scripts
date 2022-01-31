@@ -24,7 +24,6 @@ COLUMNS="${YELLOW}"
 Mode="off"
 
 # ::FUNCTIONS
-
 # Checking whether the program is being run in debug mode
 checkErr() {
 	string="${1}"
@@ -66,7 +65,6 @@ fetchvalue(){
 	# Value can be TCP,EXT_SERVER etc
 	echo $value
 }
-
 
 # This function Deletes a file
 delete(){
@@ -181,18 +179,10 @@ echo -e ""
 
 # reading the Query 
 read -p "Your Query: " Query
-
 newline
-
-# Displays Raw input - before input sanitization
-checkErr " $LIST First : $Query  $WHITE"
 
 # Converting the query to uppercase - Making the query case insensitive
 Query=`echo $Query | awk '{print toupper($0)}' | sed s/" AND "/","/g `
-
-checkErr " $LIST Second : $Query  $WHITE"
-
-
 
 # Function for fetching columns such as protocal,dest ip,src ip
 QueryStandard (){
@@ -204,11 +194,6 @@ QueryStandard (){
 	caseSensitive=$3
 	column=$(fetchcolumn $standardA)
 	value=$(fetchvalue $standardA)
-	checkErr ""
-	checkErr " $criteria ($WHITE column=$column,VALUE=$value,Mustmatch=$caseSensitive)"
-	checkErr ""
-	checkErr "==============================================================================================="
-
 
 # Iterating through items in the source file
 	while read -r string;
