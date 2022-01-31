@@ -367,5 +367,6 @@ while true;do
 	newline 
 	echo -e "$PASS Results written to $YELLOW $outFile  $WHITE"
 
-
+	newline
+	newline
 done
