@@ -207,7 +207,6 @@ QueryStandard (){
 		then
 			if [[ $outval == "$value" ]]
 			then
-				checkErr "${string}"
 				echo "${string}" >> $outFile
 				increment $tally
 			else
@@ -216,7 +215,6 @@ QueryStandard (){
 		else
 			if [[ $outval == *"$value"* ]]
 			then
-				checkErr "${string}"
 				echo "${string}" >> $outFile
 				increment $tally
 			else
@@ -233,12 +231,9 @@ QueryStandard (){
 	echo -e "       $tally records  $WHITE"
 	newline
 	newline
-	checkErr""
 	tally=0
 
 }
-
-
 
 # For performing comparisons in packets and bytes
 QueryStandardPackets(){
@@ -292,8 +287,6 @@ QueryStandardPackets(){
 			if [[ $result == "pass" ]]
 			then
 				increment $tally
-				# checkErr "$outval $sign $value => $string"
-				checkErr "${string}"
 				echo "${string}" >> $outFile
 
 			else
@@ -303,8 +296,6 @@ QueryStandardPackets(){
 			if [[ $outval == *"$value"* ]]
 			then
 				increment $tally
-				# checkErr "$outval $sign $value => $string"
-				checkErr "${string}"
 				echo "${string}" >> $outFile
 			else
 				pass # this does nothing
@@ -317,7 +308,6 @@ QueryStandardPackets(){
 	delete $outFile
 	FILE=$tempFile
 	echo -e "$BLUE         $column => $tally records found   $WHITE"
-	checkErr ""
 	tally=0
 }
 
