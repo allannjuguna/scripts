@@ -359,6 +359,7 @@ echo ""
 echo $HEADER > $OUTFILE
 cat $TEMPFILE >> $OUTFILE
 clearfile $TEMPFILE
+echo "PROTOCOL,SRC IP,DEST IP,PACKETS,BYTES"> $TEMPFILE
 
 
 # FUNCTION TO CREATE COLUMNS
@@ -383,6 +384,7 @@ formatline(){
 	bytes=`echo $line | awk -F "," '{print $9}'`
 	class=`echo $line | awk -F "," '{print $13}'`
 	printf "$fmt" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
+	echo "$protocol,$src_ip,$dest_ip,$packets,$bytes" >> $TEMPFILE
 }
 
 
@@ -400,11 +402,12 @@ do
 	addone $counter
 	formatline "${line}"
 
-done <<< `cat $OUTFILE | grep -iv "DURATION" || echo "" `
+done <<< `cat $OUTFILE | grep -iv "PACKETS" || echo "" `
 echo " " 
 echo -e "$yellow$counter results $end"
 echo " " 
 echo " " 
+mv $TEMPFILE $OUTFILE
 echo -e "$success Results written to $yellow $OUTFILE $end"
 
 

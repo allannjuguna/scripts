@@ -109,11 +109,14 @@ while true;do
 	echo "...................."
 	newline
 
+
+
 	logfile_array+=("All logfiles")
 	for index in "${!logfile_array[@]}";do
 		echo -e "$index $LIST ${logfile_array[index]}  $WHITE" 
 	done
 	newline
+
 	echo -e "Press $YELLOW CTRL + C $WHITE to quit $WHITE"
 	newline
 
@@ -121,6 +124,7 @@ while true;do
 	echo -e "$READLINE Enter the number of the logfile to analyse :  $WHITE" 
 	# EXAMPLE index
 	read -p " NUMBER : " index
+	# index=0
 
 	# Fetching the file associated with that index from the array
 	FILE="${logfile_array[$index]}"
@@ -142,6 +146,7 @@ while true;do
 	echo -e "$READLINE Enter filename to save the results to (eg test.csv):  $WHITE"
 
 	#  demo save file
+	# saveFile="checklog.csv"
 	read -p "FILE : " saveFile
 
 	# Merging the file to the output directory
@@ -172,8 +177,23 @@ while true;do
 	read -p "Your Query: " Query
 	newline
 
+
+
+	if [[ `echo $Query | awk '{print toupper($0)}'` == *"FIND ALL MATCHES WHERE"* ]]
+	then
+		FILE="*.csv"
+		echo -e "$READLINE Searching all files $WHITE"
+			# ADVANCED FEATURE
+		echo
+		echo "ADVANCED : Selecting all logfiles enables the script to run searches on all available server access logs based on one (1) field criteria input, e.g., find all matches where PROTOCOL='\`TCP\` in all available log files"
+		echo
+		Query=`echo $Query | awk '{print toupper($0)}' | sed s/"FIND ALL MATCHES WHERE "/""/g `
+	else
+		true
+	fi
 	# Converting the query to uppercase - Making the query case insensitive
 	Query=`echo $Query | awk '{print toupper($0)}' | sed s/" AND "/","/g `
+
 
 	# Function for fetching columns such as protocal,dest ip,src ip
 	QueryStandard (){
@@ -311,6 +331,11 @@ while true;do
 	newline
 	echo -e "$PASS Parameter count : $params  $WHITE"
 
+	# ADVANCED FEATURE
+	echo
+	echo -e "Advanced Feature : Enable the log tool script to run searches on a single server access log of the user’s choice using both two (2) and three (3) field criteria inputs, e.g. find all matches where PROTOCOL=\`TCP\` and SRC IP=\`ext\` and PACKETS > \`10\`"
+	echo
+
 	# Iterating through the array of criterias
 	for index in ${!array[@]};do
 		criteria="${array[index]}"
@@ -333,16 +358,18 @@ while true;do
 		then
 			QueryStandardPackets "${criteria}" 9 yes
 		else
-			echo -e "$ERROR Invalid Field Name  $WHITE"
+			echo -e "$ERROR Invalid Field Name : $standardA $WHITE"
 			exit
 		fi
 	done
 
 	newline
 	newline
-	echo "DATE,DURATION,PROTOCOL,SRC IP,SRC PORT,DEST IP,DEST PORT,PACKETS,BYTES,FLOWS,FLAGS,TOS,CLASS"> $outFile
+	echo "PROTOCOL,SRC IP,DEST IP,PACKETS,BYTES"> $outFile
 	cat $tempFile >> $outFile
 	delete $tempFile
+	echo "PROTOCOL,SRC IP,DEST IP,PACKETS,BYTES"> $tempFile
+
 
 	columnOutput(){
 		string=$1
@@ -352,6 +379,7 @@ while true;do
 		packets=`echo $string | awk -F "," '{print $8}'`
 		bytes=`echo $string | awk -F "," '{print $9}'`
 		printf "%-12s%-12s%-12s%-12s%-12s\n" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
+		echo "$protocol,$src_ip,$dest_ip,$packets,$bytes" >> $tempFile
 	}
 
 	echo -e "$PASS Printing Results $WHITE"
@@ -361,12 +389,14 @@ while true;do
 	do
 		increment $tally
 		columnOutput "${string}"
-	done <<< `cat $outFile | grep -iv "DURATION" || newline `
+	done <<< `cat $outFile | grep -iv "PACKETS" || newline `
 	newline 
 	tally=$(($tally - 1));
 	# echo -e "$YELLOW $tally results.  $WHITE"
 	newline 
 	newline 
+	delete $outFile
+	mv $tempFile $outFile
 	echo -e "$PASS Results written to $YELLOW $outFile  $WHITE"
 
 	newline
