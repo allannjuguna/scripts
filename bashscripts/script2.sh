@@ -123,7 +123,15 @@ while true;do
 	echo -e "$READLINE Enter the number of the logfile to analyse :  $WHITE" 
 	# EXAMPLE index
 	read -p " NUMBER : " index
-	# index=0
+
+
+
+	if [[ $VAR =~ [0-9] ]];then
+		echo "Input contains number"
+	else
+		echo "Input contains non numerical value"
+	fi
+
 
 	# Fetching the file associated with that index from the array
 	FILE="${logfile_array[$index]}"
