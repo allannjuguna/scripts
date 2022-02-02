@@ -126,10 +126,12 @@ while true;do
 
 
 
-	if [[ $VAR =~ [0-9] ]];then
-		echo "Input contains number"
+	if [[ $index =~ [0-9] ]];then
+		# echo "Input contains number"
+		true
 	else
 		echo "Input contains non numerical value"
+		exit
 	fi
 
 
