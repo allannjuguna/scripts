@@ -158,6 +158,8 @@ while true;do
 	# saveFile="checklog.csv"
 	read -p "FILE : " saveFile
 
+
+	echo "savefile =$saveFile"
 	# checking whether a similar file exists
 	if [[ -f "${saveFile}" ]]; then
 		echo -e "$ERROR Exitting . $saveFile already exists. Choose a unique name $WHITE"
