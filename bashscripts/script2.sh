@@ -130,7 +130,7 @@ while true;do
 		# echo "Input contains number"
 		true
 	else
-		echo "Exitting . Input contains non numerical value"
+		echo -e "$ERROR Exitting . Input contains non numerical value $WHITE"
 		exit
 	fi
 
@@ -157,6 +157,20 @@ while true;do
 	#  demo save file
 	# saveFile="checklog.csv"
 	read -p "FILE : " saveFile
+
+	# checking whether a similar file exists
+	if [[ -f $saveFile ]]; then
+		echo -e "$ERROR Exitting  $WHITE"
+
+	else
+		newline
+		echo -e "$ERROR File '$FILE' does not exist  $WHITE"
+		echo -e "$ERROR Exitting  $WHITE"
+		exit
+	fi
+
+
+
 
 	if [[ $saveFile == *".csv"* ]]
 	then
