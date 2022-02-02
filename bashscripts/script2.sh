@@ -176,7 +176,6 @@ while true;do
 	fi
 
 	# Making sure the tempFile  and $outFile do not exist (if they exist ,they may interfere with the results)
-	touch $outFile 2>/dev/null
 	tempFile="$outDir/tempFile.txt"
 	delete $tempFile 
 	delete $outFile
