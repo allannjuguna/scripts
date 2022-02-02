@@ -74,7 +74,7 @@ newline(){
 
 # This function checks whether the provided file exists
 exists(){
-	if [[ -f $FILE ]]; then
+	if [[ -f "${FILE}" ]]; then
 		FILE="${1}"
 	else
 		newline
