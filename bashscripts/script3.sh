@@ -163,10 +163,6 @@ while true;do
 		csvOutputFile="${csvOutputFile}.csv"
 	fi
 
-
-
-
-
 	outputFolder="outfiles"
 	mkdir -p $outputFolder 2>/dev/null #Generating output folder for storing results
 	outputFile="$outputFolder/$csvOutputFile" #Creating a path using the outFolder and outFile
