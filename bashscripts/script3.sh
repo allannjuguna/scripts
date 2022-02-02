@@ -377,5 +377,4 @@ while true;do
 
 	echo
 	echo
-	breakpoint
 done
