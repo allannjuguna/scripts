@@ -158,16 +158,17 @@ while true;do
 	# saveFile="checklog.csv"
 	read -p "FILE : " saveFile
 
+	# Merging the file to the output directory
+	outFile="$outDir/$saveFile"
 
-	echo "savefile =$saveFile"
-	# checking whether a similar file exists
 	    
-	if test -f "$saveFile"; then
-		echo -e "$ERROR Exitting. $saveFile already exists. Choose a unique name $WHITE"
+	# checking whether a similar file exists
+	if test -f "$outFile"; then
+		echo -e "$ERROR Exitting. $outFile already exists. Choose a unique name $WHITE"
 		exit
 	fi
 
-	touch $saveFile 2>/dev/null
+	touch $outFile 2>/dev/null
 
 
 	if [[ $saveFile == *".csv"* ]]
@@ -178,8 +179,6 @@ while true;do
 	fi
 
 
-	# Merging the file to the output directory
-	outFile="$outDir/$saveFile"
 
 	# Making sure the tempFile  and $outFile do not exist (if they exist ,they may interfere with the results)
 	tempFile="$outDir/tempFile.txt"
