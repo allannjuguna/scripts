@@ -136,7 +136,7 @@ while true;do
 	if [[ $option =~ [0-9] ]];then
 		echo -n ""
 	else
-		
+		echo -e "$red Invalid option.  $Color_Off"
 		exit
 	fi
 
