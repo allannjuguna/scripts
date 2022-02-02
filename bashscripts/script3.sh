@@ -32,15 +32,6 @@ PacketCount=0
 
 # PROGRAM FUNCTIONS
 
-# DELETE THIS FUCTIONS AFTER USE
-State="log"
-
-
-# Functions start here
-breakpoint(){
-	echo "Hit breakpoint"
-	exit
-}
 
 addition() {
 	total=$(($1 + 1));
