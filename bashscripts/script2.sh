@@ -167,8 +167,6 @@ while true;do
 
 	# Merging the file to the output directory
 	outFile="$outDir/$saveFile"
-
-	    
 	# checking whether a similar file exists
 	if test -f "$outFile"; then
 		echo -e "$ERROR Exitting. $outFile already exists. Choose a unique name $WHITE"
