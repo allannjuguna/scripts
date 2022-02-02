@@ -134,7 +134,7 @@ while true;do
 
 
 	if [[ $option =~ [0-9] ]];then
-		true
+		echo -n ""
 	else
 		echo -e "$ERROR Exitting . Input contains non numerical value $WHITE"
 		exit
