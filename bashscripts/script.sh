@@ -320,7 +320,7 @@ while true;do
 
 
 
-	# Running searches on a single server access log of the user’s choice using both two (2) and three (3) field criteria inputs, e.g. find all matches where PROTOCOL=`TCP` and SRC IP=`ext` and PACKETS > `10`
+	# Running searches  on a single server access log of the user’s choice using both two (2) and three (3) field criteria inputs, e.g. find all matches where PROTOCOL=`TCP` and SRC IP=`ext` and PACKETS > `10`
 	# Iterating through the array of criterias
 	for index in ${!array[@]};do
 
