@@ -162,7 +162,7 @@ while true;do
 	echo "savefile =$saveFile"
 	# checking whether a similar file exists
 	    
-	if test -f "$FILE"; then
+	if test -f "$saveFile"; then
 		echo -e "$ERROR Exitting . $saveFile already exists. Choose a unique name $WHITE"
 		exit
 	fi
