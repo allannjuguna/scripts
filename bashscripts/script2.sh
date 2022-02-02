@@ -135,7 +135,7 @@ while true;do
 		FILE="*.csv"
 		echo -e "$PASS All log files selected  $WHITE"
 	else
-		exists |
+		exists "${FILE}"
 		echo -e "$PASS One file selected : $yellow ${FILE}  $WHITE"
 		FILE="${FILE}"
 	fi
