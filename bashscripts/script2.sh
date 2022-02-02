@@ -149,6 +149,14 @@ while true;do
 	# saveFile="checklog.csv"
 	read -p "FILE : " saveFile
 
+	if [[ $saveFile == *".csv"* ]]
+	then
+		true
+	else
+		saveFile="${saveFile}.csv"
+	fi
+
+
 	# Merging the file to the output directory
 	outFile="$outDir/$saveFile"
 
