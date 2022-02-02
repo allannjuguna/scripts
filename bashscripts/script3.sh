@@ -151,8 +151,10 @@ while true;do
 	csvOutputFile="test.csv"
 
 	if test -f "$csvOutputFile"; then
-		echo -e "$ERROR Exitting. $saveFile already exists. Choose a unique name $WHITE"
+		echo -e "$ERROR Exitting. $csvOutputFile already exists. Choose a unique name $WHITE"
 		exit
+	else
+		true # Do nothing 
 	fi
 
 
