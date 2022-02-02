@@ -110,6 +110,7 @@ while true;do
 	read -p "FILENAME : " RESFILE
 	echo ""
 
+
 	OUTFILE="$OUTFOLDER/$RESFILE"
 	touch $OUTFILE 2>/dev/null
 	TEMPFILE="$OUTFOLDER/tempfile.txt"
@@ -311,6 +312,8 @@ while true;do
 	# End of function
 
 
+
+	# Running searches on a single server access log of the user’s choice using both two (2) and three (3) field criteria inputs, e.g. find all matches where PROTOCOL=`TCP` and SRC IP=`ext` and PACKETS > `10`
 	# Iterating through the array of criterias
 	for index in ${!array[@]};do
 
