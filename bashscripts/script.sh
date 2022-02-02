@@ -111,6 +111,13 @@ while true;do
 	echo ""
 
 
+	if [[ $RESFILE == *".csv"* ]]
+	then
+		true
+	else
+		RESFILE="${RESFILE}.csv"
+	fi
+
 	OUTFILE="$OUTFOLDER/$RESFILE"
 	touch $OUTFILE 2>/dev/null
 	TEMPFILE="$OUTFOLDER/tempfile.txt"
