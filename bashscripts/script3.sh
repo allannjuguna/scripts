@@ -160,7 +160,6 @@ while true;do
 	tmpOutputFile="$outputFolder/tmpOutputFile.txt" #Creating a temp file to store temporary output
 	removeFile $tmpOutputFile # Making sure the temp file does not exist
 	removeFile $outputFile # Making sure the outfile does not exist
-	touch $outputFile 2>/dev/null # Creating the outfile
 
 	if test -f "$outputFile"; then
 		echo -e "$red $outputFile already exists.  $Color_Off"
@@ -169,6 +168,7 @@ while true;do
 		true # Do nothing 
 	fi
 	
+	touch $outputFile 2>/dev/null # Creating the outfile
 	echo -e "$PASS Output File created at  : $yellow $outputFile  $Color_Off"
 	echo
 
