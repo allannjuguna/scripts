@@ -129,8 +129,8 @@ while true;do
 
 	# STAGE TWO; CHOOSING THE LOG FILE TO USE
 	echo -e "$ENTRY Choose the number of the log file to use or Press $yellow CTRL + C $Color_Off to quit $Color_Off" 
-	# read -p " OPTION : " option
-	option=1
+	# option=1
+	read -p " OPTION : " option
 	LOG_FILE="${logfiles[$option]}" # This is the log file based on the option selected
 
 
@@ -147,8 +147,9 @@ while true;do
 
 	# STAGE THREE; CHOOSING THE OUTPUT FILE
 	echo -e "$ENTRY Enter CSV Output file to save results : (Eg. output.csv)  $Color_Off"
-	# read -p "LOG_FILE : " csvOutputFile
-	csvOutputFile="test.csv"
+	read -p "LOG_FILE : " csvOutputFile
+	# csvOutputFile="test.csv"
+	echo "">$csvOutputFile
 
 	if test -f "$csvOutputFile"; then
 		echo -e "$red $csvOutputFile already exists.  $Color_Off"
