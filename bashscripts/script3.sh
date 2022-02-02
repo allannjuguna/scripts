@@ -24,6 +24,7 @@ Color_Off='\033[0m'       # Text Reset
 # Regular Colors
 white='\033[0;37m'        # White
 
+error="[x] "
 ENTRY=">>"
 PASS=" -"
 ByteCount=0
@@ -118,7 +119,7 @@ while true;do
 	if [[ $option =~ [0-9] ]];then
 		echo -n ""
 	else
-		echo -e "$red Invalid option.  $Color_Off"
+		echo -e "$error Invalid option.  $Color_Off"
 		exit
 	fi
 
@@ -154,7 +155,7 @@ while true;do
 	removeFile $tmpOutputFile # Making sure the temp file does not exist
 
 	if test -f "$outputFile"; then
-		echo -e "$red $outputFile already exists.  $Color_Off"
+		echo -e "$error $outputFile already exists.  $Color_Off"
 		exit
 	else
 		true # Do nothing 
@@ -256,7 +257,7 @@ while true;do
 		then
 			sign="-ne"
 		else
-			echo -e "$red Please use a valid operator  $Color_Off"
+			echo -e "$error Please use a valid operator  $Color_Off"
 			exit 
 		fi
 
