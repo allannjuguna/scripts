@@ -139,7 +139,7 @@ while true;do
 	echo -e "$ENTRY Enter CSV Output file to save results : (Eg. output.csv)  $Color_Off"
 	read -p "LOG_FILE : " csvOutputFile
 	# csvOutputFile="test.csv"
-
+	echo
 
 	if [[ $csvOutputFile == *".csv"* ]]
 	then
