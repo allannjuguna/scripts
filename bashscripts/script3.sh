@@ -154,7 +154,7 @@ while true;do
 		echo -e "$red $csvOutputFile already exists.  $Color_Off"
 		exit
 	else
-		true# Do nothing 
+		true # Do nothing 
 	fi
 
 
