@@ -133,6 +133,10 @@ while true;do
 	option=1
 	LOG_FILE="${logfiles[$option]}" # This is the log file based on the option selected
 
+
+
+
+
 	if [[ "${LOG_FILE}" == *"all available"* ]]
 	then
 		LOG_FILE="*.csv"
