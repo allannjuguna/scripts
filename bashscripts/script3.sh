@@ -99,7 +99,6 @@ checkfile(){
 
 }
 
-
 # Script Execution starts here
 echo -e "${blue}------------------------ Starting ----------------------------${Color_Off}"
 echo
