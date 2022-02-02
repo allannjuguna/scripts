@@ -164,7 +164,7 @@ while true;do
 	else
 		saveFile="${saveFile}.csv"
 	fi
-	
+
 	# Merging the file to the output directory
 	outFile="$outDir/$saveFile"
 
@@ -175,13 +175,8 @@ while true;do
 		exit
 	fi
 
-	touch $outFile 2>/dev/null
-
-
-
-
-
 	# Making sure the tempFile  and $outFile do not exist (if they exist ,they may interfere with the results)
+	touch $outFile 2>/dev/null
 	tempFile="$outDir/tempFile.txt"
 	delete $tempFile 
 	delete $outFile
