@@ -132,7 +132,6 @@ while true;do
 	# option=1
 	read -p " OPTION : " option
 
-
 	if [[ $option =~ [0-9] ]];then
 		echo -n ""
 	else
