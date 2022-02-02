@@ -164,8 +164,8 @@ while true;do
 	    
 	if test -f "$FILE"; then
 		echo -e "$ERROR Exitting . $saveFile already exists. Choose a unique name $WHITE"
+		exit
 	fi
-
 
 
 	if [[ $saveFile == *".csv"* ]]
