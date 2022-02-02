@@ -163,9 +163,6 @@ while true;do
 		echo -e "$ERROR Exitting . $saveFile already exists. Choose a unique name $WHITE"
 	else
 		newline
-		echo -e "$ERROR File '$FILE' does not exist  $WHITE"
-		echo -e "$ERROR Exitting  $WHITE"
-		exit
 	fi
 
 
