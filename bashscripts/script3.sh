@@ -151,6 +151,14 @@ while true;do
 	# csvOutputFile="test.csv"
 
 
+	if [[ $csvOutputFile == *".csv"* ]]
+	then
+		true
+	else
+		csvOutputFile="${csvOutputFile}.csv"
+	fi
+
+
 
 
 
