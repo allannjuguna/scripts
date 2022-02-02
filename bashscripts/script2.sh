@@ -167,6 +167,8 @@ while true;do
 		exit
 	fi
 
+	touch $saveFile 2>/dev/null
+
 
 	if [[ $saveFile == *".csv"* ]]
 	then
