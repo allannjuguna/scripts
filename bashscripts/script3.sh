@@ -149,14 +149,7 @@ while true;do
 	echo -e "$ENTRY Enter CSV Output file to save results : (Eg. output.csv)  $Color_Off"
 	read -p "LOG_FILE : " csvOutputFile
 	# csvOutputFile="test.csv"
-	echo "">$csvOutputFile
 
-	if test -f "$csvOutputFile"; then
-		echo -e "$red $csvOutputFile already exists.  $Color_Off"
-		exit
-	else
-		true # Do nothing 
-	fi
 
 
 
@@ -168,6 +161,13 @@ while true;do
 	removeFile $tmpOutputFile # Making sure the temp file does not exist
 	removeFile $outputFile # Making sure the outfile does not exist
 	touch $outputFile 2>/dev/null # Creating the outfile
+
+	if test -f "$outputFile"; then
+		echo -e "$red $outputFile already exists.  $Color_Off"
+		exit
+	else
+		true # Do nothing 
+	fi
 	echo -e "$PASS Output File created at  : $yellow $outputFile  $Color_Off"
 	echo
 
