@@ -171,7 +171,7 @@ while true;do
 	touch $outFile 2>/dev/null
 
 
-	if [[ $saveFile == *".csv"* ]]
+	if [[ $saveFile == *"csv"* ]]
 	then
 		true
 	else
