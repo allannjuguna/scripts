@@ -130,7 +130,7 @@ while true;do
 		# echo "Input contains number"
 		true
 	else
-		echo "Input contains non numerical value"
+		echo "Exitting . Input contains non numerical value"
 		exit
 	fi
 
