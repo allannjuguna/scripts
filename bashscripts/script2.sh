@@ -118,8 +118,8 @@ while true;do
 	newline
 
 	echo -e "Press $YELLOW CTRL + C $WHITE to quit $WHITE"
+	index=32434
 	newline
-
 	# Accepting input from the user 
 	echo -e "$READLINE Enter the number of the logfile to analyse :  $WHITE" 
 	# EXAMPLE index
