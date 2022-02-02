@@ -74,7 +74,7 @@ newline(){
 
 # This function checks whether the provided file exists
 exists(){
-	if [[ -f "${FILE}" ]]; then
+	if [[ -f $FILE ]]; then
 		FILE="${1}"
 	else
 		newline
@@ -118,7 +118,6 @@ while true;do
 	newline
 
 	echo -e "Press $YELLOW CTRL + C $WHITE to quit $WHITE"
-
 	newline
 	# Accepting input from the user 
 	echo -e "$READLINE Enter the number of the logfile to analyse :  $WHITE" 
@@ -135,8 +134,8 @@ while true;do
 		FILE="*.csv"
 		echo -e "$PASS All log files selected  $WHITE"
 	else
-		exists "${FILE}"
 		echo -e "$PASS One file selected : $yellow ${FILE}  $WHITE"
+		exists $FILE
 		FILE="${FILE}"
 	fi
 
