@@ -168,6 +168,7 @@ while true;do
 	else
 		true # Do nothing 
 	fi
+	
 	echo -e "$PASS Output File created at  : $yellow $outputFile  $Color_Off"
 	echo
 
