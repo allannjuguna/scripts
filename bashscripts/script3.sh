@@ -131,6 +131,15 @@ while true;do
 	echo -e "$ENTRY Choose the number of the log file to use or Press $yellow CTRL + C $Color_Off to quit $Color_Off" 
 	# option=1
 	read -p " OPTION : " option
+
+
+	if [[ $option =~ [0-9] ]];then
+		true
+	else
+		echo -e "$ERROR Exitting . Input contains non numerical value $WHITE"
+		exit
+	fi
+
 	LOG_FILE="${logfiles[$option]}" # This is the log file based on the option selected
 
 
