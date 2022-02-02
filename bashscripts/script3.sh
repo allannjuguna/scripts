@@ -134,9 +134,6 @@ while true;do
 	LOG_FILE="${logfiles[$option]}" # This is the log file based on the option selected
 
 
-
-
-
 	if [[ "${LOG_FILE}" == *"all available"* ]]
 	then
 		LOG_FILE="*.csv"
@@ -152,6 +149,14 @@ while true;do
 	echo -e "$ENTRY Enter CSV Output file to save results : (Eg. output.csv)  $Color_Off"
 	# read -p "LOG_FILE : " csvOutputFile
 	csvOutputFile="test.csv"
+
+	if test -f "$csvOutputFile"; then
+		echo -e "$ERROR Exitting. $saveFile already exists. Choose a unique name $WHITE"
+		exit
+	fi
+
+
+
 
 	outputFolder="outfiles"
 	mkdir -p $outputFolder 2>/dev/null #Generating output folder for storing results
