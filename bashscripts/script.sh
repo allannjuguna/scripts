@@ -1,446 +1,352 @@
-#! /bin/bash
 
-# COPY ONE
-
-#######################################################################
-# NAME :                                                              #
-# STUDENT NUMBER                                                      #
-#                                                                     #
-#######################################################################
+#!/bin/bash
 
 
-
-white=""
-space=""
-yellow=": "
-
-fail="${white}[${red}-${white}] " 
-success="${white}[${space}+${white}] "
-debug="${white}[${space}!${white}] "
-input="${white}[${space}*${white}] "
-semistage="  ${white}${space}^${white} "
-item=" ${white}${yellow}>${white} "
-end="$white "
+# IMPLEMENTED ADVANCED FUNCTIONS
+# -----------------------------------------------
+# Enable the log tool script to run searches on all available server access logs based on one (1) field criteria input, e.g., find all matches where PROTOCOL=`TCP` in all available log files
+# When the PACKETS and/or BYTES fields are used as search criteria, totals for each of these should also be calculated and displayed as the final row of the search results printed to terminal/file
 
 
-# Simple function for debugging - 
-debug(){
-	echo -n ""
-	# echo -e "${1}"
-}
-checkfileexists() {
-	FILENAME="${1}"
-	if [[ -f $FILENAME ]]
-	then
-		FILENAME="${1}"
-	else
-		ret=0
-		echo ""
-		echo -e "$fail File '$FILENAME' does not exist $end"
-		echo -e "$fail Exitting $end"
+ByteCount=0
+PacketCount=0
 
-		exit
-	fi
+# Simple function for preparing the standard.standard may be PROTOCAL,PACKETS,BYTES etc
+extractcolumn() {
+	# Where standard is PROTOCOL=`TCP` OR DEST_IP=EXT_SERVER
+	standard=$1
+	column=`echo ${standard} | awk -F "=" '{print $1}'`
+	# Column can be PROTOCOL,PACKETS,BYTES,DEST_IP etc.
+	echo $column
 }
 
-# Deletes a file or it's contents
-clearfile(){
+# Simple function for preparing the value for a standard. This may be TCP (for protocol),EXT_SERVER (for dest ip)
+extractvalue(){
+	# Where standard is PROTOCOL=`TCP` OR DEST_IP=EXT_SERVER
+	standard=$1
+	# Fetching the value from the standard and removing the backticks from the value
+	value=`echo ${standard}   | awk -F "=" '{print $2}' | sed s/'\`'/''/g`
+	# Value can be TCP,EXT_SERVER etc
+	echo $value
+}
+# This function Deletes a file
+removeFile(){
+	touch "${1}"
 	rm "${1}" 2>/dev/null
 }
+# This function checks whether the provided file exists
+checkfile(){
+	if [[ -f $LOG_FILE ]]; then
+		LOG_FILE="${1}"
+	else
+		echo
+		echo -e "Entered File '$LOG_FILE' does not exist"
+		echo -e " ABORTING"
+		exit
+	fi
 
+}
 
-debug "$success Starting the program $end"]
-echo ""
+# PROGRAM FUNCTIONS
 
+add() {
+	total=$(($1 + 1));
+}
+
+# Script Execution starts here
+echo -e "------------------------ Starting ----------------------------"
+echo
+
+# Continue executing until the user terminates
 while true;do
-	available_logfiles=("Use all available log files")
-	# Shows the available log files
-	AVAILABLE_LOGFILES=`ls *.csv`
-	echo "Available Log Files "
-	echo "--------------------"
-	for logfile in $AVAILABLE_LOGFILES;do
-		# echo -e "$item$logfile $end" 
-		available_logfiles+=($logfile)
+
+	# STAGE ONE ; GETTING AVAILABLE LOG FILES
+	logfiles=("Use all available log files")
+
+	# Getting available log files
+	for logfile in `ls *.csv`;do
+		logfiles+=("$logfile")
 	done
 
-	for index in "${!available_logfiles[@]}";do
-		echo -e " $index $item ${available_logfiles[index]}  $white" 
+	echo "Available Log Files: $((${#logfiles[@]} - 1))."
+	echo
+
+	echo
+	for index in "${!logfiles[@]}";do
+		echo -e " [ $index ] $LIST ${logfiles[index]}" 
 	done
-
-	# Function to check whether a file exists - If a file does not exist,the program while exit
-	ret=0
+	echo
 
 
-	# Simple function for preparing the criteria.criteria may be PROTOCAL,PACKETS,BYTES etc
-	getfield() {
-		criteria=$1
-		local field=`echo ${criteria} | awk -F "=" '{print $1}'`
-		echo $field
-	}
+	# STAGE TWO; CHOOSING THE LOG FILE TO USE
+	echo -e " Select the file name you wish to search [0,1,2,3,4, or 5] " 
+	# option=1
+	read -p " OPTION : " option
 
-	# Simple function for preparing the value for a criteria. This may be TCP (for protocol),EXT_SERVER (for dest ip)
-	getvalue(){
-		criteria=$1
-		local value=`echo ${criteria}   | awk -F "=" '{print $2}' | sed s/'\`'/''/g`
-		echo $value
-	}
-
-
-
-	# STEP : Prompting the user to choose a log file to analyse e.g serv_acc_log_03042020.csv
-	echo ""
-	echo -e "$input Please choose a number for the logfile to use : $end" 
-	read -p "FILENUM : " FILENUM
-	echo ""
-
-	if [[ $FILENUM == *"."* ]];then
-		echo -e "$error Invalid option.  $Color_Off"
-		exit
-	elif [[ $FILENUM =~ [0-9] ]];then
+	if [[ $option =~ [0-9] ]];then
 		echo -n ""
 	else
-		echo -e "$red Invalid option.  $Color_Off"
+		echo -e "Invalid option."
 		exit
 	fi
 
-	FILENAME="${available_logfiles[$FILENUM]}"
-	if [[ "${FILENAME}"  == *"all available"* ]]
+	LOG_FILE="${logfiles[$option]}" # This is the log file based on the option selected
+	if [[ "${LOG_FILE}" == *"all available"* ]]
 	then
-		echo -e "$success Analysing $yellow all log files $end"
-		FILENAME="*.csv"
+		LOG_FILE="*.csv"
+		echo -e "Using : all log files "
 	else
-		checkfileexists $FILENAME
-		echo -e "$success Analysing file $yellow $FILENAME $end"
-		FILENAME="${FILENAME}"
+		echo -e "Using : ${LOG_FILE}"
+		checkfile $LOG_FILE
+		LOG_FILE="${LOG_FILE}"
+	fi
+	echo
+
+	# STAGE THREE; CHOOSING THE OUTPUT FILE
+	echo -e "Enter CSV Output file to save results : (Eg. output.csv) "
+	read -p "LOG_FILE : " CSVFILE
+	# CSVFILE="test.csv"
+	echo
+
+	if [[ $CSVFILE == *".csv"* ]]
+	then
+		true
+	else
+		CSVFILE="${CSVFILE}.csv"
 	fi
 
-	# STEP : Prompting the user to enter the outfile
-	# Folder to store the outfiles
-	# OUTFOLDER="output"
+	outputFolder="outfiles"
+	mkdir -p $outputFolder 2>/dev/null # Generating output folder for storing results/
+	outputFile="$CSVFILE" #Creating a path using the outFolder and outFile
+	tmpOutputFile="tmpOutputFile.txt" #Creating a temp file to store temporary output
+	removeFile $tmpOutputFile # Making sure the temp file does not exist
 
-	# Creating the folder if it does not exist
-	# mkdir -p $OUTFOLDER 2>/dev/null
-
-	# Writing the results to a file
-	echo -e "$input Please enter a filename to save the results (eg myfile.csv): $end"
-	# Example resfile
-	read -p "FILENAME : " RESFILE
-	echo ""
-
-
-	if [[ $RESFILE == *".csv"* ]]
-	then
-		echo -n ""
-	else
-		RESFILE="${RESFILE}.csv"
-	fi
-
-	OUTFILE="$RESFILE"
-
-	if test -f "$OUTFILE"; then
-		echo -e "$error $OUTFILE already exists.  $white"
+	if test -f "$outputFile"; then
+		echo -e "$outputFile already exists."
 		exit
 	else
-		touch $OUTFILE 2>/dev/null
+		true # Do nothing 
 	fi
 
-	TEMPFILE="tempfile.txt"
+	touch $outputFile 2>/dev/null # Creating the outfile
+	echo -e "Output File created at  : $outputFile "
+	echo
 
-	# Making sure the TEMPFILE  and $OUTFILE do not exist (if they exist ,they may interfere with the results)
-	clearfile $TEMPFILE 
-	clearfile $OUTFILE
-
-	# This header format will be used to create the results file
-	HEADER="DATE,DURATION,PROTOCOL,SRC IP,SRC PORT,DEST IP,DEST PORT,PACKETS,BYTES,FLOWS,FLAGS,TOS,CLASS"
-	echo -e "$success Results will be saved to : $yellow $OUTFILE $end"
+	# Searching log files 
+	echo -e " Enter one parameter to Query (Eg. PROTOCOL ICMP or PACKETS -lt 10 ): "
+	# echo -e "   Examples : "
+	# printf "%-60s%-12s\n" "      PROTOCOL=\`ICMP\`" "-  for one field search" 
+	# printf "%-60s%-12s\n" "      PROTOCOL=\`TCP\` and SRC IP=\`ext\` and PACKETS > \`10\`" "-  for multiple field search" 
 
 
-	# ENTERING THE SEARCH CRITERIA (SEARCH STRING)
-	EXAMPLE="PROTOCOL=\`TCP\` and SRC IP=\`ext\` and DEST IP=\`10127\` and PACKETS > \`10\`"
-	echo -e "$input Please choose one or more field criteria (e.g PROTOCOL=\`TCP\`) : $end"
-	echo -e "      EXAMPLE : $EXAMPLE )"
-	echo -e ""
-	# Fetching the search criteria
-	read -p "Search: " SEARCH
+	Extract="SRC IP=\`EXT_SERVER\` and PROTOCOL=\`TCP\` and BYTES > \`10\` and PACKETS -lt \`10\`" # Example Query
+	read -p "Your Query: " Extract # reading the Query
 
-	# Displays Raw input - before input sanitization
-	debug " $item First : $SEARCH $end"
+	Extract=`echo $Extract | awk '{print toupper($0)}' | sed s/" AND "/","/g ` # Making the search case insensitive
 
-	# Sanitizing the input
-	# Replacing " and " with "," - Helps in determining criteria eg protocol,bytes,packets e.t.c
-	SEARCH=`echo $SEARCH | awk '{print toupper($0)}' | sed s/" AND "/","/g `
 
-	# Displays input after input sanitization and minor fixes - like making it case insensitive
-	debug " $item Second : $SEARCH $end"
+	
+	ExtractStrings (){ # Searching through protocal,destip,srcip
+		total=0
+		RECORDS=`cat $LOG_FILE | grep -iv "DATE,DURATION,PROTOCOL," | grep -iv "normal"`
+		SearchA=$1
+		columnNum=$2
+		caseSensitive=$3
+		column=$(extractcolumn $SearchA)
+		value=$(extractvalue $SearchA)
 
-	# First splitting into an array
-	IFS=',' read -r -a array <<< "$SEARCH"
-
-	# Counting the number of field criterias/parameters
-	criteria_count="${#array[@]}"
-
-	echo ""
-	echo -e "$success $criteria_count criterias present $end"
-
-	# SImple function to add one to a counter variable - helps in counting records
-	addone() {
-		counter=$1
-		counter=$(($counter + 1));
-	}
-
-	# The search criteria applies for protocal,src ip ,dest ip etc
-	searchcriteria (){
-		counter=0
-		# Reading the input file(s)
-		CONTENTS=`cat $FILENAME | grep -iv "DATE,DURATION,PROTOCOL," | grep -i "suspicious"`
-		criteria1=$1
-		fieldnum=$2
-		mustmatch=$3
-		field=$(getfield $criteria1)
-		value=$(getvalue $criteria1)
-		debug ""
-		debug " $criteria ($white FIELD=$field,VALUE=$value,Mustmatch=$mustmatch)"
-		debug ""
-		debug "==============================================================================================="
-
-		# Searching for the params in the file
-		# echo ""
-		# Reading the file
-		while read -r line;
+		while read -r string;
 		do  
-			awk="awk -F \",\" '{print \$$fieldnum}'"
-			resvalue=`echo $line | eval $awk | sed s/" "/""/g`
-			if [[ $mustmatch == "match" ]]
-			then
-				if [[ $resvalue == "$value" ]]
-				then
+			# Finding the value and removing spaces
+			awk="awk -F \",\" '{print \$$columnNum}'"
+			outval=`echo $string | eval $awk | sed s/" "/""/g`
 
-					debug "$resvalue $sign $value => $line"
-					echo "$line" >> $OUTFILE
-					addone $counter
+			# Checking whether the search should be case sensitive
+			if [[ $caseSensitive == "yes" ]]
+			then
+				if [[ $outval == "$value" ]]
+				then
+					echo "${string}" >> $outputFile
+					add $total
 				else
-					echo -n "" # this does nothing
+					true # do nothing
 				fi
 			else
-				if [[ $resvalue == *"$value"* ]]
+				if [[ $outval == *"$value"* ]]
 				then
-					debug "$resvalue $sign $value => $line"
-					echo "$line" >> $OUTFILE
-					addone $counter
+					echo "${string}" >> $outputFile
+					add $total
 				else
-					echo -n "" # this does nothing
+					true # do nothing
 				fi
 			fi
-		done <<< $CONTENTS
+		done <<< $RECORDS
 
-		echo "">$TEMPFILE
-		mv $OUTFILE $TEMPFILE 2>/dev/null
-		clearfile $OUTFILE
-		FILENAME=$TEMPFILE
-		echo ""
-		echo -e "       $counter records $end"
-		echo ""
-		echo ""
-		debug""
-		counter=0
+		echo>$tmpOutputFile
+		mv $outputFile $tmpOutputFile 2>/dev/null
+		removeFile $outputFile
+		LOG_FILE=$tmpOutputFile # Setting the temporary file as the input file (Using the results from the previous query as the input)
+		echo
+		echo -e "       $total records "
+		echo
+		echo
+		total=0
 
 	}
 
 
 
-	# This search applies for packets and bytes
-	searchpacketscriteria(){
-		counter=0
-
-		CONTENTS=`cat $FILENAME | grep -iv "DATE,DURATION,PROTOCOL," | grep -i "suspicious"`
+	# For performing comparisons in packets and bytes
+	ExtractPackets(){
+		total=0
+		string=""
+		RECORDS=`cat $LOG_FILE | grep -iv "DATE,DURATION,PROTOCOL," | grep -iv "normal"`
 		criteria=$1
-		fieldnum=$2
-		mustmatch=$3
+		columnNum=$2
+		caseSensitive=$3
 		IFS=' ' read -r -a params <<< "$criteria"
-
-		field=`echo "${params[0]}"| sed s/" "/""/g`
-		echo ""
-		# Removing spaces from the operator and converting to lowercase
+		column=`echo "${params[0]}"| sed s/" "/""/g`
+		echo
 		operator=`echo "${params[1]}"| sed s/" "/""/g | awk '{ print tolower($0) }' ` 
 		value=`echo "${params[2]}" | sed s/'\`'/''/g | sed s/" "/""/g `
 
-
-		# Finding the operator to use for comparison based on user input
+		# Fetching the sign to use in the comparison
 		if [[ $operator == "<" || $operator == *"-lt"* ]]
 		then
 			sign="-lt"
-			# "Less sign detected"
-
 		elif [[ $operator == ">" || $operator == *"-gt"* ]]
 		then
 			sign="-gt"
-			# "Greater sign detected"
-
 		elif [[ $operator == "=" || $operator == "-eq" || $operator == "(-eq)" ]]
 		then
 			sign="-eq"
-			# "Greater sign detected"
-
 		elif [[ $operator == "!=" || $operator == *"!(-eq)"* || $operator == "-ne" ]]
 		then
 			sign="-ne"
-			# "Greater sign detected"
-
 		else
-			echo -e "$fail Invalid sign: Make sure the value is in the format \`VALUE_HERE\` $end"
-			echo -e "$fail Invalid sign: For bytes and packets : write in the format PACKETS > \`10\` or BYTES > \`10\` $end"
+			echo -e "Please use a valid operator "
 			exit 
 		fi
 
-		debug ""
-		debug " $criteria ($white FIELD=$field,VALUE=$value,OPERATOR=$operator,SIGN=$sign,Mustmatch=$mustmatch)"
-		debug "==============================================================================================="
-		debug ""
 
-
-		while read -r line;
+	# Reading the results in the file
+		while read -r string;
 		do  
-			awk="awk -F \",\" '{print \$$fieldnum}'"
-			# Adding the getting the field value and removing spaces - returns packet value
-			resvalue=`echo $line | eval $awk | sed s/" "/""/g`
+			awk="awk -F \",\" '{print \$$columnNum}'"
+			# Adding the getting the column value and removing spaces - returns packet value
+			outval=`echo $string | eval $awk | sed s/" "/""/g`
 
 			# Building a query based on the user input
-			query="$resvalue $sign $value"
+			query="$outval $sign $value"
 			
 			# Running the query
 			result=`eval 'test $query && echo true || echo false' 2>/dev/null`
 
 			# Fetching the results based on logic
-			if [[ $mustmatch == "match" ]]
+			if [[ $caseSensitive == "yes" ]]
 			then
 				if [[ $result == "true" ]]
 				then
-					addone $counter
-					debug "$resvalue $sign $value => $line"
-					echo "$line" >> $OUTFILE
+					add $total
+					echo "${string}" >> $outputFile
+
 				else
-					echo -n ""true # this does nothing
+					true # this does nothing
 				fi
 			else
-				if [[ $resvalue == *"$value"* ]]
+				if [[ $outval == *"$value"* ]]
 				then
-					addone $counter
-					debug "$resvalue $sign $value => $line"
-					echo "$line" >> $OUTFILE
+					add $total
+					echo "${string}" >> $outputFile
 				else
-					echo -n "" # this does nothing
+					true # this does nothing
 				fi
 			fi
-		done <<< $CONTENTS
-		echo "">$TEMPFILE
-		mv $OUTFILE $TEMPFILE 2>/dev/null
-		clearfile $OUTFILE
-		FILENAME=$TEMPFILE
-		echo -e "$space         $field => $counter records found  $end"
-		debug ""
-		counter=0
-	}
-	# End of function
-
-
-
-	# Running searches  on a single server access log of the user’s choice using both two (2) and three (3) field criteria inputs, e.g. find all matches where PROTOCOL=`TCP` and SRC IP=`ext` and PACKETS > `10`
-	# Iterating through the array of criterias
-	for index in ${!array[@]};do
-
-		criteria="${array[index]}"
-		original=$criteria
-		criteria1=`echo $criteria | sed s/" "/""/g`
-		echo -e "  $debug $criteria $end"
-		# echo ""
-
-		# Dealing with the protocal
-		if [[ $criteria1 == *"PROTOCOL"* ]]
-		then
-			searchcriteria $criteria1 3 no
-
-		# Dealing with srcip
-		elif [[ $criteria1 == *"SRCIP"* ]]
-		then
-			searchcriteria $criteria1 4 no
-
-		# Dealing with DEST IP
-		elif [[ $criteria1 == *"DESTIP"* ]]
-		then
-			searchcriteria $criteria1 6 no
-
-		# Dealing with PACKETS
-		elif [[ $criteria1 == *"PACKETS"* ]]
-		then
-			searchpacketscriteria "${criteria}" 8 match
-
-		# Dealing with BYTES
-		elif [[ $criteria1 == *"BYTES"* ]]
-		then
-			searchpacketscriteria "${criteria}" 9 match
-
-		else
-			echo -e "$fail Invalid Search string $end"
-			exit
-		fi
-	done
-
-	echo ""
-
-	# Writing the results to a file
-	echo ""
-	echo $HEADER > $OUTFILE
-	cat $TEMPFILE >> $OUTFILE
-	clearfile $TEMPFILE
-	echo "PROTOCOL,SRC IP,DEST IP,PACKETS,BYTES"> $TEMPFILE
-
-
-	# FUNCTION TO CREATE COLUMNS
-	showcolumns(){
-		fmt="%-12s%-12s%-12s%-12s%-12s\n"
-		# printf "$fmt" PROTOCOL SRC_IP DEST_IP PACKETS BYTES
-		echo ""
+		done <<< $RECORDS
+		string=""
+		echo>$tmpOutputFile
+		mv $outputFile $tmpOutputFile 2>/dev/null
+		removeFile $outputFile
+		LOG_FILE=$tmpOutputFile
+		echo -e "         $column => $total records found "
+		echo
 	}
 
+	IFS=',' read -r -a array <<< "$Extract"
 
-	# FUNCTION TO CREATE FIELDS AND VALUES
-	formatline(){
-		line=$1
-		date=`echo $line | awk -F "," '{print $1}'`
-		duration=`echo $line | awk -F "," '{print $2}'`
-		protocol=`echo $line | awk -F "," '{print $3}'`
-		src_ip=`echo $line | awk -F "," '{print $4}'`
-		src_port=`echo $line | awk -F "," '{print $5}'`
-		dest_ip=`echo $line | awk -F "," '{print $6}'`
-		dest_port=`echo $line | awk -F "," '{print $7}'`
-		packets=`echo $line | awk -F "," '{print $8}'`
-		bytes=`echo $line | awk -F "," '{print $9}'`
-		class=`echo $line | awk -F "," '{print $13}'`
-		printf "$fmt" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
-		echo "$protocol,$src_ip,$dest_ip,$packets,$bytes" >> $TEMPFILE
+	echo
+
+	criteria="${array[0]}"
+	SearchA=`echo $criteria | sed s/" "/""/g` # Removing spaces from the criteria
+	echo -e "  $COLUMNS $criteria"
+
+	if [[ $SearchA == *"PROTOCOL"* ]]
+	then
+		ExtractStrings $SearchA 3 no
+	elif [[ $SearchA == *"SRCIP"* ]]
+	then
+		ExtractStrings $SearchA 4 no
+	elif [[ $SearchA == *"DESTIP"* ]]
+	then
+		ExtractStrings $SearchA 6 no
+	elif [[ $SearchA == *"PACKETS"* ]]
+	then
+		ExtractPackets "${criteria}" 8 yes
+		PacketCount=$total
+	elif [[ $SearchA == *"BYTES"* ]]
+	then
+		ExtractPackets "${criteria}" 9 yes
+		ByteCount=$total
+	else
+		echo -e "Invalid Field Name"
+		exit
+	fi
+	# done
+
+	echo
+	echo
+	cat $tmpOutputFile >> $outputFile
+	removeFile $tmpOutputFile
+	echo "PROTOCOL,SRC IP,DEST IP,PACKETS,BYTES"> $tmpOutputFile
+
+
+	OrganizeOutput(){
+		string=$1
+		protocol=`echo $string | awk -F "," '{print $3}'`
+		src_ip=`echo $string | awk -F "," '{print $4}'`
+		dest_ip=`echo $string | awk -F "," '{print $6}'`
+		packets=`echo $string | awk -F "," '{print $8}'`
+		bytes=`echo $string | awk -F "," '{print $9}'`
+		# printf "%-12s%-12s%-12s%-12s%-12s\n" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
+		echo "$protocol,$src_ip,$dest_ip,$packets,$bytes" >> $tmpOutputFile
 	}
 
-
-
-	# SHOWING THE COLUMNS FIRST
-	showcolumns
-
-
-	counter=0
-	# ITERATING THROUGH THE LINES AND DISPLAYING THEM
-	while read -r line;
+	# echo -e "Printing Results"
+	# echo
+	total=0
+	while read -r string;
 	do
-		addone $counter
-		formatline "${line}"
+		add $total
+		OrganizeOutput "${string}"
+	done <<< `cat $outputFile | grep -iv "PACKETS" || echo `
+	echo 
+	if [[ $ByteCount -gt 0 ]]
+	then	
+		echo -e "Total Byte Records found : $ByteCount"
+	elif [[ $PacketCount -gt 0 ]]
+	then
+		echo -e "Total Packet Records found : $PacketCount"
+	fi
+	echo 
+	echo 
+	mv $tmpOutputFile $outputFile
+	echo -e "Records can be found at : $outputFile"
 
-	done <<< `cat $OUTFILE | grep -iv "PACKETS" || echo "" `
-	echo " " 
-	echo -e "$yellow$counter results $end"
-	echo " " 
-	echo " " 
-	mv $TEMPFILE $OUTFILE
-	echo -e "$success Results written to $yellow $OUTFILE $end"
 	echo
-	echo
-	echo
+	read -p "Run a different search (y/n)?: " run
+    case "$run" in 
+        n|N) echo "Terminated by the User. Thank you!" && break;;
+        y|Y) echo "Begin Next Search. BEGIN";;
+        *) echo "invalid input, thank you" && exit 1;;
+    esac
 done
