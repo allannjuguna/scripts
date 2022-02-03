@@ -321,8 +321,8 @@ while true;do
 		echo "$protocol,$src_ip,$dest_ip,$packets,$bytes" >> $tmpOutputFile
 	}
 
-	echo -e "Printing Results"
-	echo
+	# echo -e "Printing Results"
+	# echo
 	total=0
 	while read -r string;
 	do
