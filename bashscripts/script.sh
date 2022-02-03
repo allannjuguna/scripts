@@ -317,7 +317,7 @@ while true;do
 		dest_ip=`echo $string | awk -F "," '{print $6}'`
 		packets=`echo $string | awk -F "," '{print $8}'`
 		bytes=`echo $string | awk -F "," '{print $9}'`
-		printf "%-12s%-12s%-12s%-12s%-12s\n" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
+		# printf "%-12s%-12s%-12s%-12s%-12s\n" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
 		echo "$protocol,$src_ip,$dest_ip,$packets,$bytes" >> $tmpOutputFile
 	}
 
