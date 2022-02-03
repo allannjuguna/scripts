@@ -116,10 +116,10 @@ while true;do
 
 	# STEP : Prompting the user to enter the outfile
 	# Folder to store the outfiles
-	OUTFOLDER="output"
+	# OUTFOLDER="output"
 
 	# Creating the folder if it does not exist
-	mkdir -p $OUTFOLDER 2>/dev/null
+	# mkdir -p $OUTFOLDER 2>/dev/null
 
 	# Writing the results to a file
 	echo -e "$input Please enter a filename to save the results (eg myfile.csv): $end"
@@ -135,7 +135,7 @@ while true;do
 		RESFILE="${RESFILE}.csv"
 	fi
 
-	OUTFILE="$OUTFOLDER/$RESFILE"
+	OUTFILE="$RESFILE"
 
 	if test -f "$OUTFILE"; then
 		echo -e "$error $OUTFILE already exists.  $white"
