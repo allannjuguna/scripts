@@ -25,7 +25,7 @@ end="$white "
 
 # Simple function for debugging - 
 debug(){
-	true
+	echo -n ""
 	# echo -e "${1}"
 }
 checkfileexists() {
@@ -130,19 +130,18 @@ while true;do
 
 	if [[ $RESFILE == *".csv"* ]]
 	then
-		true
+		echo -n ""
 	else
 		RESFILE="${RESFILE}.csv"
 	fi
 
 	OUTFILE="$OUTFOLDER/$RESFILE"
-	touch $OUTFILE 2>/dev/null
 
 	if test -f "$OUTFILE"; then
 		echo -e "$error $OUTFILE already exists.  $white"
 		exit
 	else
-		true # Do nothing 
+		touch $OUTFILE 2>/dev/null
 	fi
 
 	TEMPFILE="$OUTFOLDER/tempfile.txt"
@@ -220,7 +219,7 @@ while true;do
 					echo "$line" >> $OUTFILE
 					addone $counter
 				else
-					true # this does nothing
+					echo -n "" # this does nothing
 				fi
 			else
 				if [[ $resvalue == *"$value"* ]]
@@ -229,7 +228,7 @@ while true;do
 					echo "$line" >> $OUTFILE
 					addone $counter
 				else
-					true # this does nothing
+					echo -n "" # this does nothing
 				fi
 			fi
 		done <<< $CONTENTS
@@ -320,7 +319,7 @@ while true;do
 					debug "$resvalue $sign $value => $line"
 					echo "$line" >> $OUTFILE
 				else
-					true # this does nothing
+					echo -n ""true # this does nothing
 				fi
 			else
 				if [[ $resvalue == *"$value"* ]]
@@ -329,7 +328,7 @@ while true;do
 					debug "$resvalue $sign $value => $line"
 					echo "$line" >> $OUTFILE
 				else
-					true # this does nothing
+					echo -n "" # this does nothing
 				fi
 			fi
 		done <<< $CONTENTS
