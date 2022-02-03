@@ -117,8 +117,8 @@ while true;do
 
 	outputFolder="outfiles"
 	mkdir -p $outputFolder 2>/dev/null #Generating output folder for storing results
-	outputFile="$outputFolder/$CSVFILE" #Creating a path using the outFolder and outFile
-	tmpOutputFile="$outputFolder/tmpOutputFile.txt" #Creating a temp file to store temporary output
+	outputFile="$CSVFILE" #Creating a path using the outFolder and outFile
+	tmpOutputFile="tmpOutputFile.txt" #Creating a temp file to store temporary output
 	removeFile $tmpOutputFile # Making sure the temp file does not exist
 
 	if test -f "$outputFile"; then
