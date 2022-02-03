@@ -421,9 +421,7 @@ while true;do
 	}
 
 
-	# Reading the results from the output file
-	# echo -e "$success Showing Results"
-	# echo ""
+
 	# SHOWING THE COLUMNS FIRST
 	showcolumns
 
