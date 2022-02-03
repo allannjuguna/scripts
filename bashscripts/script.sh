@@ -64,7 +64,7 @@ while true;do
 	done
 
 	for index in "${!available_logfiles[@]}";do
-		echo -e " $item [ $index ] ${available_logfiles[index]}  $white" 
+		echo -e " $index $item ${available_logfiles[index]}  $white" 
 	done
 
 	# Function to check whether a file exists - If a file does not exist,the program while exit
