@@ -144,7 +144,7 @@ while true;do
 		touch $OUTFILE 2>/dev/null
 	fi
 
-	TEMPFILE="$OUTFOLDER/tempfile.txt"
+	TEMPFILE="tempfile.txt"
 
 	# Making sure the TEMPFILE  and $OUTFILE do not exist (if they exist ,they may interfere with the results)
 	clearfile $TEMPFILE 
