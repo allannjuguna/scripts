@@ -416,7 +416,7 @@ while true;do
 		packets=`echo $line | awk -F "," '{print $8}'`
 		bytes=`echo $line | awk -F "," '{print $9}'`
 		class=`echo $line | awk -F "," '{print $13}'`
-		printf "$fmt" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
+		# printf "$fmt" "$protocol" "$src_ip" "$dest_ip" "$packets" "$bytes"
 		echo "$protocol,$src_ip,$dest_ip,$packets,$bytes" >> $TEMPFILE
 	}
 
