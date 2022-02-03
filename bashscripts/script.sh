@@ -28,7 +28,20 @@ debug(){
 	true
 	# echo -e "${1}"
 }
+checkfileexists() {
+	FILENAME="${1}"
+	if [[ -f $FILENAME ]]
+	then
+		FILENAME="${1}"
+	else
+		ret=0
+		echo ""
+		echo -e "$fail File '$FILENAME' does not exist $end"
+		echo -e "$fail Exitting $end"
 
+		exit
+	fi
+}
 
 # Deletes a file or it's contents
 clearfile(){
@@ -40,30 +53,23 @@ debug "$success Starting the program $end"]
 echo ""
 
 while true;do
+	available_logfiles=("Use all available log files")
 	# Shows the available log files
 	AVAILABLE_LOGFILES=`ls *.csv`
 	echo "Available Log Files "
 	echo "--------------------"
 	for logfile in $AVAILABLE_LOGFILES;do
-		echo -e "$item$logfile $end" 
+		# echo -e "$item$logfile $end" 
+		available_logfiles+=($logfile)
+	done
+
+	for index in "${!available_logfiles[@]}";do
+		echo -e " $item [ $index ] ${available_logfiles[index]}  $white" 
 	done
 
 	# Function to check whether a file exists - If a file does not exist,the program while exit
 	ret=0
-	function checkfileexists() {
-		filename=$1
-		if [ -f $filename ]
-		then
-			ret=1
-		else
-			ret=0
-			echo ""
-			echo -e "$fail File '$filename' does not exist $end"
-			echo -e "$fail Exitting $end"
 
-			exit
-		fi
-	}
 
 	# Simple function for preparing the criteria.criteria may be PROTOCAL,PACKETS,BYTES etc
 	getfield() {
@@ -83,18 +89,29 @@ while true;do
 
 	# STEP : Prompting the user to choose a log file to analyse e.g serv_acc_log_03042020.csv
 	echo ""
-	echo -e "$input Please enter logfile name to analyse or ALL to analyse all files : $end" 
-	read -p "FILENAME : " FILENAME
+	echo -e "$input Please choose a number for the logfile to use : $end" 
+	read -p "FILENUM : " FILENUM
 	echo ""
 
+	if [[ $FILENUM == *"."* ]];then
+		echo -e "$error Invalid option.  $Color_Off"
+		exit
+	elif [[ $FILENUM =~ [0-9] ]];then
+		echo -n ""
+	else
+		echo -e "$red Invalid option.  $Color_Off"
+		exit
+	fi
 
-	if [[ `echo $FILENAME | awk '{print toupper($0)}'` == "ALL" ]]
+	FILENAME="${available_logfiles[$FILENUM]}"
+	if [[ "${FILENAME}"  == *"all available"* ]]
 	then
-		echo -e "$success Analysing $yellow $FILENAME log files $end"
+		echo -e "$success Analysing $yellow all log files $end"
 		FILENAME="*.csv"
 	else
 		checkfileexists $FILENAME
 		echo -e "$success Analysing file $yellow $FILENAME $end"
+		FILENAME="${FILENAME}"
 	fi
 
 	# STEP : Prompting the user to enter the outfile
@@ -120,6 +137,14 @@ while true;do
 
 	OUTFILE="$OUTFOLDER/$RESFILE"
 	touch $OUTFILE 2>/dev/null
+
+	if test -f "$OUTFILE"; then
+		echo -e "$error $OUTFILE already exists.  $white"
+		exit
+	else
+		true # Do nothing 
+	fi
+
 	TEMPFILE="$OUTFOLDER/tempfile.txt"
 
 	# Making sure the TEMPFILE  and $OUTFILE do not exist (if they exist ,they may interfere with the results)
