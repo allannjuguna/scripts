@@ -1,0 +1,137 @@
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.19
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[32m[+][0m URL: http://192.168.88.53/wordpress/ [192.168.88.53]
+[32m[+][0m Started: Sun Apr 10 16:26:29 2022
+
+Interesting Finding(s):
+
+[32m[+][0m Headers
+ | Interesting Entry: Server: Apache/2.4.38 (Debian)
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[32m[+][0m XML-RPC seems to be enabled: http://192.168.88.53/wordpress/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[32m[+][0m WordPress readme found: http://192.168.88.53/wordpress/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m Upload directory has listing enabled: http://192.168.88.53/wordpress/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[32m[+][0m The external WP-Cron seems to be enabled: http://192.168.88.53/wordpress/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[32m[+][0m WordPress version 5.8 identified (Insecure, released on 2021-07-20).
+ | Found By: Emoji Settings (Passive Detection)
+ |  - http://192.168.88.53/wordpress/, Match: 'wp-includes\/js\/wp-emoji-release.min.js?ver=5.8'
+ | Confirmed By: Meta Generator (Passive Detection)
+ |  - http://192.168.88.53/wordpress/, Match: 'WordPress 5.8'
+
+[34m[i][0m The main theme could not be detected.
+
+
+[34m[i][0m No plugins Found.
+
+
+[34m[i][0m Theme(s) Identified:
+
+[32m[+][0m twentynineteen
+ | Location: http://192.168.88.53/wordpress/wp-content/themes/twentynineteen/
+ | Last Updated: 2021-07-22T00:00:00.000Z
+ | Readme: http://192.168.88.53/wordpress/wp-content/themes/twentynineteen/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 2.1
+ | Style URL: http://192.168.88.53/wordpress/wp-content/themes/twentynineteen/style.css
+ | Style Name: Twenty Nineteen
+ | Style URI: https://wordpress.org/themes/twentynineteen/
+ | Description: Our 2019 default theme is designed to show off the power of the block editor. It features custom sty...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Known Locations (Aggressive Detection)
+ |  - http://192.168.88.53/wordpress/wp-content/themes/twentynineteen/, status: 500
+ |
+ | Version: 2.0 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://192.168.88.53/wordpress/wp-content/themes/twentynineteen/style.css, Match: 'Version: 2.0'
+
+[32m[+][0m twentytwenty
+ | Location: http://192.168.88.53/wordpress/wp-content/themes/twentytwenty/
+ | Last Updated: 2021-07-22T00:00:00.000Z
+ | Readme: http://192.168.88.53/wordpress/wp-content/themes/twentytwenty/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 1.8
+ | Style URL: http://192.168.88.53/wordpress/wp-content/themes/twentytwenty/style.css
+ | Style Name: Twenty Twenty
+ | Style URI: https://wordpress.org/themes/twentytwenty/
+ | Description: Our default theme for 2020 is designed to take full advantage of the flexibility of the block editor...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Known Locations (Aggressive Detection)
+ |  - http://192.168.88.53/wordpress/wp-content/themes/twentytwenty/, status: 500
+ |
+ | Version: 1.7 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://192.168.88.53/wordpress/wp-content/themes/twentytwenty/style.css, Match: 'Version: 1.7'
+
+[32m[+][0m twentytwentyone
+ | Location: http://192.168.88.53/wordpress/wp-content/themes/twentytwentyone/
+ | Last Updated: 2021-07-22T00:00:00.000Z
+ | Readme: http://192.168.88.53/wordpress/wp-content/themes/twentytwentyone/readme.txt
+ | [33m[!][0m The version is out of date, the latest version is 1.4
+ | Style URL: http://192.168.88.53/wordpress/wp-content/themes/twentytwentyone/style.css
+ | Style Name: Twenty Twenty-One
+ | Style URI: https://wordpress.org/themes/twentytwentyone/
+ | Description: Twenty Twenty-One is a blank canvas for your ideas and it makes the block editor your best brush. Wi...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By: Known Locations (Aggressive Detection)
+ |  - http://192.168.88.53/wordpress/wp-content/themes/twentytwentyone/, status: 500
+ |
+ | Version: 1.3 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://192.168.88.53/wordpress/wp-content/themes/twentytwentyone/style.css, Match: 'Version: 1.3'
+
+
+[34m[i][0m User(s) Identified:
+
+[32m[+][0m kira
+ | Found By: Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ | Confirmed By: Login Error Messages (Aggressive Detection)
+
+[33m[!][0m No WPScan API Token given, as a result vulnerability data has not been output.
+[33m[!][0m You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[32m[+][0m Finished: Sun Apr 10 16:26:58 2022
+[32m[+][0m Requests Done: 23215
+[32m[+][0m Cached Requests: 10
+[32m[+][0m Data Sent: 6.417 MB
+[32m[+][0m Data Received: 3.71 MB
+[32m[+][0m Memory used: 290.449 MB
+[32m[+][0m Elapsed time: 00:00:28

