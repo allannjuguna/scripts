@@ -1,0 +1,388 @@
+GENERATED WORDS: 4612                                                          
+
+---- Scanning URL: http://deathnote.vuln/wordpress/ ----
++ http://deathnote.vuln/wordpress/index.php (CODE:301|SIZE:0)                                                        
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/                                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-content/                                                           
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/                                                          
++ http://deathnote.vuln/wordpress/xmlrpc.php (CODE:405|SIZE:42)                                                      
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/ ----
++ http://deathnote.vuln/wordpress/wp-admin/admin.php (CODE:302|SIZE:0)                                               
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/css/                                                         
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/images/                                                      
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/includes/                                                    
++ http://deathnote.vuln/wordpress/wp-admin/index.php (CODE:302|SIZE:0)                                               
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/js/                                                          
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/maint/                                                       
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/network/                                                     
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/user/                                                        
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-content/ ----
++ http://deathnote.vuln/wordpress/wp-content/index.php (CODE:200|SIZE:0)                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-content/plugins/                                                   
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-content/themes/                                                    
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-content/upgrade/                                                   
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-content/uploads/                                                   
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/assets/                                                   
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/                                                   
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/certificates/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/css/                                                      
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/customize/                                                
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/fonts/                                                    
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/images/                                                   
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/                                                       
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/sitemaps/                                                 
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/widgets/                                                  
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/css/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/images/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/includes/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
++ http://deathnote.vuln/wordpress/wp-admin/includes/admin.php (CODE:500|SIZE:0)                                      
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/js/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-admin/js/widgets/                                                  
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/maint/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/network/ ----
++ http://deathnote.vuln/wordpress/wp-admin/network/admin.php (CODE:302|SIZE:0)                                       
++ http://deathnote.vuln/wordpress/wp-admin/network/index.php (CODE:302|SIZE:0)                                       
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/user/ ----
++ http://deathnote.vuln/wordpress/wp-admin/user/admin.php (CODE:302|SIZE:0)                                          
++ http://deathnote.vuln/wordpress/wp-admin/user/index.php (CODE:302|SIZE:0)                                          
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-content/plugins/ ----
++ http://deathnote.vuln/wordpress/wp-content/plugins/index.php (CODE:200|SIZE:0)                                     
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-content/themes/ ----
++ http://deathnote.vuln/wordpress/wp-content/themes/index.php (CODE:200|SIZE:0)                                      
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-content/upgrade/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-content/uploads/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/assets/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/ ----
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/archives/                                          
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/audio/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/block/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/button/                                            
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/buttons/                                           
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/calendar/                                          
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/categories/                                        
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/code/                                              
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/columns/                                           
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/cover/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/embed/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/file/                                              
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/gallery/                                           
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/group/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/html/                                              
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/image/                                             
++ http://deathnote.vuln/wordpress/wp-includes/blocks/index.php (CODE:500|SIZE:0)                                     
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/list/                                              
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/missing/                                           
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/more/                                              
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/query/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/quote/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/rss/                                               
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/search/                                            
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/spacer/                                            
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/table/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/blocks/video/                                             
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/certificates/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/css/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/css/dist/                                                 
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/customize/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/fonts/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/images/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/images/media/                                             
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/images/smilies/                                           
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/dist/                                                  
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/jquery/                                                
++ http://deathnote.vuln/wordpress/wp-includes/js/swfobject.js (CODE:200|SIZE:10231)                                  
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/thickbox/                                              
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/                                               
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/sitemaps/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/sitemaps/providers/                                       
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/widgets/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-admin/js/widgets/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/archives/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/audio/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/block/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/button/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/buttons/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/calendar/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/categories/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/code/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/columns/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/cover/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/embed/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/file/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/gallery/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/group/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/html/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/image/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/list/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/missing/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/more/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/query/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/quote/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/rss/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/search/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/spacer/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/table/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/blocks/video/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/css/dist/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/css/dist/components/                                      
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/css/dist/editor/                                          
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/css/dist/widgets/                                         
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/images/media/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/images/smilies/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/dist/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/dist/vendor/                                           
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/jquery/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/jquery/ui/                                             
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/thickbox/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/langs/                                         
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/                                       
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/skins/                                         
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/themes/                                        
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/utils/                                         
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/sitemaps/providers/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/css/dist/components/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/css/dist/editor/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/css/dist/widgets/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/dist/vendor/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/jquery/ui/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/langs/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/hr/                                    
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/image/                                 
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/link/                                  
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/lists/                                 
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/media/                                 
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/wordpress/                             
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/skins/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/skins/wordpress/                               
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/themes/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/utils/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/hr/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/image/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/link/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/lists/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/media/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/plugins/wordpress/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/skins/wordpress/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
+==> DIRECTORY: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/skins/wordpress/images/                        
+                                                                                                                     
+---- Entering directory: http://deathnote.vuln/wordpress/wp-includes/js/tinymce/skins/wordpress/images/ ----
+(!) WARNING: Directory IS LISTABLE. No need to scan it.                        
+    (Use mode '-w' if you want to scan it anyway)
